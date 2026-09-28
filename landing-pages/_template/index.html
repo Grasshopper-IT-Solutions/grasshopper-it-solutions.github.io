@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CUSTOMIZE: title — "<Business Name> — <one-liner from BRIEF.md>" -->
+    <title>Business Name — One-liner goes here</title>
+
+    <!-- CUSTOMIZE: canonical URL once the domain is known -->
+    <link rel="canonical" href="https://example.com/" />
+    <!-- CUSTOMIZE: meta description, 1-2 sentences from BRIEF.md -->
+    <meta name="description" content="One or two sentences describing this business." />
+
+    <!-- CUSTOMIZE: favicon — replace with a real asset in assets/ -->
+    <link rel="icon" href="data:," />
+
+    <!-- Open Graph / Twitter — CUSTOMIZE every value below -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Business Name" />
+    <meta property="og:url" content="https://example.com/" />
+    <meta property="og:title" content="Business Name — One-liner" />
+    <meta property="og:description" content="Same as the meta description above." />
+    <meta property="og:image" content="https://example.com/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Business Name — One-liner" />
+    <meta name="twitter:description" content="Same as the meta description above." />
+    <meta name="twitter:image" content="https://example.com/assets/og-image.png" />
+
+    <!-- Fonts — CUSTOMIZE per BRIEF.md's style/mood keywords -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles/tailwind.css" />
+    <script src="contact.config.js" defer></script>
+  </head>
+  <body class="bg-white text-gray-900 font-sans antialiased">
+    <!-- ===== HEADER / NAV ===== -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100">
+      <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <!-- CUSTOMIZE: business name / logo -->
+        <a href="#top" class="font-bold text-lg">Business Name</a>
+
+        <div class="hidden md:flex items-center gap-8">
+          <!-- CUSTOMIZE: nav links to match the sections you actually build below -->
+          <a href="#about" class="text-sm font-medium hover:text-gray-600">About</a>
+          <a href="#services" class="text-sm font-medium hover:text-gray-600">Services</a>
+          <a href="#contact" class="text-sm font-medium hover:text-gray-600">Contact</a>
+        </div>
+
+        <button
+          type="button"
+          id="mobile-menu-btn"
+          class="md:hidden p-2 -mr-2"
+          aria-label="Toggle menu"
+          aria-controls="mobile-menu"
+        >
+          <!-- CUSTOMIZE: swap for a real icon (e.g. an inline SVG) -->
+          <span aria-hidden="true">&#9776;</span>
+        </button>
+      </nav>
+
+      <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 px-4 py-4 space-y-3">
+        <a href="#about" class="block text-sm font-medium">About</a>
+        <a href="#services" class="block text-sm font-medium">Services</a>
+        <a href="#contact" class="block text-sm font-medium">Contact</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- ===== HERO ===== -->
+      <!-- CUSTOMIZE: this whole section — headline, subhead, hero image/art, CTA.
+           This is the section where the brief's style/mood keywords matter most. -->
+      <section class="py-24 px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl sm:text-5xl font-bold tracking-tight max-w-2xl mx-auto">
+          Headline goes here
+        </h1>
+        <p class="mt-4 text-lg text-gray-600 max-w-xl mx-auto">
+          Subheadline expanding on the one-liner from BRIEF.md.
+        </p>
+        <button
+          type="button"
+          onclick="openWhatsApp()"
+          class="mt-8 inline-flex items-center gap-2 rounded-full px-8 py-4 font-bold bg-gray-900 text-white hover:scale-105 transition-transform"
+        >
+          Get in touch
+        </button>
+      </section>
+
+      <!-- ===== ABOUT / SERVICES — replace or duplicate per BRIEF.md's must-have sections ===== -->
+      <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold mb-4">About</h2>
+        <p class="text-gray-600 leading-relaxed">
+          <!-- CUSTOMIZE: replace with real copy -->
+          Placeholder copy. Replace this whole section, or duplicate it for each
+          must-have section listed in BRIEF.md (Services, Portfolio, Pricing,
+          Testimonials, FAQ, etc).
+        </p>
+      </section>
+
+      <section id="services" class="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto bg-gray-50">
+        <h2 class="text-3xl font-bold mb-4">Services</h2>
+        <p class="text-gray-600 leading-relaxed">
+          <!-- CUSTOMIZE: replace with real copy -->
+          Placeholder copy.
+        </p>
+      </section>
+
+      <!-- ===== CONTACT ===== -->
+      <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-2xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-4">Get in touch</h2>
+        <p class="text-gray-600 mb-8">
+          <!-- CUSTOMIZE -->
+          Say what happens after a visitor reaches out — response time, next steps, etc.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <button
+            type="button"
+            onclick="openWhatsApp()"
+            class="inline-flex items-center gap-2 rounded-full px-8 py-4 font-bold bg-gray-900 text-white hover:scale-105 transition-transform"
+          >
+            WhatsApp
+          </button>
+          <!-- CUSTOMIZE: this href is filled from contact.config.js at load time by an inline script below -->
+          <a id="email-link" href="#" class="text-sm font-medium underline">
+            Or email instead
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="py-10 px-4 sm:px-6 lg:px-8 border-t border-gray-100 text-center text-sm text-gray-500">
+      <!-- CUSTOMIZE: socials — only show the ones filled in in contact.config.js -->
+      <p>&copy; <span id="footer-year"></span> Business Name. All rights reserved.</p>
+      <p class="mt-1">Built by Grasshopper IT Solutions.</p>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+      // Fill the email link from contact.config.js without hardcoding the
+      // address in markup — keeps contact.config.js the single source of truth.
+      document.addEventListener("DOMContentLoaded", () => {
+        const contact = window.SITE_CONTACT || {};
+        const emailLink = document.getElementById("email-link");
+        if (emailLink && contact.email) {
+          emailLink.href = "mailto:" + contact.email;
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "landing-page-template",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Static build tooling only. The page itself is plain HTML/CSS/JS with no runtime build step; this compiles the Tailwind stylesheet ahead of time so visitors never download the CDN compiler.",
+  "scripts": {
+    "build:css": "tailwindcss -i ./styles/tailwind-input.css -o ./styles/tailwind.css --minify",
+    "watch:css": "tailwindcss -i ./styles/tailwind-input.css -o ./styles/tailwind.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.19"
+  }
+}

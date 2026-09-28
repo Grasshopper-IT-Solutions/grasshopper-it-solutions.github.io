@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Example pattern for a hand-written component class — delete if unused.
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-full px-6 py-3 font-bold transition-transform hover:scale-105;
+  }
+}
+*/
