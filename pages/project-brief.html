@@ -1,0 +1,849 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tell Us About Your Business — Grasshopper Solutions</title>
+    <link
+      rel="icon"
+      href="../assets/grasshopper-geometric-logo.svg"
+      type="image/svg+xml"
+    />
+    <link rel="canonical" href="https://grasshoppersolutions.online/pages/project-brief.html" />
+    <meta name="description" content="A short, friendly form to tell us about your business so we can build your website. Takes about 5-10 minutes. No technical knowledge needed." />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Grasshopper Solutions" />
+    <meta property="og:url" content="https://grasshoppersolutions.online/pages/project-brief.html" />
+    <meta property="og:title" content="Tell Us About Your Business — Grasshopper Solutions" />
+    <meta property="og:description" content="A short, friendly form to tell us about your business so we can build your website." />
+    <meta property="og:image" content="https://grasshoppersolutions.online/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://grasshoppersolutions.online/assets/og-image.png" />
+    <!-- This page is a working tool sent directly to clients, not a page we
+         want indexed on its own - keep it out of search results. -->
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Outfit:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@1.47.0/dist/umd/lucide.min.js"></script>
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="../styles/tailwind.css" />
+    <link rel="stylesheet" href="../styles/main.css" />
+    <!-- jsPDF for Client-Side PDF Generation -->
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
+    <!-- brief-* component classes are compiled into styles/tailwind.css from
+         styles/tailwind-input.css - the Tailwind CLI can't expand @apply in
+         an inline <style> tag, so one doesn't work here. -->
+  </head>
+  <body
+    class="bg-deep-space text-gray-300 font-sans antialiased selection:bg-grass-green selection:text-black overflow-x-hidden pb-28"
+  >
+    <!-- Notification Toast -->
+    <div
+      id="notification-toast"
+      class="fixed bottom-28 left-1/2 -translate-x-1/2 z-[100] bg-cyber-blue text-black font-mono font-bold px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 max-w-[90vw] text-center"
+    >
+      <i data-lucide="info" class="w-5 h-5 flex-shrink-0"></i>
+      <span id="toast-message">Module coming soon...</span>
+    </div>
+
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full z-50 bg-deep-space/80 backdrop-blur-xl border-b border-white/5"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <div
+            class="flex items-center group cursor-pointer"
+            onclick="window.location.href = '../index.html'"
+          >
+            <img
+              src="../assets/grasshopper-geometric-logo.svg"
+              alt="Grasshopper Logo"
+              class="w-10 h-10 mr-2 drop-shadow-[0_0_5px_rgba(0,255,65,0.5)] group-hover:scale-110 transition-transform"
+            />
+            <span
+              class="text-xl md:text-2xl font-mono font-bold text-white group-hover:text-grass-green transition-colors neon-text"
+              >Grasshopper Solutions</span
+            >
+          </div>
+          <div class="hidden lg:flex items-center space-x-8">
+            <a href="services.html" class="hover:text-cyber-blue text-sm font-medium transition-colors font-mono">./Services</a>
+            <a href="projects.html" class="hover:text-cyber-blue text-sm font-medium transition-colors font-mono">./Projects</a>
+            <a href="project-cost-calculator.html" class="hover:text-cyber-blue text-sm font-medium transition-colors font-mono">./Estimate</a>
+          </div>
+          <div class="lg:hidden flex items-center gap-3">
+            <button id="mobile-menu-btn" class="text-gray-300">
+              <i data-lucide="menu"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="hidden lg:hidden bg-code-gray border-b border-white/10 px-4 py-6 space-y-4"
+      >
+        <a href="services.html" class="block text-gray-300 font-mono">./Services</a>
+        <a href="projects.html" class="block text-gray-300 font-mono">./Projects</a>
+        <a href="project-cost-calculator.html" class="block text-gray-300 font-mono">./Estimate</a>
+      </div>
+    </nav>
+
+    <!-- HERO HEADER -->
+    <header class="relative overflow-hidden pt-32 pb-8 border-b border-white/10 bg-gradient-to-b from-card-gray to-deep-space">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(0,255,65,0.06),rgba(0,0,0,0))] pointer-events-none"></div>
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="inline-flex items-center px-3 py-1 mb-6 text-xs font-mono font-semibold tracking-tighter text-grass-green uppercase bg-grass-green/10 rounded-full border border-grass-green/20">
+          <span class="w-2 h-2 bg-grass-green rounded-full mr-2 animate-ping"></span>
+          TELL US ABOUT YOUR BUSINESS
+        </div>
+        <h1 class="text-3xl md:text-4xl font-bold font-heading tracking-tight text-white leading-[1.15]">
+          Let's build your <span class="text-transparent bg-clip-text bg-gradient-to-r from-grass-green to-cyber-blue">website</span>, together.
+        </h1>
+        <p class="mt-4 text-gray-400 text-sm md:text-base leading-relaxed">
+          This short form helps us understand your business so we can design and build your site. Use simple words — you don't need to be technical. Skip anything you're not sure about; we'll figure it out together. Your answers are saved on this device as you go, so it's safe to come back later.
+        </p>
+      </div>
+    </header>
+
+    <!-- FORM -->
+    <main class="max-w-3xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col gap-6">
+
+      <!-- SECTION 1: YOUR DETAILS -->
+      <section class="brief-section">
+        <h2 class="text-lg font-semibold text-white flex items-center gap-3 mb-5">
+          <span class="brief-step-number">1</span> Your details
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div class="sm:col-span-2">
+            <label class="brief-label" for="f-name">Your name<span class="brief-required-tag">(required)</span></label>
+            <input type="text" id="f-name" class="brief-input" placeholder="e.g. Maria Santos" data-required data-key="yourName">
+          </div>
+          <div>
+            <label class="brief-label" for="f-email">Your email<span class="brief-required-tag">(required)</span></label>
+            <input type="email" id="f-email" class="brief-input" placeholder="you@example.com" data-required data-key="yourEmail">
+          </div>
+          <div>
+            <label class="brief-label" for="f-phone">Your phone or WhatsApp</label>
+            <p class="brief-help">Optional, but helpful if we need to call you.</p>
+            <input type="tel" id="f-phone" class="brief-input" placeholder="+1 555 123 4567" data-key="yourPhone">
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: ABOUT YOUR BUSINESS -->
+      <section class="brief-section">
+        <h2 class="text-lg font-semibold text-white flex items-center gap-3 mb-5">
+          <span class="brief-step-number">2</span> About your business
+        </h2>
+        <div class="flex flex-col gap-5">
+          <div>
+            <label class="brief-label" for="f-business-name">Business name<span class="brief-required-tag">(required)</span></label>
+            <input type="text" id="f-business-name" class="brief-input" placeholder="e.g. Santos Home Repairs" data-required data-key="businessName">
+          </div>
+          <div>
+            <label class="brief-label" for="f-tagline">Do you have a slogan or tagline?</label>
+            <input type="text" id="f-tagline" class="brief-input" placeholder="Optional" data-key="tagline">
+          </div>
+          <div>
+            <label class="brief-label" for="f-what">What does your business do?<span class="brief-required-tag">(required)</span></label>
+            <p class="brief-help">One or two sentences. Example: "We repair and maintain air-conditioning systems for homes and small offices."</p>
+            <textarea id="f-what" class="brief-textarea" data-required data-key="whatYouDo"></textarea>
+          </div>
+          <div>
+            <label class="brief-label" for="f-industry">What kind of business is it?<span class="brief-required-tag">(required)</span></label>
+            <select id="f-industry" class="brief-input" data-required data-key="industry">
+              <option value="">Choose one...</option>
+              <option>Restaurant / food / drinks</option>
+              <option>Shop / retail</option>
+              <option>Beauty / wellness</option>
+              <option>Health / medical</option>
+              <option>Home services / trades</option>
+              <option>Professional services (legal, accounting, consulting...)</option>
+              <option>Creative / photography / design</option>
+              <option>Events</option>
+              <option>Education / coaching</option>
+              <option>Nonprofit</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div>
+            <label class="brief-label" for="f-different">What makes you different from other businesses like yours?</label>
+            <p class="brief-help">Optional, but this really helps visitors trust you.</p>
+            <textarea id="f-different" class="brief-textarea" data-key="whatsDifferent"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: GOALS -->
+      <section class="brief-section">
+        <h2 class="text-lg font-semibold text-white flex items-center gap-3 mb-5">
+          <span class="brief-step-number">3</span> What the website should do
+        </h2>
+        <div class="flex flex-col gap-5">
+          <div>
+            <label class="brief-label">Why do you want a website?<span class="brief-required-tag">(required)</span></label>
+            <p class="brief-help">Pick anything that applies.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2" id="f-why-group" data-required data-key="whyWebsite" data-type="checkbox-group">
+              <label class="brief-check-row"><input type="checkbox" value="Get more calls"> Get more calls</label>
+              <label class="brief-check-row"><input type="checkbox" value="Get messages or bookings"> Get messages or bookings</label>
+              <label class="brief-check-row"><input type="checkbox" value="Sell products online"> Sell products online</label>
+              <label class="brief-check-row"><input type="checkbox" value="Show my work"> Show my work</label>
+              <label class="brief-check-row"><input type="checkbox" value="Explain my services"> Explain my services</label>
+              <label class="brief-check-row"><input type="checkbox" value="Build trust"> Build trust</label>
+              <label class="brief-check-row"><input type="checkbox" value="Replace my old website"> Replace my old website</label>
+              <label class="brief-check-row"><input type="checkbox" value="Other"> Other</label>
+            </div>
+          </div>
+          <div>
+            <label class="brief-label" for="f-main-action">What's the ONE thing you most want a visitor to do?<span class="brief-required-tag">(required)</span></label>
+            <select id="f-main-action" class="brief-input" data-required data-key="mainAction">
+              <option value="">Choose one...</option>
+              <option>Call me</option>
+              <option>Message me</option>
+              <option>Book an appointment</option>
+              <option>Buy something</option>
+              <option>Visit my location</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div>
+            <label class="brief-label" for="f-customers">Who are your typical customers?</label>
+            <p class="brief-help">e.g. "homeowners in my city", "young professionals", "other businesses"</p>
+            <textarea id="f-customers" class="brief-textarea" data-key="typicalCustomers"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: PAGES & CONTENT -->
+      <section class="brief-section">
+        <h2 class="text-lg font-semibold text-white flex items-center gap-3 mb-5">
+          <span class="brief-step-number">4</span> Pages &amp; content
+        </h2>
+        <div class="flex flex-col gap-5">
+          <div>
+            <label class="brief-label">Which pages do you need?<span class="brief-required-tag">(required)</span></label>
+            <p class="brief-help">Not sure? Pick what sounds right — we'll recommend the rest.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2" id="f-pages-group" data-required data-key="pagesNeeded" data-type="checkbox-group">
+              <label class="brief-check-row"><input type="checkbox" value="Home"> Home</label>
+              <label class="brief-check-row"><input type="checkbox" value="About"> About</label>
+              <label class="brief-check-row"><input type="checkbox" value="Services"> Services</label>
+              <label class="brief-check-row"><input type="checkbox" value="Products"> Products</label>
+              <label class="brief-check-row"><input type="checkbox" value="Portfolio or gallery"> Portfolio or gallery</label>
+              <label class="brief-check-row"><input type="checkbox" value="Pricing"> Pricing</label>
+              <label class="brief-check-row"><input type="checkbox" value="Testimonials"> Testimonials</label>
+              <label class="brief-check-row"><input type="checkbox" value="FAQ"> FAQ</label>
+              <label class="brief-check-row"><input type="checkbox" value="Contact"> Contact</label>
+              <label class="brief-check-row"><input type="checkbox" value="Other"> Other</label>
+            </div>
+          </div>
+          <div>
+            <label class="brief-label">Do you already have a logo?<span class="brief-required-tag">(required)</span></label>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2" id="f-logo-group" data-required data-key="hasLogo" data-type="radio-group">
+              <label class="brief-check-row"><input type="radio" name="f-logo" value="Yes, ready to use"> Yes, ready</label>
+              <label class="brief-check-row"><input type="radio" name="f-logo" value="Yes, but needs updating"> Needs work</label>
+              <label class="brief-check-row"><input type="radio" name="f-logo" value="No"> No</label>
+              <label class="brief-check-row"><input type="radio" name="f-logo" value="Not sure"> Not sure</label>
+            </div>
+          </div>
+          <div>
+            <label class="brief-label">Do you have photos or text ready to use?<span class="brief-required-tag">(required)</span></label>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2" id="f-content-group" data-required data-key="hasContent" data-type="radio-group">
+              <label class="brief-check-row"><input type="radio" name="f-content" value="Yes, I'll send them"> Yes, I'll send them</label>
+              <label class="brief-check-row"><input type="radio" name="f-content" value="Some, not all"> Some, not all</label>
+              <label class="brief-check-row"><input type="radio" name="f-content" value="No, I need help"> No, I need help</label>
+            </div>
+          </div>
+          <div>
+            <label class="brief-label">Do you already have a website?<span class="brief-required-tag">(required)</span></label>
+            <div class="grid grid-cols-2 gap-2 mb-3" id="f-existing-site-group" data-required data-key="hasExistingSite" data-type="radio-group">
+              <label class="brief-check-row"><input type="radio" name="f-existing-site" value="Yes" onchange="toggleExistingSiteUrl(true)"> Yes</label>
+              <label class="brief-check-row"><input type="radio" name="f-existing-site" value="No" onchange="toggleExistingSiteUrl(false)"> No</label>
+            </div>
+            <div id="existing-site-url-wrap" class="hidden">
+              <label class="brief-label" for="f-existing-site-url">What's the current website address?</label>
+              <input type="url" id="f-existing-site-url" class="brief-input" placeholder="https://..." data-key="existingSiteUrl">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: STYLE -->
+      <section class="brief-section">
+        <h2 class="text-lg font-semibold text-white flex items-center gap-3 mb-5">
+          <span class="brief-step-number">5</span> Look &amp; feel
+        </h2>
+        <div class="flex flex-col gap-5">
+          <div>
+            <label class="brief-label">Pick up to 5 words for how you want your site to feel<span class="brief-required-tag">(required)</span></label>
+            <p class="brief-help" id="style-words-help">Choose at least 1, up to 5.</p>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2" id="f-style-group" data-required data-key="styleWords" data-type="checkbox-group" data-max="5">
+              <label class="brief-check-row"><input type="checkbox" value="Professional"> Professional</label>
+              <label class="brief-check-row"><input type="checkbox" value="Friendly"> Friendly</label>
+              <label class="brief-check-row"><input type="checkbox" value="Modern"> Modern</label>
+              <label class="brief-check-row"><input type="checkbox" value="Traditional"> Traditional</label>
+              <label class="brief-check-row"><input type="checkbox" value="Premium"> Premium</label>
+              <label class="brief-check-row"><input type="checkbox" value="Affordable"> Affordable</label>
+              <label class="brief-check-row"><input type="checkbox" value="Bold"> Bold</label>
+              <label class="brief-check-row"><input type="checkbox" value="Calm"> Calm</label>
+              <label class="brief-check-row"><input type="checkbox" value="Playful"> Playful</label>
+              <label class="brief-check-row"><input type="checkbox" value="Minimal"> Minimal</label>
+              <label class="brief-check-row"><input type="checkbox" value="Elegant"> Elegant</label>
+              <label class="brief-check-row"><input type="checkbox" value="Natural"> Natural</label>
+              <label class="brief-check-row"><input type="checkbox" value="Local"> Local</label>
+              <label class="brief-check-row"><input type="checkbox" value="Energetic"> Energetic</label>
+            </div>
+          </div>
+          <div>
+            <label class="brief-label" for="f-colors">Any colors you love or want to avoid?</label>
+            <input type="text" id="f-colors" class="brief-input" placeholder="Optional — e.g. 'love green, avoid red'" data-key="colorPreferences">
+          </div>
+          <div>
+            <label class="brief-label" for="f-inspiration">Websites you like the look of</label>
+            <p class="brief-help">Optional. Paste 1-3 links, or just describe a style you like.</p>
+            <textarea id="f-inspiration" class="brief-textarea" data-key="inspiration"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 6: PUBLIC CONTACT INFO -->
+      <section class="brief-section">
+        <h2 class="text-lg font-semibold text-white flex items-center gap-3 mb-5">
+          <span class="brief-step-number">6</span> Contact info to show on your site
+        </h2>
+        <p class="brief-help -mt-2 mb-1">This is what visitors will see — it can be different from your own details above.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div>
+            <label class="brief-label" for="f-public-phone">Public phone number</label>
+            <input type="tel" id="f-public-phone" class="brief-input" placeholder="Optional" data-key="publicPhone">
+          </div>
+          <div>
+            <label class="brief-label" for="f-public-email">Public email</label>
+            <input type="email" id="f-public-email" class="brief-input" placeholder="Optional" data-key="publicEmail">
+          </div>
+          <div>
+            <label class="brief-label" for="f-public-whatsapp">WhatsApp number for customers</label>
+            <input type="tel" id="f-public-whatsapp" class="brief-input" placeholder="Optional" data-key="publicWhatsapp">
+          </div>
+          <div>
+            <label class="brief-label" for="f-domain">Do you already own a domain name?</label>
+            <select id="f-domain" class="brief-input" data-key="hasDomain">
+              <option value="">Choose one...</option>
+              <option>Yes</option>
+              <option>No</option>
+              <option>Not sure</option>
+            </select>
+          </div>
+          <div class="sm:col-span-2">
+            <label class="brief-label" for="f-domain-name">If yes, what's the domain?</label>
+            <input type="text" id="f-domain-name" class="brief-input" placeholder="Optional — e.g. mybusiness.com" data-key="domainName">
+          </div>
+          <div class="sm:col-span-2">
+            <label class="brief-label" for="f-socials">Social media links</label>
+            <p class="brief-help">Optional. One per line.</p>
+            <textarea id="f-socials" class="brief-textarea" placeholder="https://instagram.com/..." data-key="socials"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 7: ANYTHING ELSE -->
+      <section class="brief-section">
+        <h2 class="text-lg font-semibold text-white flex items-center gap-3 mb-5">
+          <span class="brief-step-number">7</span> Anything else
+        </h2>
+        <div class="flex flex-col gap-5">
+          <div>
+            <label class="brief-label" for="f-deadline">Is there a deadline or important date?</label>
+            <input type="text" id="f-deadline" class="brief-input" placeholder="Optional — e.g. 'opening 1 March' or 'no rush'" data-key="deadline">
+          </div>
+          <div>
+            <label class="brief-label" for="f-other">Anything else we should know?</label>
+            <textarea id="f-other" class="brief-textarea" placeholder="Optional" data-key="anythingElse"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <p class="text-center text-xs text-gray-600 leading-relaxed px-4">
+        Please don't include passwords, bank details, or other sensitive information in this form.
+      </p>
+    </main>
+
+    <!-- STICKY ACTION BAR -->
+    <div class="fixed bottom-0 left-0 right-0 z-40 bg-black/95 backdrop-blur-xl border-t border-white/10 px-4 py-4">
+      <div class="max-w-3xl mx-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+        <button
+          type="button"
+          id="btn-send"
+          onclick="sendToGrasshopper()"
+          class="flex-1 bg-grass-green text-black font-bold py-3.5 px-6 rounded-full hover:bg-white hover:scale-[1.02] transition-all shadow-[0_0_25px_rgba(0,255,65,0.25)] flex items-center justify-center gap-2 text-sm"
+        >
+          <i data-lucide="send" class="w-4 h-4"></i>
+          Send to Grasshopper on WhatsApp
+        </button>
+        <button
+          type="button"
+          id="btn-pdf"
+          onclick="downloadPDF()"
+          class="sm:flex-none bg-card-gray hover:bg-code-gray border border-white/10 hover:border-gray-500 text-gray-300 font-mono font-medium py-3.5 px-6 rounded-full flex items-center justify-center gap-2 text-xs transition"
+        >
+          <i class="fa-solid fa-file-pdf text-red-400"></i>
+          Download PDF
+        </button>
+      </div>
+      <p class="max-w-3xl mx-auto text-center text-[11px] text-gray-600 mt-2 font-mono">
+        Sending it to us on WhatsApp is the fastest way to get started — the PDF is just for your own records.
+      </p>
+    </div>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+      // ===== FIELD REGISTRY =====
+      // Every field the form collects, keyed the same as its data-key, so the
+      // same list drives autosave, validation, the WhatsApp summary and the
+      // PDF - one source of truth instead of four places that can drift.
+      function getSimpleFields() {
+        return [...document.querySelectorAll('[data-key]:not([data-type])')];
+      }
+      function getGroupFields() {
+        return [...document.querySelectorAll('[data-type="checkbox-group"], [data-type="radio-group"]')];
+      }
+
+      function fieldLabel(el) {
+        // Walk up to the nearest section/field wrapper and grab its brief-label text.
+        const wrap = el.closest('div');
+        const label = wrap ? wrap.querySelector('.brief-label') : null;
+        return label ? label.textContent.replace('(required)', '').trim() : el.id;
+      }
+
+      // ===== COLLECT =====
+      function collectBriefData() {
+        const data = {};
+        getSimpleFields().forEach((el) => {
+          data[el.dataset.key] = el.value.trim();
+        });
+        getGroupFields().forEach((group) => {
+          const key = group.dataset.key;
+          if (group.dataset.type === 'checkbox-group') {
+            data[key] = [...group.querySelectorAll('input:checked')].map((i) => i.value);
+          } else {
+            const checked = group.querySelector('input:checked');
+            data[key] = checked ? checked.value : '';
+          }
+        });
+        return data;
+      }
+
+      // ===== VALIDATION =====
+      // Required fields are marked in the label text itself ("(required)"),
+      // not only by color - matches this form's own accessibility intent.
+      function validateRequired() {
+        const missing = [];
+
+        getSimpleFields().forEach((el) => {
+          if (el.dataset.required !== undefined && !el.value.trim()) {
+            missing.push({ el, label: fieldLabel(el) });
+          }
+        });
+
+        getGroupFields().forEach((group) => {
+          if (group.dataset.required === undefined) return;
+          const hasAny = group.querySelector('input:checked');
+          if (!hasAny) missing.push({ el: group, label: fieldLabel(group) });
+        });
+
+        return missing;
+      }
+
+      function highlightMissing(missing) {
+        document.querySelectorAll('.field-missing').forEach((el) => el.classList.remove('field-missing', 'ring-2', 'ring-cyber-red'));
+        missing.forEach(({ el }) => el.classList.add('field-missing', 'ring-2', 'ring-cyber-red'));
+        if (missing.length) {
+          missing[0].el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+
+      // ===== STYLE WORDS CAP (max 5) =====
+      document.addEventListener('DOMContentLoaded', () => {
+        const group = document.getElementById('f-style-group');
+        const help = document.getElementById('style-words-help');
+        const max = parseInt(group.dataset.max, 10);
+        group.addEventListener('change', () => {
+          const checked = group.querySelectorAll('input:checked');
+          if (checked.length >= max) {
+            group.querySelectorAll('input:not(:checked)').forEach((i) => (i.disabled = true));
+            help.textContent = `That's ${max} - unselect one to change your mind.`;
+          } else {
+            group.querySelectorAll('input').forEach((i) => (i.disabled = false));
+            help.textContent = `Choose at least 1, up to ${max}. (${checked.length} selected)`;
+          }
+        });
+      });
+
+      function toggleExistingSiteUrl(show) {
+        document.getElementById('existing-site-url-wrap').classList.toggle('hidden', !show);
+      }
+
+      // ===== AUTOSAVE (localStorage) =====
+      const BRIEF_STORAGE_KEY = 'gh_brief_state';
+
+      function saveToLocalStorage() {
+        try {
+          localStorage.setItem(BRIEF_STORAGE_KEY, JSON.stringify(collectBriefData()));
+        } catch (err) {
+          /* private browsing / storage full - not fatal, just no autosave */
+        }
+      }
+
+      function loadFromLocalStorage() {
+        let saved;
+        try {
+          saved = JSON.parse(localStorage.getItem(BRIEF_STORAGE_KEY) || 'null');
+        } catch (err) {
+          return;
+        }
+        if (!saved) return;
+
+        getSimpleFields().forEach((el) => {
+          if (saved[el.dataset.key] !== undefined) el.value = saved[el.dataset.key];
+        });
+        getGroupFields().forEach((group) => {
+          const key = group.dataset.key;
+          const value = saved[key];
+          if (value === undefined) return;
+          if (group.dataset.type === 'checkbox-group') {
+            group.querySelectorAll('input').forEach((i) => (i.checked = Array.isArray(value) && value.includes(i.value)));
+            group.dispatchEvent(new Event('change'));
+          } else {
+            const match = group.querySelector(`input[value="${CSS.escape(value)}"]`);
+            if (match) {
+              match.checked = true;
+              match.dispatchEvent(new Event('change'));
+            }
+          }
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        loadFromLocalStorage();
+        document.querySelectorAll('input, textarea, select').forEach((el) => {
+          el.addEventListener('input', saveToLocalStorage);
+          el.addEventListener('change', saveToLocalStorage);
+        });
+      });
+
+      // ===== WHATSAPP SUMMARY =====
+      function buildBriefSummary() {
+        const d = collectBriefData();
+        const lines = [`Hi Grasshopper! Here's my website brief for *${d.businessName || '(business name not given)'}*:`, ''];
+
+        const add = (label, value) => {
+          if (Array.isArray(value)) {
+            if (value.length) lines.push(`*${label}:* ${value.join(', ')}`);
+          } else if (value) {
+            lines.push(`*${label}:* ${value}`);
+          }
+        };
+
+        add('Contact name', d.yourName);
+        add('Email', d.yourEmail);
+        add('Phone', d.yourPhone);
+        lines.push('');
+        add('Business name', d.businessName);
+        add('Tagline', d.tagline);
+        add('What they do', d.whatYouDo);
+        add('Industry', d.industry);
+        add('What makes them different', d.whatsDifferent);
+        lines.push('');
+        add('Why a website', d.whyWebsite);
+        add('Main goal for visitors', d.mainAction);
+        add('Typical customers', d.typicalCustomers);
+        lines.push('');
+        add('Pages needed', d.pagesNeeded);
+        add('Has a logo', d.hasLogo);
+        add('Has content ready', d.hasContent);
+        add('Existing website', d.hasExistingSite === 'Yes' ? (d.existingSiteUrl || 'Yes (no URL given)') : d.hasExistingSite);
+        lines.push('');
+        add('Style words', d.styleWords);
+        add('Color preferences', d.colorPreferences);
+        add('Inspiration', d.inspiration);
+        lines.push('');
+        add('Public phone', d.publicPhone);
+        add('Public email', d.publicEmail);
+        add('Public WhatsApp', d.publicWhatsapp);
+        add('Has a domain', d.hasDomain);
+        add('Domain name', d.domainName);
+        add('Social links', d.socials);
+        lines.push('');
+        add('Deadline', d.deadline);
+        add('Anything else', d.anythingElse);
+
+        return lines.join('\n');
+      }
+
+      function sendToGrasshopper() {
+        const missing = validateRequired();
+        highlightMissing(missing);
+        if (missing.length) {
+          showToast(`Please fill in: ${missing[0].label}`);
+          return;
+        }
+        saveToLocalStorage();
+        if (typeof sendToWhatsApp === 'function') {
+          sendToWhatsApp(buildBriefSummary());
+        }
+      }
+
+      // ===== PDF (same letterhead system as the project cost calculator) =====
+      const PDF_INK = [17, 22, 21];
+      const PDF_MUTED = [112, 118, 115];
+      const PDF_FAINT = [150, 156, 152];
+      const PDF_DARK_BG = [10, 10, 10];
+      const PDF_NEON = [0, 255, 65];
+      const PDF_GREEN_INK = [0, 146, 62];
+      const PDF_CYAN = [0, 219, 222];
+      const PDF_HAIRLINE = [223, 228, 224];
+
+      let brandFontsReady = false;
+      let brandFontsPromise = null;
+      function loadPdfFonts() {
+        if (brandFontsPromise) return brandFontsPromise;
+        brandFontsPromise = new Promise((resolve, reject) => {
+          const tag = document.createElement('script');
+          tag.src = '../assets/pdf-fonts.js';
+          tag.onload = () => { brandFontsReady = true; resolve(); };
+          tag.onerror = reject;
+          document.head.appendChild(tag);
+        });
+        return brandFontsPromise;
+      }
+
+      const PDF_FAMILIES = {
+        display: ['Outfit', 'helvetica'],
+        body: ['Inter', 'helvetica'],
+        mono: ['SpaceMono', 'courier']
+      };
+
+      function pdfFont(doc, role, style) {
+        const family = PDF_FAMILIES[role][brandFontsReady ? 0 : 1];
+        let resolved = style || 'normal';
+        if (brandFontsReady && family === 'Outfit') resolved = 'bold';
+        if (brandFontsReady && family === 'SpaceMono') resolved = 'normal';
+        doc.setFont(family, resolved);
+      }
+
+      function pdfText(doc, text, x, y, opts) {
+        const o = Object.assign(
+          { role: 'body', style: 'normal', size: 9, color: PDF_INK, align: 'left', track: 0 },
+          opts || {}
+        );
+        pdfFont(doc, o.role, o.style);
+        doc.setFontSize(o.size);
+        doc.setTextColor(o.color[0], o.color[1], o.color[2]);
+        if (o.track) doc.setCharSpace(o.track);
+        doc.text(text, x, y, { align: o.align });
+        if (o.track) doc.setCharSpace(0);
+      }
+
+      function drawLogoMark(doc, x, y, size) {
+        const k = size / 200;
+        const px = (n) => x + n * k;
+        const py = (n) => y + n * k;
+        const curve = (x0, y0, qx, qy, x1, y1) => {
+          const c1x = x0 + (2 / 3) * (qx - x0), c1y = y0 + (2 / 3) * (qy - y0);
+          const c2x = x1 + (2 / 3) * (qx - x1), c2y = y1 + (2 / 3) * (qy - y1);
+          doc.lines([[c1x - x0, c1y - y0, c2x - x0, c2y - y0, x1 - x0, y1 - y0]], x0, y0, [1, 1], 'S');
+        };
+        doc.setLineCap('round');
+        doc.setFillColor(PDF_DARK_BG[0], PDF_DARK_BG[1], PDF_DARK_BG[2]);
+        doc.setDrawColor(PDF_NEON[0], PDF_NEON[1], PDF_NEON[2]);
+        doc.setLineWidth(2 * k);
+        doc.circle(px(100), py(100), 90 * k, 'FD');
+        doc.setLineWidth(4 * k);
+        curve(px(60), py(120), px(40), py(80), px(80), py(60));
+        curve(px(140), py(120), px(160), py(80), px(120), py(60));
+        doc.setLineWidth(2 * k);
+        doc.line(px(80), py(60), px(60), py(30));
+        doc.line(px(120), py(60), px(140), py(30));
+        doc.setFillColor(PDF_CYAN[0], PDF_CYAN[1], PDF_CYAN[2]);
+        doc.circle(px(85), py(90), 8 * k, 'F');
+        doc.circle(px(115), py(90), 8 * k, 'F');
+        doc.setLineWidth(3 * k);
+        curve(px(90), py(120), px(100), py(130), px(110), py(120));
+        doc.setLineCap('butt');
+      }
+
+      function pdfFilename() {
+        const d = collectBriefData();
+        const slug = (d.businessName || 'brief').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+        const stamp = new Date().toISOString().slice(0, 10);
+        return `Grasshopper-Brief-${slug || 'client'}-${stamp}.pdf`;
+      }
+
+      async function buildBriefDoc() {
+        try {
+          await loadPdfFonts();
+        } catch (err) {
+          /* fall back to built-in faces */
+        }
+
+        const d = collectBriefData();
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
+        doc.setProperties({
+          title: 'Grasshopper Solutions - Website Brief',
+          subject: 'Website brief for ' + (d.businessName || 'client'),
+          author: d.yourName || 'Client',
+          creator: 'grasshoppersolutions.online'
+        });
+
+        const pageW = doc.internal.pageSize.getWidth();
+        const pageH = doc.internal.pageSize.getHeight();
+        const m = 18;
+        const contentW = pageW - m * 2;
+        const rightX = pageW - m;
+        const WHITE = [255, 255, 255];
+        let y = 20;
+
+        const ensureRoom = (need) => {
+          if (y + need > pageH - 16) {
+            doc.addPage();
+            y = 20;
+            return true;
+          }
+          return false;
+        };
+
+        // Letterhead
+        doc.setFillColor(PDF_DARK_BG[0], PDF_DARK_BG[1], PDF_DARK_BG[2]);
+        doc.rect(0, 0, pageW, 36, 'F');
+        doc.setFillColor(PDF_NEON[0], PDF_NEON[1], PDF_NEON[2]);
+        doc.rect(0, 36, pageW, 0.9, 'F');
+        drawLogoMark(doc, m, 9.5, 17);
+        pdfText(doc, 'GRASSHOPPER', m + 22, 20.5, { role: 'display', style: 'bold', size: 18, color: WHITE });
+        pdfText(doc, 'IT SOLUTIONS LLC', m + 22.5, 26.5, { role: 'mono', size: 7, color: PDF_NEON, track: 0.55 });
+        pdfText(doc, 'WEBSITE BRIEF', rightX, 19.5, { role: 'display', style: 'bold', size: 12, color: PDF_NEON, align: 'right' });
+        pdfText(doc, new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }), rightX, 26, { role: 'mono', size: 7, color: [168, 174, 170], align: 'right' });
+        y = 47;
+
+        pdfText(doc, (d.businessName || 'Untitled business').toUpperCase(), m, y, { role: 'display', style: 'bold', size: 16 });
+        y += 8;
+        if (d.tagline) {
+          pdfText(doc, d.tagline, m, y, { role: 'body', size: 9.5, color: PDF_MUTED });
+          y += 7;
+        }
+        doc.setDrawColor(PDF_GREEN_INK[0], PDF_GREEN_INK[1], PDF_GREEN_INK[2]);
+        doc.setLineWidth(0.6);
+        doc.line(m, y, rightX, y);
+        y += 8;
+
+        const sections = [
+          ['Contact', [
+            ['Name', d.yourName], ['Email', d.yourEmail], ['Phone', d.yourPhone]
+          ]],
+          ['Business', [
+            ['What they do', d.whatYouDo], ['Industry', d.industry], ['What makes them different', d.whatsDifferent]
+          ]],
+          ['Goals', [
+            ['Why a website', (d.whyWebsite || []).join(', ')], ['Main goal for visitors', d.mainAction], ['Typical customers', d.typicalCustomers]
+          ]],
+          ['Pages & content', [
+            ['Pages needed', (d.pagesNeeded || []).join(', ')], ['Has a logo', d.hasLogo], ['Has content ready', d.hasContent],
+            ['Existing website', d.hasExistingSite === 'Yes' ? (d.existingSiteUrl || 'Yes') : d.hasExistingSite]
+          ]],
+          ['Look & feel', [
+            ['Style words', (d.styleWords || []).join(', ')], ['Color preferences', d.colorPreferences], ['Inspiration', d.inspiration]
+          ]],
+          ['Public contact info', [
+            ['Phone', d.publicPhone], ['Email', d.publicEmail], ['WhatsApp', d.publicWhatsapp],
+            ['Domain', d.hasDomain === 'Yes' ? (d.domainName || 'Yes') : d.hasDomain], ['Social links', d.socials]
+          ]],
+          ['Other', [
+            ['Deadline', d.deadline], ['Anything else', d.anythingElse]
+          ]]
+        ];
+
+        sections.forEach(([heading, rows]) => {
+          const visible = rows.filter(([, v]) => v);
+          if (!visible.length) return;
+
+          ensureRoom(12);
+          pdfText(doc, '// ' + heading.toUpperCase(), m, y, { role: 'mono', size: 7.5, color: PDF_GREEN_INK, track: 0.3 });
+          y += 6;
+
+          visible.forEach(([label, value]) => {
+            pdfFont(doc, 'body', 'normal');
+            doc.setFontSize(8);
+            const valueLines = doc.splitTextToSize(String(value), contentW - 45);
+            const rowH = Math.max(6, valueLines.length * 4 + 2);
+            const brokePage = ensureRoom(rowH);
+            if (brokePage) {
+              pdfText(doc, '// ' + heading.toUpperCase() + ' (CONT’D)', m, y, { role: 'mono', size: 7.5, color: PDF_GREEN_INK, track: 0.3 });
+              y += 6;
+            }
+
+            pdfText(doc, label, m, y + 4, { role: 'body', style: 'bold', size: 8.5, color: PDF_INK });
+            pdfText(doc, valueLines, m + 42, y + 4, { role: 'body', size: 8, color: PDF_MUTED });
+            y += rowH;
+          });
+          y += 9;
+        });
+
+        ensureRoom(20);
+        const fy = pageH - 16;
+        doc.setDrawColor(PDF_HAIRLINE[0], PDF_HAIRLINE[1], PDF_HAIRLINE[2]);
+        doc.setLineWidth(0.3);
+        doc.line(m, fy, rightX, fy);
+        pdfText(doc, 'Grasshopper IT Solutions LLC  ·  general@grasshoppersolutions.online  ·  grasshoppersolutions.online', m, fy + 5, { role: 'mono', size: 7, color: PDF_MUTED });
+
+        return doc;
+      }
+
+      function withBusyButton(btnId, label, fn) {
+        const btn = document.getElementById(btnId);
+        const original = btn ? btn.innerHTML : null;
+        if (btn) {
+          btn.disabled = true;
+          btn.classList.add('opacity-60', 'cursor-wait');
+          btn.innerHTML = label;
+        }
+        return Promise.resolve()
+          .then(fn)
+          .finally(() => {
+            if (btn) {
+              btn.disabled = false;
+              btn.classList.remove('opacity-60', 'cursor-wait');
+              btn.innerHTML = original;
+            }
+          });
+      }
+
+      function downloadPDF() {
+        return withBusyButton('btn-pdf', 'BUILDING...', () =>
+          buildBriefDoc()
+            .then((doc) => doc.save(pdfFilename()))
+            .then(() => showToast('PDF downloaded.'))
+            .catch(() => showToast('PDF export failed. Please try again.'))
+        );
+      }
+
+      // ===== TOAST =====
+      function showToast(message) {
+        const toast = document.getElementById('notification-toast');
+        document.getElementById('toast-message').textContent = message;
+        toast.classList.add('show');
+        clearTimeout(window.__briefToastTimer);
+        window.__briefToastTimer = setTimeout(() => toast.classList.remove('show'), 3500);
+      }
+    </script>
+    <script src="../script.js"></script>
+  </body>
+</html>

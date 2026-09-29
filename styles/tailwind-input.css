@@ -32,4 +32,34 @@
   input[type="range"]::-moz-range-thumb {
     @apply w-4 h-4 bg-grass-green rounded-full border-0 shadow-[0_0_8px_rgba(0,255,65,0.4)] cursor-pointer;
   }
+
+  /* Project Brief form - same reason as the calc-* classes above: this has
+     to live here, not in pages/project-brief.html's inline <style>. */
+  .brief-section {
+    @apply bg-card-gray/80 border border-white/10 p-6 sm:p-8 rounded-xl relative shadow-sm;
+  }
+  .brief-label {
+    @apply block text-sm font-semibold text-white mb-1.5;
+  }
+  .brief-help {
+    @apply text-xs text-gray-500 mb-2 leading-relaxed;
+  }
+  .brief-input {
+    @apply w-full bg-code-gray border border-white/10 text-white rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-grass-green/40 focus:ring-1 focus:ring-grass-green/40 transition placeholder:text-gray-600;
+  }
+  .brief-textarea {
+    @apply brief-input resize-y min-h-[90px];
+  }
+  .brief-required-tag {
+    @apply text-cyber-red text-[11px] font-mono font-normal ml-1.5;
+  }
+  .brief-check-row {
+    @apply flex items-center gap-3 p-3 rounded-lg bg-deep-space hover:bg-code-gray/60 border border-white/10 cursor-pointer transition text-sm text-gray-300;
+  }
+  .brief-check-row input {
+    @apply accent-grass-green w-4 h-4 flex-shrink-0;
+  }
+  .brief-step-number {
+    @apply inline-flex items-center justify-center w-8 h-8 rounded-full bg-grass-green/10 border border-grass-green/30 text-grass-green font-mono text-xs font-bold flex-shrink-0;
+  }
 }
