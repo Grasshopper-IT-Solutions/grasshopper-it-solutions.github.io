@@ -1,27 +1,27 @@
 [submodule "projects/hormiguero-lab"]
 	path = projects/hormiguero-lab
-	url = https://github.com/grasshopperitsolutions/hormiguero-lab.git
+	url = https://github.com/grasshopper-it-solutions/hormiguero-lab.git
 [submodule "landing-pages/ludovica-piro"]
 	path = landing-pages/ludovica-piro
-	url = https://github.com/grasshopperitsolutions/ludovica-piro-page.git
+	url = https://github.com/grasshopper-it-solutions/ludovica-piro-page.git
 [submodule "proxies/hormiguero-lab-api"]
 	path = proxies/hormiguero-lab-api
-	url = https://github.com/grasshopperitsolutions/perplexity-api-proxy.git
+	url = https://github.com/grasshopper-it-solutions/perplexity-api-proxy.git
 [submodule "projects/diploma-generator"]
 	path = projects/diploma-generator
-	url = https://github.com/grasshopperitsolutions/diploma-generator.git
+	url = https://github.com/grasshopper-it-solutions/diploma-generator.git
 [submodule "landing-pages/alfonso-romero-fotografia"]
 	path = landing-pages/alfonso-romero-fotografia
-	url = https://github.com/grasshopperitsolutions/alfonso-romero-fotografia.git
+	url = https://github.com/grasshopper-it-solutions/alfonso-romero-fotografia.git
 [submodule "projects/multi-lingo-ai"]
 	path = projects/multi-lingo-ai
-	url = https://github.com/grasshopperitsolutions/multi-lingo-ai.git
+	url = https://github.com/grasshopper-it-solutions/multi-lingo-ai.git
 [submodule "proxies/multi-lingo-ai-api"]
 	path = proxies/multi-lingo-ai-api
-	url = https://github.com/grasshopperitsolutions/multi-lingo-ai-api.git
+	url = https://github.com/grasshopper-it-solutions/multi-lingo-ai-api.git
 [submodule "landing-pages/miguel-e-sofia"]
 	path = landing-pages/miguel-e-sofia
-	url = https://github.com/grasshopperitsolutions/miguel-e-sofia
+	url = https://github.com/grasshopper-it-solutions/miguel-e-sofia
 [submodule "projects/aratoca-en-hilos"]
 	path = projects/aratoca-en-hilos
-	url = https://github.com/grasshopperitsolutions/aratoca-en-hilos
+	url = https://github.com/grasshopper-it-solutions/aratoca-en-hilos
