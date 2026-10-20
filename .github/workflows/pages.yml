@@ -1,0 +1,50 @@
+name: Deploy main site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout main site
+        uses: actions/checkout@v7
+        with:
+          submodules: false
+
+      - name: Fetch submodules (best effort)
+        id: submodules
+        run: git submodule update --init --recursive
+        continue-on-error: true
+
+      - name: Warn if some submodules could not be fetched
+        if: ${{ steps.submodules.outcome == 'failure' }}
+        run: echo "::warning::One or more submodules could not be fetched (for example, because they are private). Deploying the main site anyway; unavailable submodule content will be omitted."
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v6
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
