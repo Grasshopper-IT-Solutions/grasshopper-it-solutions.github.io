@@ -1,6 +1,6 @@
 # <img src="assets/grasshopper-geometric-logo.svg" alt="Grasshopper IT Solutions" height="32" style="vertical-align: middle;"> Grasshopper IT Solutions
 
-[![Pages Status](https://github.com/grasshopperitsolutions/grasshopperitsolutions.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/grasshopperitsolutions/grasshopperitsolutions.github.io/actions/workflows/pages/pages-build-deployment)
+[![Pages Status](https://github.com/Grasshopper-IT-Solutions/grasshopperitsolutions.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/Grasshopper-IT-Solutions/grasshopperitsolutions.github.io/actions/workflows/pages/pages-build-deployment)
 
 Growing Green. Building Clean. Leaping Far.
 
@@ -25,7 +25,7 @@ A cyberpunk-inspired landing page for Grasshopper IT Solutions LLC — premium s
 ## 📞 Contact
 
 - **Email**: 📧 general@grasshoppersolutions.online
-- **GitHub**: [grasshopperitsolutions](https://github.com/grasshopperitsolutions)
+- **GitHub**: [Grasshopper-IT-Solutions](https://github.com/Grasshopper-IT-Solutions)
 - **Website**: [grasshoppersolutions.online](grasshoppersolutions.online)
 
 **Made with ❤️ by Grasshopper IT Solutions, LLC**

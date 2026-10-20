@@ -19,7 +19,7 @@ Kebab-case the business name (e.g. "Alfonso Romero Fotografía" → `alfonso-rom
 
 ```bash
 gh auth status   # if this fails, stop and tell the user rather than failing later
-gh repo create grasshopperitsolutions/<slug> --public \
+gh repo create Grasshopper-IT-Solutions/<slug> --public \
   --description "<Business Name> landing page — built by Grasshopper IT Solutions"
 ```
 
@@ -30,7 +30,7 @@ If `gh` isn't authenticated, stop here and ask the user to run `gh auth login`, 
 Do this **outside** this repo's working tree (use the session scratchpad), not inside `landing-pages/` directly — the repo doesn't exist as a submodule yet.
 
 ```bash
-git clone https://github.com/grasshopperitsolutions/<slug>.git <scratch>/<slug>
+git clone https://github.com/Grasshopper-IT-Solutions/<slug>.git <scratch>/<slug>
 cp -r landing-pages/_template/. <scratch>/<slug>/
 ```
 
@@ -65,7 +65,7 @@ git push -u origin main
 Back in `GrasshopperWebSite`:
 
 ```bash
-git submodule add https://github.com/grasshopperitsolutions/<slug>.git landing-pages/<slug>
+git submodule add https://github.com/Grasshopper-IT-Solutions/<slug>.git landing-pages/<slug>
 git add .gitmodules landing-pages/<slug>
 git commit -m "Add <slug> landing page submodule"
 ```
@@ -85,6 +85,6 @@ Confirm `<slug>` shows up with a real commit hash, not `-` (uninitialized).
 Give the user this checklist rather than a full step-by-step transcript:
 
 - [ ] GitHub Pages: Settings → Pages → Deploy from branch `main` / `(root)`.
-- [ ] Domain ready now: `CNAME` renamed and DNS pointed; enable "Enforce HTTPS" once it propagates. Not ready: site is reachable at `https://grasshopperitsolutions.github.io/<slug>/` meanwhile.
+- [ ] Domain ready now: `CNAME` renamed and DNS pointed; enable "Enforce HTTPS" once it propagates. Not ready: site is reachable at `https://grasshopper-it-solutions.github.io/<slug>/` meanwhile.
 - [ ] `contact.config.js`'s WhatsApp number is confirmed to be the client's own, not `33767834576` (Grasshopper's own — see `../../CLAUDE.md`).
 - [ ] **Manual, not done by this skill:** add a reference card/link to `pages/projects.html` on the main site if this project should be showcased there. This skill does not edit that file automatically.

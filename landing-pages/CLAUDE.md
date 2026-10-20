@@ -41,11 +41,11 @@ Every new client landing page is its own git repository, added to this repo as a
 
 ```bash
 # 1. Create the (empty) GitHub repo
-gh repo create grasshopperitsolutions/<slug> --public \
+gh repo create Grasshopper-IT-Solutions/<slug> --public \
   --description "<Business Name> landing page — built by Grasshopper IT Solutions"
 
 # 2. Build the site in a scratch clone — NOT inside this repo's working tree
-git clone https://github.com/grasshopperitsolutions/<slug>.git <scratch>/<slug>
+git clone https://github.com/Grasshopper-IT-Solutions/<slug>.git <scratch>/<slug>
 cp -r landing-pages/_template/. <scratch>/<slug>/
 # ... customize the copy, then:
 cd <scratch>/<slug>
@@ -56,7 +56,7 @@ git push -u origin main
 
 # 3. Wire it into this repo as a submodule
 cd <path-to-GrasshopperWebSite>
-git submodule add https://github.com/grasshopperitsolutions/<slug>.git landing-pages/<slug>
+git submodule add https://github.com/Grasshopper-IT-Solutions/<slug>.git landing-pages/<slug>
 git add .gitmodules landing-pages/<slug>
 git commit -m "Add <slug> landing page submodule"
 
