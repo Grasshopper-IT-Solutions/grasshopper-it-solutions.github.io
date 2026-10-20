@@ -6,10 +6,10 @@
 	url = https://github.com/grasshopper-it-solutions/ludovica-piro-page.git
 [submodule "proxies/hormiguero-lab-api"]
 	path = proxies/hormiguero-lab-api
-	url = https://github.com/grasshopper-it-solutions/perplexity-api-proxy.git
+	url = https://github.com/grasshopperitsolutions/perplexity-api-proxy.git
 [submodule "projects/diploma-generator"]
 	path = projects/diploma-generator
-	url = https://github.com/grasshopper-it-solutions/diploma-generator.git
+	url = https://github.com/grasshopperitsolutions/diploma-generator.git
 [submodule "landing-pages/alfonso-romero-fotografia"]
 	path = landing-pages/alfonso-romero-fotografia
 	url = https://github.com/grasshopper-it-solutions/alfonso-romero-fotografia.git
@@ -21,7 +21,7 @@
 	url = https://github.com/grasshopper-it-solutions/multi-lingo-ai-api.git
 [submodule "landing-pages/miguel-e-sofia"]
 	path = landing-pages/miguel-e-sofia
-	url = https://github.com/grasshopper-it-solutions/miguel-e-sofia
+	url = https://github.com/grasshopper-it-solutions/miguel-e-sofia.git
 [submodule "projects/aratoca-en-hilos"]
 	path = projects/aratoca-en-hilos
 	url = https://github.com/grasshopper-it-solutions/aratoca-en-hilos
