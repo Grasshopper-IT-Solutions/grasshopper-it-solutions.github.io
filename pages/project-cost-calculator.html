@@ -316,6 +316,12 @@
             </div>
           </div>
 
+          <!-- Included with the Online Store pro feature (only shown while it is selected) -->
+          <div id="store-pages-block" class="hidden mb-4">
+            <label class="block text-[10px] font-mono text-gray-600 mb-2 uppercase">Included with Online Store:</label>
+            <div id="store-pages-list" class="grid grid-cols-1 md:grid-cols-2 gap-2"></div>
+          </div>
+
           <!-- Paid Toggles for Pages -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
             <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
@@ -402,7 +408,8 @@
                 <input type="checkbox" id="integration-database" class="integration-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
                 <div>
                   <span class="text-sm font-medium text-gray-300 block">Database integration</span>
-                  <span class="text-[11px] text-gray-600">Store and manage your data, for example in Google Sheets, a dedicated database or Dropbox.</span>
+                  <span class="card-note text-[11px] text-gray-600">Store and manage your data, for example in Google Sheets, a dedicated database or Dropbox.</span>
+                  <span class="store-lock-note hidden text-[11px] text-grass-green/80 block mt-1"></span>
                 </div>
               </span>
               <span class="ml-3 flex-shrink-0 whitespace-nowrap text-xs font-mono text-gray-500 rate-tag-integrations">$125.00</span>
@@ -418,10 +425,14 @@
 
             <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
               <span class="flex items-center gap-3">
-                <input type="checkbox" id="integration-tracking" class="integration-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
-                <span class="text-sm font-medium text-gray-300">Tracking System</span>
+                <input type="checkbox" id="integration-payments" class="integration-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
+                <div>
+                  <span class="text-sm font-medium text-gray-300 block">Payments (Stripe)</span>
+                  <span class="card-note text-[11px] text-gray-600">Accept card payments on your site with Stripe. Stripe's transaction fees are paid by the client.</span>
+                  <span class="store-lock-note hidden text-[11px] text-grass-green/80 block mt-1"></span>
+                </div>
               </span>
-              <span class="text-xs font-mono text-gray-500 rate-tag-integrations">$125.00</span>
+              <span class="ml-3 flex-shrink-0 whitespace-nowrap text-xs font-mono text-gray-500 rate-tag-integrations">$125.00</span>
             </label>
 
             <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
@@ -429,7 +440,7 @@
                 <input type="checkbox" id="integration-ai" class="integration-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
                 <div>
                   <span class="text-sm font-medium text-gray-300 block">AI integration</span>
-                  <span class="text-[11px] text-gray-600">Smart features powered by AI, such as a chatbot that answers your visitors' questions. Usage bills from the AI provider are paid by the client.</span>
+                  <span class="card-note text-[11px] text-gray-600">Smart features powered by AI, such as a chatbot that answers your visitors' questions. Usage bills from the AI provider are paid by the client.</span>
                 </div>
               </span>
               <span class="ml-3 flex-shrink-0 whitespace-nowrap text-xs font-mono text-gray-500 rate-tag-integrations">$125.00</span>
@@ -475,7 +486,7 @@
                 <input type="checkbox" id="feature-seo" class="feature-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
                 <div>
                   <span class="text-sm font-medium text-gray-300 block">SEO & GEO</span>
-                  <span class="text-[11px] text-gray-600">Help your site appear in Google searches and local map results.</span>
+                  <span class="card-note text-[11px] text-gray-600">Help your site appear in Google searches and local map results.</span>
                 </div>
               </span>
               <span class="text-xs font-mono text-gray-500 rate-tag-features">$50.00</span>
@@ -486,7 +497,7 @@
                 <input type="checkbox" id="feature-domain" class="feature-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
                 <div>
                   <span class="text-sm font-medium text-gray-300 block">Pro Domain of your choice</span>
-                  <span class="text-[11px] text-gray-600">Get your own professional web address. Price may vary depending on the domain.</span>
+                  <span class="card-note text-[11px] text-gray-600">Get your own professional web address. Price may vary depending on the domain.</span>
                 </div>
               </span>
               <span class="text-xs font-mono text-gray-500 rate-tag-features">$50.00</span>
@@ -497,7 +508,7 @@
                 <input type="checkbox" id="feature-multilang" class="feature-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
                 <div>
                   <span class="text-sm font-medium text-gray-300 block">Multilingual</span>
-                  <span class="text-[11px] text-gray-600">Make your website available in multiple languages for a wider audience.</span>
+                  <span class="card-note text-[11px] text-gray-600">Make your website available in multiple languages for a wider audience.</span>
                 </div>
               </span>
               <span class="text-xs font-mono text-gray-500 rate-tag-features">$50.00</span>
@@ -505,10 +516,43 @@
 
             <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
               <span class="flex items-center gap-3">
+                <input type="checkbox" id="feature-brand" class="feature-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
+                <div>
+                  <span class="text-sm font-medium text-gray-300 block">Logo &amp; Brand Kit</span>
+                  <span class="card-note text-[11px] text-gray-600">A custom logo plus your brand colors and fonts, delivered as a simple brand guide.</span>
+                </div>
+              </span>
+              <span class="ml-3 flex-shrink-0 whitespace-nowrap text-xs font-mono text-gray-500 rate-tag-features">$50.00</span>
+            </label>
+
+            <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
+              <span class="flex items-center gap-3">
+                <input type="checkbox" id="feature-store" class="feature-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
+                <div>
+                  <span class="text-sm font-medium text-gray-300 block">Online Store (Cart &amp; Checkout)</span>
+                  <span class="card-note text-[11px] text-gray-600">Sell products online with a shopping cart and secure checkout. Comes with the Database and Payments (Stripe) integrations, plus 7 store pages: shop, product, cart, checkout, payment success, payment failed, and shipping &amp; returns. The pages are included in the price.</span>
+                </div>
+              </span>
+              <span class="ml-3 flex-shrink-0 whitespace-nowrap text-xs font-mono text-gray-500 rate-tag-features">$50.00</span>
+            </label>
+
+            <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
+              <span class="flex items-center gap-3">
+                <input type="checkbox" id="feature-express" class="feature-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
+                <div>
+                  <span class="text-sm font-medium text-gray-300 block">Express Delivery</span>
+                  <span class="card-note text-[11px] text-gray-600">Your project goes to the front of the queue and is delivered in 24-48 hours once we have all your content.</span>
+                </div>
+              </span>
+              <span class="ml-3 flex-shrink-0 whitespace-nowrap text-xs font-mono text-gray-500 rate-tag-features">$50.00</span>
+            </label>
+
+            <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
+              <span class="flex items-center gap-3">
                 <input type="checkbox" id="feature-priority-support" class="feature-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
                 <div>
                   <span class="text-sm font-medium text-gray-300 block">1 Year Priority Support</span>
-                  <span class="text-[11px] text-gray-600">Adds 6 months of technical support on top of the 6 included (12 months in total after final delivery), with your requests handled first for the full year.</span>
+                  <span class="card-note text-[11px] text-gray-600">Adds 6 months of technical support on top of the 6 included (12 months in total after final delivery), with your requests handled first for the full year.</span>
                 </div>
               </span>
               <span class="text-xs font-mono text-gray-500 rate-tag-features">$50.00</span>
@@ -598,6 +642,16 @@
                   <span id="invoice-pages-discount-note" class="text-[10px] font-mono text-emerald-400/70 block"></span>
                 </div>
                 <span id="invoice-pages-discount-total" class="font-mono"></span>
+              </div>
+
+              <!-- Online Store pages: auto-added, included in the price -->
+              <div id="invoice-store-row" class="hidden flex items-start justify-between text-xs py-1.5 text-gray-400 border-t border-white/10">
+                <div>
+                  <span class="font-medium">Online Store Pages</span>
+                  <span id="invoice-store-count" class="text-[10px] font-mono text-gray-600 block"></span>
+                  <div id="invoice-store-names" class="text-[10px] text-grass-green/70 italic max-w-xs mt-0.5"></div>
+                </div>
+                <span class="font-mono text-emerald-400">Included</span>
               </div>
 
               <!-- Integrations -->
@@ -799,6 +853,81 @@
       }
       const VALIDITY_DAYS = 30;
 
+      // ===== ONLINE STORE (Pro Feature) =====
+      // Selecting it switches on the integrations it depends on (Database,
+      // Payments) and adds the store pages. The integrations are charged like
+      // any other; the pages are included in the price, so they are listed in
+      // the quote but never counted as extra pages (or toward the volume discount).
+      const STORE_PAGES = [
+        'Shop', 'Product', 'Cart', 'Checkout',
+        'Payment success', 'Payment failed', 'Shipping & returns'
+      ];
+      // Which integrations each feature needs. Ticking the feature switches them
+      // on and locks them. To connect a future feature, add one row here.
+      const FEATURE_REQUIRES = {
+        'feature-store': { name: 'Online Store', needs: ['integration-database', 'integration-payments'] }
+      };
+      // Integrations a feature switched on itself, so unticking the feature
+      // removes only those and keeps anything the client picked on their own.
+      let autoAdded = new Set();
+
+      function syncFeatureDependencies() {
+        const owners = {}; // integration id -> names of the ticked features that need it
+        Object.entries(FEATURE_REQUIRES).forEach(([featureId, rule]) => {
+          const on = document.getElementById(featureId).checked;
+          rule.needs.forEach((id) => {
+            owners[id] = owners[id] || [];
+            if (on) owners[id].push(rule.name);
+          });
+        });
+
+        Object.entries(owners).forEach(([id, names]) => {
+          const box = document.getElementById(id);
+          const label = box.closest('label');
+          const locked = names.length > 0;
+          if (locked) {
+            if (!box.checked) {
+              box.checked = true;
+              autoAdded.add(id);
+            }
+          } else if (autoAdded.has(id)) {
+            box.checked = false;
+            autoAdded.delete(id);
+          }
+          box.disabled = locked;
+          label.classList.toggle('border-grass-green/40', locked);
+          label.classList.toggle('cursor-not-allowed', locked);
+          const note = label.querySelector('.store-lock-note');
+          const text = 'Selected automatically with ' + names.join(' + ');
+          if (note) {
+            note.textContent = text;
+            note.classList.toggle('hidden', !locked);
+          }
+          if (locked) label.title = text;
+          else label.removeAttribute('title');
+        });
+
+        const storeOn = document.getElementById('feature-store').checked;
+
+        const list = document.getElementById('store-pages-list');
+        if (!list.children.length) {
+          STORE_PAGES.forEach((name) => {
+            const row = document.createElement('div');
+            row.className = 'flex items-center gap-3 p-2.5 rounded-lg bg-grass-green/5 border border-grass-green/15 opacity-70 cursor-default';
+            row.innerHTML = '<input type="checkbox" checked disabled class="accent-grass-green w-4 h-4 opacity-60">' +
+              '<span class="text-xs font-medium text-gray-400"></span>' +
+              '<span class="text-[9px] font-mono text-grass-green/50 ml-auto">INCLUDED</span>';
+            row.querySelector('span').textContent = name;
+            list.appendChild(row);
+          });
+        }
+        document.getElementById('store-pages-block').classList.toggle('hidden', !storeOn);
+
+        document.getElementById('invoice-store-row').classList.toggle('hidden', !storeOn);
+        document.getElementById('invoice-store-count').textContent = `${STORE_PAGES.length} pages auto-added`;
+        document.getElementById('invoice-store-names').textContent = STORE_PAGES.join(', ');
+      }
+
       // A quote that gets saved, forwarded and quoted back at us needs its own
       // identity, so the reference is minted per visit rather than being one
       // fixed string shared by every quote the calculator has ever produced.
@@ -834,7 +963,11 @@
         document.getElementById('integration-database').checked = false;
         document.getElementById('integration-ai').checked = false;
         document.getElementById('integration-map').checked = false;
-        document.getElementById('integration-tracking').checked = false;
+        document.getElementById('integration-payments').checked = false;
+        document.getElementById('feature-store').checked = false;
+        document.getElementById('feature-brand').checked = false;
+        document.getElementById('feature-express').checked = false;
+        autoAdded = new Set();
         document.getElementById('feature-seo').checked = false;
         document.getElementById('feature-domain').checked = false;
         document.getElementById('feature-multilang').checked = false;
@@ -1185,6 +1318,7 @@
 
       // ===== MAIN CALCULATION ENGINE =====
       function calculateAll() {
+        syncFeatureDependencies();
         const calculatedBase = BASE_VALUE * (1 - discountPercent / 100);
         
         document.getElementById('calculated-base-price').textContent = `${formatCurrency(calculatedBase)}`;
@@ -1225,7 +1359,7 @@
         if (document.getElementById('integration-calendar').checked) integrationNames.push("Calendar");
         if (document.getElementById('integration-database').checked) integrationNames.push("Database");
         if (document.getElementById('integration-map').checked) integrationNames.push("Map");
-        if (document.getElementById('integration-tracking').checked) integrationNames.push("Tracking System");
+        if (document.getElementById('integration-payments').checked) integrationNames.push("Payments (Stripe)");
         if (document.getElementById('integration-ai').checked) integrationNames.push("AI");
 
         const allIntegrations = [...integrationNames, ...customIntegrations];
@@ -1241,6 +1375,9 @@
         if (document.getElementById('feature-seo').checked) featureNames.push("SEO / GEO");
         if (document.getElementById('feature-domain').checked) featureNames.push("Pro Domain");
         if (document.getElementById('feature-multilang').checked) featureNames.push("Multilingual");
+        if (document.getElementById('feature-brand').checked) featureNames.push("Logo & Brand Kit");
+        if (document.getElementById('feature-store').checked) featureNames.push("Online Store");
+        if (document.getElementById('feature-express').checked) featureNames.push("Express Delivery");
         if (document.getElementById('feature-priority-support').checked) featureNames.push("Priority Support (1 yr)");
 
         const featuresCount = featureNames.length;
@@ -1264,7 +1401,13 @@
       }
 
       // ===== LOCALSTORAGE PERSISTENCE =====
+      // Starts true: while the page is still restoring a saved or shared state,
+      // the default-currency setup recalculates and would otherwise save the
+      // empty defaults over the state that is about to be read back.
+      let restoringState = true;
+
       function saveToLocalStorage() {
+        if (restoringState) return;
         const state = {
           discount: discountPercent,
           currency: currentCurrency,
@@ -1275,11 +1418,15 @@
           i_db: document.getElementById('integration-database').checked,
           i_ai: document.getElementById('integration-ai').checked,
           i_m: document.getElementById('integration-map').checked,
-          i_t: document.getElementById('integration-tracking').checked,
+          i_pay: document.getElementById('integration-payments').checked,
           f_s: document.getElementById('feature-seo').checked,
           f_d: document.getElementById('feature-domain').checked,
           f_m: document.getElementById('feature-multilang').checked,
           f_ps: document.getElementById('feature-priority-support').checked,
+          f_st: document.getElementById('feature-store').checked,
+          f_b: document.getElementById('feature-brand').checked,
+          f_x: document.getElementById('feature-express').checked,
+          sa: [...autoAdded],
           cp: customPages,
           ci: customIntegrations,
         };
@@ -1311,12 +1458,16 @@
           if (savedDb !== undefined) document.getElementById('integration-database').checked = savedDb;
           if (state.i_ai !== undefined) document.getElementById('integration-ai').checked = state.i_ai;
           if (state.i_m !== undefined) document.getElementById('integration-map').checked = state.i_m;
-          if (state.i_t !== undefined) document.getElementById('integration-tracking').checked = state.i_t;
+          if (state.i_pay !== undefined) document.getElementById('integration-payments').checked = state.i_pay;
 
           if (state.f_s !== undefined) document.getElementById('feature-seo').checked = state.f_s;
           if (state.f_d !== undefined) document.getElementById('feature-domain').checked = state.f_d;
           if (state.f_m !== undefined) document.getElementById('feature-multilang').checked = state.f_m;
           if (state.f_ps !== undefined) document.getElementById('feature-priority-support').checked = state.f_ps;
+          if (state.f_st !== undefined) document.getElementById('feature-store').checked = state.f_st;
+          if (state.f_b !== undefined) document.getElementById('feature-brand').checked = state.f_b;
+          if (state.f_x !== undefined) document.getElementById('feature-express').checked = state.f_x;
+          autoAdded = new Set(Array.isArray(state.sa) ? state.sa : []);
 
           if (state.cp && Array.isArray(state.cp)) {
             customPages = state.cp;
@@ -1345,11 +1496,15 @@
           i_db: document.getElementById('integration-database').checked,
           i_ai: document.getElementById('integration-ai').checked,
           i_m: document.getElementById('integration-map').checked,
-          i_t: document.getElementById('integration-tracking').checked,
+          i_pay: document.getElementById('integration-payments').checked,
           f_s: document.getElementById('feature-seo').checked,
           f_d: document.getElementById('feature-domain').checked,
           f_m: document.getElementById('feature-multilang').checked,
           f_ps: document.getElementById('feature-priority-support').checked,
+          f_st: document.getElementById('feature-store').checked,
+          f_b: document.getElementById('feature-brand').checked,
+          f_x: document.getElementById('feature-express').checked,
+          sa: [...autoAdded],
           cp: customPages,
           ci: customIntegrations,
         };
@@ -1388,12 +1543,16 @@
           if (savedDb !== undefined) document.getElementById('integration-database').checked = savedDb;
           if (state.i_ai !== undefined) document.getElementById('integration-ai').checked = state.i_ai;
           if (state.i_m !== undefined) document.getElementById('integration-map').checked = state.i_m;
-          if (state.i_t !== undefined) document.getElementById('integration-tracking').checked = state.i_t;
+          if (state.i_pay !== undefined) document.getElementById('integration-payments').checked = state.i_pay;
 
           if (state.f_s !== undefined) document.getElementById('feature-seo').checked = state.f_s;
           if (state.f_d !== undefined) document.getElementById('feature-domain').checked = state.f_d;
           if (state.f_m !== undefined) document.getElementById('feature-multilang').checked = state.f_m;
           if (state.f_ps !== undefined) document.getElementById('feature-priority-support').checked = state.f_ps;
+          if (state.f_st !== undefined) document.getElementById('feature-store').checked = state.f_st;
+          if (state.f_b !== undefined) document.getElementById('feature-brand').checked = state.f_b;
+          if (state.f_x !== undefined) document.getElementById('feature-express').checked = state.f_x;
+          autoAdded = new Set(Array.isArray(state.sa) ? state.sa : []);
 
           if (state.cp && Array.isArray(state.cp)) {
             customPages = state.cp;
@@ -1535,7 +1694,7 @@
         if (document.getElementById('integration-calendar').checked) integrationNames.push("Calendar");
         if (document.getElementById('integration-database').checked) integrationNames.push("Database");
         if (document.getElementById('integration-map').checked) integrationNames.push("Map");
-        if (document.getElementById('integration-tracking').checked) integrationNames.push("Tracking System");
+        if (document.getElementById('integration-payments').checked) integrationNames.push("Payments (Stripe)");
         if (document.getElementById('integration-ai').checked) integrationNames.push("AI");
         const allIntegrations = [...integrationNames, ...customIntegrations];
 
@@ -1543,6 +1702,9 @@
         if (document.getElementById('feature-seo').checked) featureNames.push("SEO / GEO");
         if (document.getElementById('feature-domain').checked) featureNames.push("Pro Domain");
         if (document.getElementById('feature-multilang').checked) featureNames.push("Multilingual");
+        if (document.getElementById('feature-brand').checked) featureNames.push("Logo & Brand Kit");
+        if (document.getElementById('feature-store').checked) featureNames.push("Online Store");
+        if (document.getElementById('feature-express').checked) featureNames.push("Express Delivery");
         if (document.getElementById('feature-priority-support').checked) featureNames.push("Priority Support (1 yr)");
 
         const pageRate = calculatedBase * PAGES_RATE_MULT;
@@ -1563,6 +1725,8 @@
           currency: currentCurrency,
           isConverted: currentCurrency !== 'USD' && !!exchangeRate,
           hasAi: document.getElementById('integration-ai').checked,
+          hasPayments: document.getElementById('integration-payments').checked,
+          hasExpress: document.getElementById('feature-express').checked,
           hasPrioritySupport: document.getElementById('feature-priority-support').checked,
           discountPercent,
           items: [
@@ -1576,6 +1740,12 @@
               detail: allPages.length ? allPages.join(', ') : 'None selected.',
               amount: pagesCost
             },
+            ...(document.getElementById('feature-store').checked ? [{
+              label: 'Online Store Pages',
+              detail: STORE_PAGES.join(', ') + '. Auto-added with the Online Store feature and included in the price.',
+              amount: 0,
+              included: true
+            }] : []),
             ...(freePages > 0 ? [{
               label: 'Volume Discount',
               detail: freePagesLabel(freePages) + '.',
@@ -1671,9 +1841,9 @@
             y = m;
           }
 
-          const rowColor = item.isDiscount ? PDF_GREEN_INK : PDF_INK;
+          const rowColor = (item.isDiscount || item.included) ? PDF_GREEN_INK : PDF_INK;
           pdfText(doc, item.label, m + 4, y + 5.2, { role: 'body', style: 'bold', size: 9.5, color: rowColor });
-          pdfText(doc, formatCurrency(item.amount), rightX - 4, y + 5.2, { role: 'body', style: 'bold', size: 9.5, color: rowColor, align: 'right' });
+          pdfText(doc, item.included ? 'Included' : formatCurrency(item.amount), rightX - 4, y + 5.2, { role: 'body', style: 'bold', size: 9.5, color: rowColor, align: 'right' });
           pdfText(doc, detail, m + 4, y + 9.8, { role: 'body', size: 8, color: PDF_MUTED });
 
           y += rowH;
@@ -1712,6 +1882,12 @@
         }
         if (data.hasAi) {
           terms += ' AI provider usage bills are not included in this estimate and are paid by the client.';
+        }
+        if (data.hasPayments) {
+          terms += ' Payment provider (Stripe) transaction fees are not included in this estimate and are paid by the client.';
+        }
+        if (data.hasExpress) {
+          terms += ' Express Delivery timing starts once all content and materials have been received.';
         }
         if (data.hasPrioritySupport) {
           terms += ' Priority Support adds 6 months of technical support to the 6 included, for 12 months in total after final delivery, with priority handling throughout.';
@@ -1869,7 +2045,7 @@
         if (document.getElementById('integration-calendar').checked) integrations.push("Calendar");
         if (document.getElementById('integration-database').checked) integrations.push("Database");
         if (document.getElementById('integration-map').checked) integrations.push("Map");
-        if (document.getElementById('integration-tracking').checked) integrations.push("Tracking");
+        if (document.getElementById('integration-payments').checked) integrations.push("Payments (Stripe)");
         if (document.getElementById('integration-ai').checked) integrations.push("AI");
         integrations = [...integrations, ...customIntegrations];
 
@@ -1877,6 +2053,9 @@
         if (document.getElementById('feature-seo').checked) features.push("SEO/GEO");
         if (document.getElementById('feature-domain').checked) features.push("Pro Domain");
         if (document.getElementById('feature-multilang').checked) features.push("Multilingual");
+        if (document.getElementById('feature-brand').checked) features.push("Logo & Brand Kit");
+        if (document.getElementById('feature-store').checked) features.push("Online Store");
+        if (document.getElementById('feature-express').checked) features.push("Express Delivery");
         if (document.getElementById('feature-priority-support').checked) features.push("Priority Support (1 yr)");
 
         const extraPageCount = ['page-portfolio', 'page-services', 'page-about']
@@ -1886,13 +2065,17 @@
           ? `\n- Volume discount: ${freePagesLabel(freePages)}`
           : '';
 
+        const storeLine = document.getElementById('feature-store').checked
+          ? `\n- Store pages (included): ${STORE_PAGES.join(", ")}`
+          : '';
+
         const fxNote = (currentCurrency !== 'USD' && exchangeRate)
           ? '\nConverted amounts are indicative, at the exchange rate on ' + d.generated + '.'
           : '';
 
         return `Hi Grasshopper team! I configured my project using your Cost Calculator:
 - Base Price: $${calculatedBase.toFixed(2)} USD (Discount: ${discountPercent}%)
-- Pages: ${pages.join(", ")}${pagesDiscountLine}
+- Pages: ${pages.join(", ")}${pagesDiscountLine}${storeLine}
 - Integrations: ${integrations.join(", ")}
 - Features: ${features.length > 0 ? features.join(", ") : "None"}
 
@@ -1933,6 +2116,38 @@ I'd like to discuss launching this project!`;
         }, 3000);
       }
 
+      // ===== COLLAPSIBLE CARD NOTES =====
+      // Each card description starts as one line. A "more" / "less" button
+      // appears only when the text is actually cut off.
+      function setupCardNotes() {
+        document.querySelectorAll('.card-note').forEach((note) => {
+          note.classList.add('line-clamp-1'); // line-clamp makes it block-level itself
+          note.parentElement.classList.add('min-w-0');
+          note.parentElement.parentElement.classList.add('min-w-0');
+
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.textContent = 'more';
+          btn.className = 'hidden text-[11px] font-mono text-grass-green hover:underline mt-0.5';
+          note.after(btn);
+
+          const refresh = () => {
+            const open = !note.classList.contains('line-clamp-1');
+            const cutOff = note.scrollHeight > note.clientHeight + 1;
+            btn.classList.toggle('hidden', !open && !cutOff);
+          };
+          btn.addEventListener('click', (e) => {
+            e.preventDefault(); // the card is a <label>: don't tick the checkbox
+            const open = note.classList.toggle('line-clamp-1') === false;
+            note.classList.toggle('block', open); // keep the button on its own line once unclamped
+            btn.textContent = open ? 'less' : 'more';
+            btn.setAttribute('aria-expanded', String(open));
+          });
+          window.addEventListener('resize', refresh);
+          refresh();
+        });
+      }
+
       // ===== INIT =====
       window.addEventListener('DOMContentLoaded', () => {
         const today = new Date();
@@ -1945,8 +2160,11 @@ I'd like to discuss launching this project!`;
 
         const fromURL = loadFromURL();
         if (!fromURL) loadFromLocalStorage();
+        restoringState = false;
+        setupCardNotes();
         updateValidity();
         calculateAll();
+        saveToLocalStorage();
       });
 
     </script>
