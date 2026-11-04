@@ -25,3 +25,6 @@
 [submodule "projects/aratoca-en-hilos"]
 	path = projects/aratoca-en-hilos
 	url = https://github.com/grasshopper-it-solutions/aratoca-en-hilos
+[submodule "landing-pages/noah-addmedia"]
+	path = landing-pages/noah-addmedia
+	url = https://github.com/Grasshopper-IT-Solutions/noah-addmedia.git
