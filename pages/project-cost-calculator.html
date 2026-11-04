@@ -217,7 +217,7 @@
                 <span class="text-xs text-gray-600 font-mono">USD</span>
               </div>
               <p class="text-[11px] text-gray-600 mt-2 leading-relaxed">
-                Covers hosting, home & contact pages, WhatsApp integration, navigation header with logo, social links footer, T&C & privacy pages, professional design, simple architecture, and simple domain.
+                Covers hosting, home & contact pages, WhatsApp integration, navigation header with logo, social links footer, T&C & privacy pages, professional design, simple architecture, simple domain, and 6 months of included technical support.
               </p>
             </div>
 
@@ -267,9 +267,16 @@
           <h3 class="text-lg font-semibold text-white flex items-center gap-2 mb-2">
             <span class="text-grass-green text-sm font-mono">[02]</span> Extra Pages
           </h3>
-          <p class="text-xs text-gray-500 mb-4 leading-relaxed">
+          <p class="text-xs text-gray-500 mb-2 leading-relaxed">
             Additional pages for your project.
             <span class="text-grass-green/90 font-mono">(<span class="rate-pages">$62.50</span> each)</span>
+          </p>
+          <p class="text-xs text-grass-green/90 mb-4 leading-relaxed flex items-start gap-1.5">
+            <i data-lucide="gift" class="w-3.5 h-3.5 mt-px flex-shrink-0"></i>
+            <span>
+              Every 5 extra pages, 1 is free — applied automatically.
+              <span id="pages-discount-hint" class="block text-gray-500 font-mono text-[11px] mt-0.5 empty:hidden"></span>
+            </span>
           </p>
 
           <!-- Action Buttons: Preset + Clear Budget -->
@@ -381,7 +388,7 @@
           </div>
 
           <!-- Predefined list of integrations -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
+          <div class="grid grid-cols-1 gap-3 mb-4">
             <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
               <span class="flex items-center gap-3">
                 <input type="checkbox" id="integration-calendar" class="integration-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
@@ -392,10 +399,13 @@
 
             <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
               <span class="flex items-center gap-3">
-                <input type="checkbox" id="integration-filemanager" class="integration-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
-                <span class="text-sm font-medium text-gray-300">File Manager</span>
+                <input type="checkbox" id="integration-database" class="integration-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
+                <div>
+                  <span class="text-sm font-medium text-gray-300 block">Database integration</span>
+                  <span class="text-[11px] text-gray-600">Store and manage your data, for example in Google Sheets, a dedicated database or Dropbox.</span>
+                </div>
               </span>
-              <span class="text-xs font-mono text-gray-500 rate-tag-integrations">$125.00</span>
+              <span class="ml-3 flex-shrink-0 whitespace-nowrap text-xs font-mono text-gray-500 rate-tag-integrations">$125.00</span>
             </label>
 
             <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
@@ -412,6 +422,17 @@
                 <span class="text-sm font-medium text-gray-300">Tracking System</span>
               </span>
               <span class="text-xs font-mono text-gray-500 rate-tag-integrations">$125.00</span>
+            </label>
+
+            <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
+              <span class="flex items-center gap-3">
+                <input type="checkbox" id="integration-ai" class="integration-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
+                <div>
+                  <span class="text-sm font-medium text-gray-300 block">AI integration</span>
+                  <span class="text-[11px] text-gray-600">Smart features powered by AI, such as a chatbot that answers your visitors' questions. Usage bills from the AI provider are paid by the client.</span>
+                </div>
+              </span>
+              <span class="ml-3 flex-shrink-0 whitespace-nowrap text-xs font-mono text-gray-500 rate-tag-integrations">$125.00</span>
             </label>
           </div>
 
@@ -444,7 +465,7 @@
             <span class="text-grass-green text-sm font-mono">[04]</span> Pro Features
           </h3>
           <p class="text-xs text-gray-500 mb-4 leading-relaxed">
-            Premium options to boost your site's visibility and reach.
+            Premium options to boost your site's visibility, reach and support.
             <span class="text-grass-green/90 font-mono">(<span class="rate-features">$50.00</span> each)</span>
           </p>
 
@@ -477,6 +498,17 @@
                 <div>
                   <span class="text-sm font-medium text-gray-300 block">Multilingual</span>
                   <span class="text-[11px] text-gray-600">Make your website available in multiple languages for a wider audience.</span>
+                </div>
+              </span>
+              <span class="text-xs font-mono text-gray-500 rate-tag-features">$50.00</span>
+            </label>
+
+            <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
+              <span class="flex items-center gap-3">
+                <input type="checkbox" id="feature-priority-support" class="feature-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
+                <div>
+                  <span class="text-sm font-medium text-gray-300 block">1 Year Priority Support</span>
+                  <span class="text-[11px] text-gray-600">Adds 6 months of technical support on top of the 6 included (12 months in total after final delivery), with your requests handled first for the full year.</span>
                 </div>
               </span>
               <span class="text-xs font-mono text-gray-500 rate-tag-features">$50.00</span>
@@ -525,7 +557,7 @@
               <!-- Validity Period (Fixed) -->
               <div class="flex items-center gap-1">
                 <span class="text-[10px] font-mono text-gray-600">VALID:</span>
-                <span class="text-[10px] font-mono text-grass-green bg-grass-green/10 px-1.5 py-0.5 rounded border border-grass-green/20">15 days</span>
+                <span class="text-[10px] font-mono text-grass-green bg-grass-green/10 px-1.5 py-0.5 rounded border border-grass-green/20">30 days</span>
               </div>
             </div>
             <p class="text-[9px] text-gray-600 font-mono mb-4" id="exchange-rate-display"></p>
@@ -557,6 +589,15 @@
                   <div id="invoice-pages-names" class="text-[10px] text-grass-green/70 italic max-w-xs mt-0.5"></div>
                 </div>
                 <span id="invoice-pages-total" class="font-mono text-white">$0.00</span>
+              </div>
+
+              <!-- Volume discount: only shown once earned (every 5 extra pages) -->
+              <div id="invoice-pages-discount-row" class="hidden flex items-start justify-between text-xs py-1.5 text-emerald-400">
+                <div>
+                  <span class="font-medium">Volume Discount</span>
+                  <span id="invoice-pages-discount-note" class="text-[10px] font-mono text-emerald-400/70 block"></span>
+                </div>
+                <span id="invoice-pages-discount-total" class="font-mono"></span>
               </div>
 
               <!-- Integrations -->
@@ -607,7 +648,7 @@
               <p class="mt-1">
                 Prices are indicative and may be reviewed or changed without
                 notice. Any budget generated here is valid and will be honoured
-                for 15 days from its creation date.
+                for 30 days from its creation date.
               </p>
               <p class="mt-1 hidden" id="fx-terms">
                 Converted amounts are indicative only, based on the exchange
@@ -747,7 +788,16 @@
       const PAGES_RATE_MULT = 0.25;        // 25% of Base
       const INTEGRATIONS_RATE_MULT = 0.50;  // 50% of Base
       const FEATURES_RATE_MULT = 0.20;      // 20% of Base
-      const VALIDITY_DAYS = 15;
+
+      // Volume discount: every 5 extra pages, 1 is free.
+      const PAGES_PER_FREE_PAGE = 5;
+      function freePagesFor(pageCount) {
+        return Math.floor(pageCount / PAGES_PER_FREE_PAGE);
+      }
+      function freePagesLabel(freePages) {
+        return `${freePages} page${freePages === 1 ? '' : 's'} free (every ${PAGES_PER_FREE_PAGE} extra pages)`;
+      }
+      const VALIDITY_DAYS = 30;
 
       // A quote that gets saved, forwarded and quoted back at us needs its own
       // identity, so the reference is minted per visit rather than being one
@@ -781,12 +831,14 @@
         document.getElementById('page-services').checked = false;
         document.getElementById('page-about').checked = false;
         document.getElementById('integration-calendar').checked = false;
-        document.getElementById('integration-filemanager').checked = false;
+        document.getElementById('integration-database').checked = false;
+        document.getElementById('integration-ai').checked = false;
         document.getElementById('integration-map').checked = false;
         document.getElementById('integration-tracking').checked = false;
         document.getElementById('feature-seo').checked = false;
         document.getElementById('feature-domain').checked = false;
         document.getElementById('feature-multilang').checked = false;
+        document.getElementById('feature-priority-support').checked = false;
         customPages = [];
         customIntegrations = [];
         renderPageChips();
@@ -989,10 +1041,10 @@
             return Math.round(amountUSD * exchangeRate).toLocaleString() + ' ' + currentCurrency;
           }
         }
-        return '$' + amountUSD.toFixed(2) + ' USD';
+        return (amountUSD < 0 ? '-' : '') + '$' + Math.abs(amountUSD).toFixed(2) + ' USD';
       }
 
-      // ===== VALIDITY (Fixed 15 days) =====
+      // ===== VALIDITY (Fixed 30 days) =====
       const DATE_FMT = { year: 'numeric', month: 'short', day: 'numeric' };
 
       function quoteDates() {
@@ -1112,6 +1164,25 @@
         saveToLocalStorage();
       }
 
+      // Shows the earned volume discount in the breakdown, and tells the visitor
+      // in the Extra Pages section how close the next free page is.
+      function updatePagesDiscountUI(pagesCount, freePages, pagesDiscount) {
+        document.getElementById('invoice-pages-discount-row').classList.toggle('hidden', freePages === 0);
+        document.getElementById('invoice-pages-discount-note').textContent = freePagesLabel(freePages);
+        document.getElementById('invoice-pages-discount-total').textContent = formatCurrency(-pagesDiscount);
+
+        const toNext = PAGES_PER_FREE_PAGE - (pagesCount % PAGES_PER_FREE_PAGE);
+        const more = `${toNext} more page${toNext === 1 ? '' : 's'}`;
+        const hint = document.getElementById('pages-discount-hint');
+        if (pagesCount === 0) {
+          hint.textContent = '';
+        } else if (freePages === 0) {
+          hint.textContent = `${more} to unlock your first free page.`;
+        } else {
+          hint.textContent = `${freePages} free page${freePages === 1 ? '' : 's'} applied. ${more} for the next one.`;
+        }
+      }
+
       // ===== MAIN CALCULATION ENGINE =====
       function calculateAll() {
         const calculatedBase = BASE_VALUE * (1 - discountPercent / 100);
@@ -1141,6 +1212,10 @@
         const pagesCount = allPages.length;
         const totalPagesCost = pagesCount * pageRate;
 
+        const freePages = freePagesFor(pagesCount);
+        const pagesDiscount = freePages * pageRate;
+        updatePagesDiscountUI(pagesCount, freePages, pagesDiscount);
+
         document.getElementById('invoice-pages-count').textContent = `${pagesCount} selected`;
         document.getElementById('invoice-pages-total').textContent = formatCurrency(totalPagesCost);
         document.getElementById('invoice-pages-names').textContent = pagesCount > 0 ? allPages.join(", ") : '';
@@ -1148,9 +1223,10 @@
         // Integrations (WhatsApp is fixed/included)
         let integrationNames = [];
         if (document.getElementById('integration-calendar').checked) integrationNames.push("Calendar");
-        if (document.getElementById('integration-filemanager').checked) integrationNames.push("File Manager");
+        if (document.getElementById('integration-database').checked) integrationNames.push("Database");
         if (document.getElementById('integration-map').checked) integrationNames.push("Map");
         if (document.getElementById('integration-tracking').checked) integrationNames.push("Tracking System");
+        if (document.getElementById('integration-ai').checked) integrationNames.push("AI");
 
         const allIntegrations = [...integrationNames, ...customIntegrations];
         const integrationsCount = allIntegrations.length;
@@ -1165,6 +1241,7 @@
         if (document.getElementById('feature-seo').checked) featureNames.push("SEO / GEO");
         if (document.getElementById('feature-domain').checked) featureNames.push("Pro Domain");
         if (document.getElementById('feature-multilang').checked) featureNames.push("Multilingual");
+        if (document.getElementById('feature-priority-support').checked) featureNames.push("Priority Support (1 yr)");
 
         const featuresCount = featureNames.length;
         const totalFeaturesCost = featuresCount * featureRate;
@@ -1174,10 +1251,16 @@
         document.getElementById('invoice-features-names').textContent = featuresCount > 0 ? featureNames.join(", ") : '';
 
         // Total
-        const totalCost = calculatedBase + totalPagesCost + totalIntegrationsCost + totalFeaturesCost;
+        const totalCost = calculatedBase + totalPagesCost - pagesDiscount + totalIntegrationsCost + totalFeaturesCost;
         
         document.getElementById('total-display').textContent = formatCurrency(totalCost);
         document.getElementById('total-currency-label').textContent = currentCurrency;
+      }
+
+      // This slot used to be "File Manager" (key i_fm). Saved states and shared
+      // quote links from before the rename must keep their price.
+      function savedDatabaseFlag(state) {
+        return state.i_db !== undefined ? state.i_db : state.i_fm;
       }
 
       // ===== LOCALSTORAGE PERSISTENCE =====
@@ -1189,12 +1272,14 @@
           p_s: document.getElementById('page-services').checked,
           p_a: document.getElementById('page-about').checked,
           i_c: document.getElementById('integration-calendar').checked,
-          i_fm: document.getElementById('integration-filemanager').checked,
+          i_db: document.getElementById('integration-database').checked,
+          i_ai: document.getElementById('integration-ai').checked,
           i_m: document.getElementById('integration-map').checked,
           i_t: document.getElementById('integration-tracking').checked,
           f_s: document.getElementById('feature-seo').checked,
           f_d: document.getElementById('feature-domain').checked,
           f_m: document.getElementById('feature-multilang').checked,
+          f_ps: document.getElementById('feature-priority-support').checked,
           cp: customPages,
           ci: customIntegrations,
         };
@@ -1222,13 +1307,16 @@
           if (state.p_a !== undefined) document.getElementById('page-about').checked = state.p_a;
 
           if (state.i_c !== undefined) document.getElementById('integration-calendar').checked = state.i_c;
-          if (state.i_fm !== undefined) document.getElementById('integration-filemanager').checked = state.i_fm;
+          const savedDb = savedDatabaseFlag(state);
+          if (savedDb !== undefined) document.getElementById('integration-database').checked = savedDb;
+          if (state.i_ai !== undefined) document.getElementById('integration-ai').checked = state.i_ai;
           if (state.i_m !== undefined) document.getElementById('integration-map').checked = state.i_m;
           if (state.i_t !== undefined) document.getElementById('integration-tracking').checked = state.i_t;
 
           if (state.f_s !== undefined) document.getElementById('feature-seo').checked = state.f_s;
           if (state.f_d !== undefined) document.getElementById('feature-domain').checked = state.f_d;
           if (state.f_m !== undefined) document.getElementById('feature-multilang').checked = state.f_m;
+          if (state.f_ps !== undefined) document.getElementById('feature-priority-support').checked = state.f_ps;
 
           if (state.cp && Array.isArray(state.cp)) {
             customPages = state.cp;
@@ -1254,12 +1342,14 @@
           p_s: document.getElementById('page-services').checked,
           p_a: document.getElementById('page-about').checked,
           i_c: document.getElementById('integration-calendar').checked,
-          i_fm: document.getElementById('integration-filemanager').checked,
+          i_db: document.getElementById('integration-database').checked,
+          i_ai: document.getElementById('integration-ai').checked,
           i_m: document.getElementById('integration-map').checked,
           i_t: document.getElementById('integration-tracking').checked,
           f_s: document.getElementById('feature-seo').checked,
           f_d: document.getElementById('feature-domain').checked,
           f_m: document.getElementById('feature-multilang').checked,
+          f_ps: document.getElementById('feature-priority-support').checked,
           cp: customPages,
           ci: customIntegrations,
         };
@@ -1294,13 +1384,16 @@
           if (state.p_a !== undefined) document.getElementById('page-about').checked = state.p_a;
 
           if (state.i_c !== undefined) document.getElementById('integration-calendar').checked = state.i_c;
-          if (state.i_fm !== undefined) document.getElementById('integration-filemanager').checked = state.i_fm;
+          const savedDb = savedDatabaseFlag(state);
+          if (savedDb !== undefined) document.getElementById('integration-database').checked = savedDb;
+          if (state.i_ai !== undefined) document.getElementById('integration-ai').checked = state.i_ai;
           if (state.i_m !== undefined) document.getElementById('integration-map').checked = state.i_m;
           if (state.i_t !== undefined) document.getElementById('integration-tracking').checked = state.i_t;
 
           if (state.f_s !== undefined) document.getElementById('feature-seo').checked = state.f_s;
           if (state.f_d !== undefined) document.getElementById('feature-domain').checked = state.f_d;
           if (state.f_m !== undefined) document.getElementById('feature-multilang').checked = state.f_m;
+          if (state.f_ps !== undefined) document.getElementById('feature-priority-support').checked = state.f_ps;
 
           if (state.cp && Array.isArray(state.cp)) {
             customPages = state.cp;
@@ -1440,24 +1533,28 @@
 
         let integrationNames = [];
         if (document.getElementById('integration-calendar').checked) integrationNames.push("Calendar");
-        if (document.getElementById('integration-filemanager').checked) integrationNames.push("File Manager");
+        if (document.getElementById('integration-database').checked) integrationNames.push("Database");
         if (document.getElementById('integration-map').checked) integrationNames.push("Map");
         if (document.getElementById('integration-tracking').checked) integrationNames.push("Tracking System");
+        if (document.getElementById('integration-ai').checked) integrationNames.push("AI");
         const allIntegrations = [...integrationNames, ...customIntegrations];
 
         let featureNames = [];
         if (document.getElementById('feature-seo').checked) featureNames.push("SEO / GEO");
         if (document.getElementById('feature-domain').checked) featureNames.push("Pro Domain");
         if (document.getElementById('feature-multilang').checked) featureNames.push("Multilingual");
+        if (document.getElementById('feature-priority-support').checked) featureNames.push("Priority Support (1 yr)");
 
         const pageRate = calculatedBase * PAGES_RATE_MULT;
         const integrationRate = calculatedBase * INTEGRATIONS_RATE_MULT;
         const featureRate = calculatedBase * FEATURES_RATE_MULT;
 
         const pagesCost = allPages.length * pageRate;
+        const freePages = freePagesFor(allPages.length);
+        const pagesDiscount = freePages * pageRate;
         const integrationsCost = allIntegrations.length * integrationRate;
         const featuresCost = featureNames.length * featureRate;
-        const total = calculatedBase + pagesCost + integrationsCost + featuresCost;
+        const total = calculatedBase + pagesCost - pagesDiscount + integrationsCost + featuresCost;
 
         return {
           ref: QUOTE_REF,
@@ -1465,11 +1562,13 @@
           expires: d.expires,
           currency: currentCurrency,
           isConverted: currentCurrency !== 'USD' && !!exchangeRate,
+          hasAi: document.getElementById('integration-ai').checked,
+          hasPrioritySupport: document.getElementById('feature-priority-support').checked,
           discountPercent,
           items: [
             {
               label: 'Base Package',
-              detail: 'Hosting, home & contact pages, WhatsApp integration, navigation header, footer, T&C & privacy pages, professional design.',
+              detail: 'Hosting, home & contact pages, WhatsApp integration, navigation header, footer, T&C & privacy pages, professional design, and 6 months of technical support.',
               amount: calculatedBase
             },
             {
@@ -1477,6 +1576,12 @@
               detail: allPages.length ? allPages.join(', ') : 'None selected.',
               amount: pagesCost
             },
+            ...(freePages > 0 ? [{
+              label: 'Volume Discount',
+              detail: freePagesLabel(freePages) + '.',
+              amount: -pagesDiscount,
+              isDiscount: true
+            }] : []),
             {
               label: 'Integrations',
               detail: allIntegrations.length ? allIntegrations.join(', ') : 'WhatsApp only (included in base).',
@@ -1566,8 +1671,9 @@
             y = m;
           }
 
-          pdfText(doc, item.label, m + 4, y + 5.2, { role: 'body', style: 'bold', size: 9.5 });
-          pdfText(doc, formatCurrency(item.amount), rightX - 4, y + 5.2, { role: 'body', style: 'bold', size: 9.5, align: 'right' });
+          const rowColor = item.isDiscount ? PDF_GREEN_INK : PDF_INK;
+          pdfText(doc, item.label, m + 4, y + 5.2, { role: 'body', style: 'bold', size: 9.5, color: rowColor });
+          pdfText(doc, formatCurrency(item.amount), rightX - 4, y + 5.2, { role: 'body', style: 'bold', size: 9.5, color: rowColor, align: 'right' });
           pdfText(doc, detail, m + 4, y + 9.8, { role: 'body', size: 8, color: PDF_MUTED });
 
           y += rowH;
@@ -1603,6 +1709,12 @@
           'will be honoured for ' + VALIDITY_DAYS + ' days from its creation date (' + data.generated + '), expiring ' + data.expires + '.';
         if (data.isConverted) {
           terms += ' Converted amounts are indicative only, based on the exchange rate retrieved on the generation date.';
+        }
+        if (data.hasAi) {
+          terms += ' AI provider usage bills are not included in this estimate and are paid by the client.';
+        }
+        if (data.hasPrioritySupport) {
+          terms += ' Priority Support adds 6 months of technical support to the 6 included, for 12 months in total after final delivery, with priority handling throughout.';
         }
         terms += ' Estimates are non-binding and actual costs may vary with the final agreed scope.';
 
@@ -1755,15 +1867,24 @@
 
         let integrations = ["WhatsApp"];
         if (document.getElementById('integration-calendar').checked) integrations.push("Calendar");
-        if (document.getElementById('integration-filemanager').checked) integrations.push("File Manager");
+        if (document.getElementById('integration-database').checked) integrations.push("Database");
         if (document.getElementById('integration-map').checked) integrations.push("Map");
         if (document.getElementById('integration-tracking').checked) integrations.push("Tracking");
+        if (document.getElementById('integration-ai').checked) integrations.push("AI");
         integrations = [...integrations, ...customIntegrations];
 
         let features = [];
         if (document.getElementById('feature-seo').checked) features.push("SEO/GEO");
         if (document.getElementById('feature-domain').checked) features.push("Pro Domain");
         if (document.getElementById('feature-multilang').checked) features.push("Multilingual");
+        if (document.getElementById('feature-priority-support').checked) features.push("Priority Support (1 yr)");
+
+        const extraPageCount = ['page-portfolio', 'page-services', 'page-about']
+          .filter((id) => document.getElementById(id).checked).length + customPages.length;
+        const freePages = freePagesFor(extraPageCount);
+        const pagesDiscountLine = freePages > 0
+          ? `\n- Volume discount: ${freePagesLabel(freePages)}`
+          : '';
 
         const fxNote = (currentCurrency !== 'USD' && exchangeRate)
           ? '\nConverted amounts are indicative, at the exchange rate on ' + d.generated + '.'
@@ -1771,7 +1892,7 @@
 
         return `Hi Grasshopper team! I configured my project using your Cost Calculator:
 - Base Price: $${calculatedBase.toFixed(2)} USD (Discount: ${discountPercent}%)
-- Pages: ${pages.join(", ")}
+- Pages: ${pages.join(", ")}${pagesDiscountLine}
 - Integrations: ${integrations.join(", ")}
 - Features: ${features.length > 0 ? features.join(", ") : "None"}
 
