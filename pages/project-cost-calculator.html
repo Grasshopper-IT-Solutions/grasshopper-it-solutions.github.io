@@ -284,6 +284,9 @@
             <button type="button" onclick="applyBasicWebpagePreset()" class="px-4 py-2 bg-grass-green/10 hover:bg-grass-green/20 border border-grass-green/30 text-grass-green text-xs font-mono font-bold rounded-lg transition flex items-center gap-2">
               <i data-lucide="zap" class="w-3.5 h-3.5"></i> PRESET: BASIC WEBPAGE (About + Services)
             </button>
+            <button type="button" onclick="applyMarketplacePreset()" class="px-4 py-2 bg-grass-green/10 hover:bg-grass-green/20 border border-grass-green/30 text-grass-green text-xs font-mono font-bold rounded-lg transition flex items-center gap-2">
+              <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i> PRESET: MARKETPLACE (Online Store + About + SEO)
+            </button>
             <button type="button" onclick="clearSelections()" class="px-4 py-2 bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 text-red-400 text-xs font-mono font-bold rounded-lg transition flex items-center gap-2">
               <i data-lucide="eraser" class="w-3.5 h-3.5"></i> CLEAR BUDGET
             </button>
@@ -951,6 +954,15 @@
         document.getElementById('page-about').checked = true;
         document.getElementById('page-services').checked = true;
         showToast('Basic Webpage preset applied: About + Services');
+        triggerRecalculate();
+      }
+
+      // Online Store switches on Database + Payments by itself (FEATURE_REQUIRES).
+      function applyMarketplacePreset() {
+        document.getElementById('page-about').checked = true;
+        document.getElementById('feature-store').checked = true;
+        document.getElementById('feature-seo').checked = true;
+        showToast('Marketplace preset applied: Online Store + About + SEO');
         triggerRecalculate();
       }
 
