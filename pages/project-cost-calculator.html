@@ -401,9 +401,12 @@
             <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
               <span class="flex items-center gap-3">
                 <input type="checkbox" id="integration-calendar" class="integration-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
-                <span class="text-sm font-medium text-gray-300">Calendar</span>
+                <div>
+                  <span class="text-sm font-medium text-gray-300 block">Calendar</span>
+                  <span class="card-note text-[11px] text-gray-600">Let visitors book appointments or see your availability, for example with Google Calendar.</span>
+                </div>
               </span>
-              <span class="text-xs font-mono text-gray-500 rate-tag-integrations">$125.00</span>
+              <span class="ml-3 flex-shrink-0 whitespace-nowrap text-xs font-mono text-gray-500 rate-tag-integrations">$125.00</span>
             </label>
 
             <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
@@ -421,9 +424,12 @@
             <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
               <span class="flex items-center gap-3">
                 <input type="checkbox" id="integration-map" class="integration-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
-                <span class="text-sm font-medium text-gray-300">Map</span>
+                <div>
+                  <span class="text-sm font-medium text-gray-300 block">Map</span>
+                  <span class="card-note text-[11px] text-gray-600">Show your location or service area on an interactive map, for example with Google Maps.</span>
+                </div>
               </span>
-              <span class="text-xs font-mono text-gray-500 rate-tag-integrations">$125.00</span>
+              <span class="ml-3 flex-shrink-0 whitespace-nowrap text-xs font-mono text-gray-500 rate-tag-integrations">$125.00</span>
             </label>
 
             <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
@@ -1584,12 +1590,11 @@
       // ===== QUOTE PDF =====
       // One generator, used by both the download button and the share button,
       // so the two can never drift apart.
+      // Named after the quote reference printed in the document itself
+      // (e.g. GR-261104-K7QX; it already carries the date), so a saved file can
+      // be matched to its quote and two downloads never share a name.
       function pdfFilename() {
-        const d = new Date();
-        const stamp = d.getFullYear() + '-' +
-          String(d.getMonth() + 1).padStart(2, '0') + '-' +
-          String(d.getDate()).padStart(2, '0');
-        return 'Grasshopper-Quote-' + stamp + '.pdf';
+        return 'Grasshopper-Quote-' + QUOTE_REF + '.pdf';
       }
 
       // The quote used to be an html2canvas screenshot of the on-page invoice
