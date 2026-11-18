@@ -8,12 +8,19 @@
  * `apps/*` still uses the CDN script and is intentionally out of scope here.
  *
  * Regenerate after editing markup or this file:
- *   npm install && npm run build:css
+ *   npm install && npm run build   (i18n pages, then this stylesheet)
+ *
+ * Markup is authored in src/ (templates + partials) and generated into the
+ * English pages (index.html, pages/) and the Spanish ones (es/). All of them
+ * are scanned so a class used only in a template, a partial or one language
+ * still makes it into the stylesheet.
  */
 module.exports = {
   content: [
     "./index.html",
     "./pages/**/*.html",
+    "./es/**/*.html",
+    "./src/**/*.html",
   ],
   theme: {
     extend: {

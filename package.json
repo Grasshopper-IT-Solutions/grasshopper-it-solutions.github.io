@@ -2,10 +2,13 @@
   "name": "grasshopper-website",
   "private": true,
   "version": "1.0.0",
-  "description": "Static build tooling for grasshoppersolutions.online. The site itself is plain HTML/CSS/JS with no runtime build step; this only compiles the Tailwind stylesheet ahead of time so visitors never download the CDN compiler.",
+  "description": "Static build tooling for grasshoppersolutions.online. The site itself is plain HTML/CSS/JS with no runtime build step; this generates the English and Spanish pages from src/ templates + i18n/ strings, and compiles the Tailwind stylesheet ahead of time so visitors never download the CDN compiler.",
   "scripts": {
+    "build": "npm run build:i18n && npm run build:css && npm run check:links",
+    "build:i18n": "node scripts/build-i18n.js",
     "build:css": "tailwindcss -i ./styles/tailwind-input.css -o ./styles/tailwind.css --minify",
-    "watch:css": "tailwindcss -i ./styles/tailwind-input.css -o ./styles/tailwind.css --watch"
+    "watch:css": "tailwindcss -i ./styles/tailwind-input.css -o ./styles/tailwind.css --watch",
+    "check:links": "node scripts/check-links.js"
   },
   "devDependencies": {
     "tailwindcss": "3.4.19"

@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="{{$lang}}" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{services.page_title}}</title>
+    <link
+      rel="icon"
+      href="{{$site}}assets/grasshopper-geometric-logo.svg"
+      type="image/svg+xml"
+    />
+    {{> head-i18n}}
+    <meta name="description" content="{{services.meta_description}}" />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Grasshopper Solutions" />
+    <meta property="og:url" content="{{$url}}" />
+    <meta property="og:title" content="{{services.og_title}}" />
+    <meta property="og:description" content="{{services.og_description}}" />
+    <meta property="og:image" content="https://grasshoppersolutions.online/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://grasshoppersolutions.online/assets/og-image.png" />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Outfit:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@1.47.0/dist/umd/lucide.min.js"></script>
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="{{$site}}styles/tailwind.css" />
+    <link rel="stylesheet" href="{{$site}}styles/main.css" />
+  </head>
+  <body
+    class="bg-deep-space text-gray-300 font-sans antialiased selection:bg-grass-green selection:text-black overflow-x-hidden"
+  >
+    {{> header}}
+
+    <!-- Hero Section -->
+    <section
+      class="relative pt-32 pb-20 lg:pt-56 lg:pb-32 overflow-hidden min-h-screen flex items-center"
+    >
+      <div
+        class="absolute inset-0 bg-[linear-gradient(to_right,#1e1e1e_1px,transparent_1px),linear-gradient(to_bottom,#1e1e1e_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20 pointer-events-none"
+      ></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <div
+              class="inline-flex items-center px-3 py-1 mb-6 text-xs font-mono font-semibold tracking-tighter text-grass-green uppercase bg-grass-green/10 rounded-full border border-grass-green/20"
+            >
+              <span
+                class="w-2 h-2 bg-grass-green rounded-full mr-2 animate-ping"
+              ></span>
+              {{services.typical_delivery_3_7_days}}
+            </div>
+            <h1
+              class="text-4xl sm:text-5xl md:text-7xl font-bold font-heading tracking-tight mb-6 leading-[1.05] text-white"
+            >
+              <span class="block glitch-wrapper" data-text="{{services.have_your_site}}"
+                >{{services.have_your_site}}</span
+              >
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-grass-green to-cyber-blue"
+                >{{services.done_by_tomorrow}}</span
+              >
+            </h1>
+            <p
+              class="text-xl text-gray-400 mb-10 max-w-lg leading-relaxed font-sans font-light"
+            >
+              {{services.built_for_small_businesses_and_quick}}
+            </p>
+            <div class="flex flex-wrap gap-4 items-center">
+              <a
+                href="../index.html#contact"
+                class="bg-grass-green text-black font-bold py-4 px-10 rounded-full hover:bg-white hover:scale-105 transition-all shadow-[0_0_30px_rgba(0,255,65,0.2)]"
+              >
+                {{services.start_a_project}}
+              </a>
+              <a
+                href="project-cost-calculator.html"
+                class="border border-grass-green/40 text-grass-green font-bold py-4 px-8 rounded-full hover:bg-grass-green/10 hover:border-grass-green transition-all"
+              >
+                {{services.price_it_yourself}}
+              </a>
+            </div>
+          </div>
+          <div class="relative hidden lg:flex justify-end">
+            <div class="relative w-80 h-80 md:w-96 md:h-96">
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-grass-green to-cyber-blue rounded-full blur-3xl opacity-20 animate-pulse-slow"
+              ></div>
+              <div
+                class="relative w-full h-full bg-card-gray/80 backdrop-blur-sm border border-white/10 rounded-2xl p-6 flex flex-col items-center justify-center animate-float shadow-2xl"
+              >
+                <div class="w-48 h-48 mb-6 relative">
+                  <img
+                    src="{{$site}}assets/grasshopper-geometric-logo.svg"
+                    alt="{{common.alt_logo}}"
+                    class="w-full h-full drop-shadow-[0_0_15px_rgba(0,255,65,0.6)]"
+                  />
+                </div>
+                <div class="text-center w-full">
+                  <h3 class="text-2xl font-mono text-white font-bold">
+                    Grassy Hopper
+                  </h3>
+                  <div
+                    class="h-px w-full bg-gradient-to-r from-transparent via-grass-green to-transparent my-3"
+                  ></div>
+                  <p class="text-cyber-blue font-mono text-sm">
+                    > System.Ready()
+                  </p>
+                </div>
+                <div
+                  class="absolute -top-4 -right-4 bg-black border border-grass-green text-grass-green px-3 py-1 rounded-full text-xs font-mono transform rotate-12"
+                >
+                  V 1.0
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack Marquee (Expanded) -->
+    <div
+      class="py-12 bg-black/50 border-y border-white/5 overflow-hidden whitespace-nowrap"
+    >
+      <div class="flex animate-scroll w-max gap-20 items-center">
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >REACT.JS</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >PYTHON</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >NODE.JS</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >AZURE</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >OPENAI</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >FIREBASE</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >FLUTTER</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >MONGODB</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >TYPESCRIPT</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >AWS</span
+        >
+        <!-- Duplicated for Infinite Scroll -->
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >REACT.JS</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >PYTHON</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >NODE.JS</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >AZURE</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >OPENAI</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >FIREBASE</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >FLUTTER</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >MONGODB</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >TYPESCRIPT</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >AWS</span
+        >
+      </div>
+    </div>
+
+    <!-- Services Section (Expanded) -->
+    <section id="services" class="py-32 relative bg-deep-space">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-24">
+          <p
+            class="text-grass-green font-mono text-sm mb-2 tracking-widest uppercase"
+          >
+            {{services.core_capabilities}}
+          </p>
+          <h2
+            class="text-4xl md:text-6xl font-heading font-bold text-white max-w-3xl"
+          >
+            {{services.what_we_build}}
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="glass-card p-8 rounded-3xl border border-white/5 hover:border-grass-green/30 transition-all group"
+          >
+            <div
+              class="w-12 h-12 bg-grass-green/10 rounded-xl flex items-center justify-center mb-6 text-grass-green group-hover:scale-110 transition-transform"
+            >
+              <i data-lucide="user"></i>
+            </div>
+            <h3 class="text-2xl font-heading font-bold text-white mb-4">
+              {{services.personal_landing_pages}}
+            </h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-6">
+              {{services.a_single_polished_page_to_represent}}
+            </p>
+            <ul class="font-mono text-[10px] text-grass-green space-y-1">
+              <li>{{services.one_page_design}}</li>
+              <li>{{services.mobile_first_layout}}</li>
+              <li>{{services.your_own_domain}}</li>
+            </ul>
+          </div>
+
+          <div
+            class="glass-card p-8 rounded-3xl border border-white/5 hover:border-cyber-blue/30 transition-all group"
+          >
+            <div
+              class="w-12 h-12 bg-cyber-blue/10 rounded-xl flex items-center justify-center mb-6 text-cyber-blue group-hover:scale-110 transition-transform"
+            >
+              <i data-lucide="store"></i>
+            </div>
+            <h3 class="text-2xl font-heading font-bold text-white mb-4">
+              {{services.business_landing_pages}}
+            </h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-6">
+              {{services.the_page_that_turns_visitors_into}}
+            </p>
+            <ul class="font-mono text-[10px] text-cyber-blue space-y-1">
+              <li>{{services.contact_booking_forms}}</li>
+              <li>{{services.whatsapp_integration}}</li>
+              <li>{{services.seo_ready}}</li>
+            </ul>
+          </div>
+
+          <div
+            class="glass-card p-8 rounded-3xl border border-white/5 hover:border-grass-green/30 transition-all group"
+          >
+            <div
+              class="w-12 h-12 bg-grass-green/10 rounded-xl flex items-center justify-center mb-6 text-grass-green group-hover:scale-110 transition-transform"
+            >
+              <i data-lucide="layout"></i>
+            </div>
+            <h3 class="text-2xl font-heading font-bold text-white mb-4">
+              {{services.web_applications}}
+            </h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-6">
+              {{services.beyond_a_landing_page_logins_dashboards}}
+            </p>
+            <ul class="font-mono text-[10px] text-grass-green space-y-1">
+              <li>{{services.custom_dashboards}}</li>
+              <li>{{services.user_accounts}}</li>
+              <li>{{services.database_backed}}</li>
+            </ul>
+          </div>
+
+          <div
+            class="glass-card p-8 rounded-3xl border border-white/5 hover:border-cyber-blue/30 transition-all group"
+          >
+            <div
+              class="w-12 h-12 bg-cyber-blue/10 rounded-xl flex items-center justify-center mb-6 text-cyber-blue group-hover:scale-110 transition-transform"
+            >
+              <i data-lucide="smartphone"></i>
+            </div>
+            <h3 class="text-2xl font-heading font-bold text-white mb-4">
+              {{services.mobile_applications}}
+            </h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-6">
+              {{services.ios_and_android_apps_built_with}}
+            </p>
+            <ul class="font-mono text-[10px] text-cyber-blue space-y-1">
+              <li>{{services.cross_platform_flutter}}</li>
+              <li>{{services.app_store_play_store}}</li>
+              <li>{{services.push_notifications}}</li>
+            </ul>
+          </div>
+
+          <div
+            class="glass-card p-8 rounded-3xl border border-white/5 hover:border-grass-green/30 transition-all group"
+          >
+            <div
+              class="w-12 h-12 bg-grass-green/10 rounded-xl flex items-center justify-center mb-6 text-grass-green group-hover:scale-110 transition-transform"
+            >
+              <i data-lucide="sparkles"></i>
+            </div>
+            <h3 class="text-2xl font-heading font-bold text-white mb-4">
+              {{services.other_digital_products}}
+            </h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-6">
+              {{services.anything_digital_that_doesn_t_fit}}
+            </p>
+            <ul class="font-mono text-[10px] text-grass-green space-y-1">
+              <li>{{services.printable_publications}}</li>
+              <li>{{services.interactive_e_books}}</li>
+              <li>{{services.custom_formats}}</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-32 bg-black">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-20">
+          <h2 class="text-4xl font-heading font-bold text-white mb-4">
+            {{services.how_it_works}}
+          </h2>
+          <p class="text-gray-500 font-mono text-sm tracking-widest uppercase">
+            {{services.from_first_message_to_live_site}}
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+          <div
+            class="hidden md:block absolute top-12 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent"
+          ></div>
+
+          <!-- Step 1: Green -->
+          <div class="relative z-10 text-center space-y-4">
+            <div
+              class="w-24 h-24 mx-auto rounded-full bg-deep-space border border-grass-green flex items-center justify-center text-2xl font-bold font-mono text-grass-green shadow-[0_0_15px_rgba(0,255,65,0.2)]"
+            >
+              01
+            </div>
+            <h4 class="text-white font-heading font-bold">{{services.tell_us_what_you_need}}</h4>
+            <p class="text-gray-500 text-sm font-sans px-4 leading-relaxed">
+              {{services.a_quick_message_on_whatsapp_or}}
+            </p>
+          </div>
+
+          <!-- Step 2: Blue -->
+          <div class="relative z-10 text-center space-y-4">
+            <div
+              class="w-24 h-24 mx-auto rounded-full bg-deep-space border border-cyber-blue flex items-center justify-center text-2xl font-bold font-mono text-cyber-blue shadow-[0_0_15px_rgba(0,219,222,0.2)]"
+            >
+              02
+            </div>
+            <h4 class="text-white font-heading font-bold">{{services.we_build_it}}</h4>
+            <p class="text-gray-500 text-sm font-sans px-4 leading-relaxed">
+              {{services.design_and_development_happen_fast_with}}
+            </p>
+          </div>
+
+          <!-- Step 3: Red Neon -->
+          <div class="relative z-10 text-center space-y-4">
+            <div
+              class="w-24 h-24 mx-auto rounded-full bg-deep-space border border-cyber-red flex items-center justify-center text-2xl font-bold font-mono text-cyber-red shadow-[0_0_20px_rgba(255,0,60,0.4)] animate-pulse-slow"
+            >
+              03
+            </div>
+            <h4 class="text-white font-heading font-bold">{{services.go_live}}</h4>
+            <p class="text-gray-500 text-sm font-sans px-4 leading-relaxed">
+              {{services.your_site_goes_live_typically_within}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-24 bg-gradient-to-b from-deep-space to-black border-t border-white/5">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-grass-green font-mono text-sm mb-2 tracking-widest uppercase">
+          {{services.start_here}}
+        </p>
+        <h2 class="text-4xl md:text-5xl font-heading font-bold text-white mb-4">
+          {{services.ready_to_see_it_live_by}}
+        </h2>
+        <p class="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">
+          {{services.message_us_directly_or_price_your}}
+        </p>
+        <div class="flex flex-wrap gap-4 items-center justify-center">
+          <a
+            href="../index.html#contact"
+            class="bg-grass-green text-black font-bold py-4 px-10 rounded-full hover:bg-white hover:scale-105 transition-all shadow-[0_0_30px_rgba(0,255,65,0.2)]"
+          >
+            {{services.start_a_project}}
+          </a>
+          <a
+            href="project-cost-calculator.html"
+            class="inline-flex items-center gap-3 border border-grass-green/40 text-grass-green font-bold py-4 px-8 rounded-full hover:bg-grass-green/10 hover:border-grass-green transition-all"
+          >
+            <i data-lucide="calculator" class="w-5 h-5"></i>
+            {{services.price_it_yourself}}
+          </a>
+        </div>
+      </div>
+    </section>
+
+    {{> footer}}
+
+    <script src="{{$site}}script.js"></script>
+  </body>
+</html>

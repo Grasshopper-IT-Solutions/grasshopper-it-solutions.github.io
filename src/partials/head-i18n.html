@@ -1,0 +1,28 @@
+<link rel="canonical" href="{{$url}}" />
+    <link rel="alternate" hreflang="en" href="{{$urlEn}}" />
+    <link rel="alternate" hreflang="es-419" href="{{$urlEs}}" />
+    <link rel="alternate" hreflang="x-default" href="{{$urlEn}}" />
+    <meta property="og:locale" content="{{$ogLocale}}" />
+    <meta property="og:locale:alternate" content="{{$ogLocaleAlt}}" />
+    {{#en}}<script>
+      // Language pick, English pages only (Spanish pages never redirect, so
+      // there is no loop). A saved choice in gh_lang - written by the EN | ES
+      // switcher, or by this script on the first visit - always wins. With no
+      // saved choice, the browser's first preferred language decides once.
+      // No user-agent sniffing: crawlers run the same code, report English
+      // and stay here. Runs before any stylesheet, so a redirect never flashes.
+      (function () {
+        var KEY = "gh_lang", lang = null, stored = false;
+        try { lang = localStorage.getItem(KEY); } catch (e) {}
+        if (lang !== "en" && lang !== "es") {
+          var prefs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
+          lang = String(prefs[0] || "").toLowerCase().indexOf("es") === 0 ? "es" : "en";
+          // Only auto-redirect when the pick can be remembered; otherwise a
+          // visitor without storage could never stay on the English page.
+          try { localStorage.setItem(KEY, lang); stored = true; } catch (e) {}
+          if (!stored) return;
+        }
+        if (lang === "es") location.replace("{{$altHref}}" + location.search + location.hash);
+      })();
+    </script>
+    {{/en}}<script>window.GH_I18N = {{json:site-js}};</script>

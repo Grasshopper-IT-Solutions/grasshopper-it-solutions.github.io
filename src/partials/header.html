@@ -1,0 +1,109 @@
+<!-- Shared Header - Notification Toast, AI Agent, Navigation (src/partials/header.html) -->
+<!-- Notification Toast -->
+<div
+  id="notification-toast"
+  class="fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] bg-cyber-blue text-black font-mono font-bold px-6 py-3 rounded-full shadow-2xl flex items-center gap-3"
+>
+  <i data-lucide="info" class="w-5 h-5"></i>
+  <span>{{common.toast_coming_soon}}</span>
+</div>
+
+<!-- Floating AI Agent (Grassy Hopper) -->
+<div class="fixed bottom-8 right-8 z-[60] flex flex-col items-end">
+  <div
+    id="ai-bubble"
+    class="hidden mb-4 glass-card p-4 rounded-2xl border border-grass-green/30 max-w-[200px] text-xs font-mono text-white animate-fade-in shadow-2xl"
+  >
+    <p class="mb-2 text-grass-green">// GRASSY_HOPPER_v1.0</p>
+    <p>{{common.ai_bubble_text}}</p>
+  </div>
+  <button
+    onclick="toggleAIBubble()"
+    class="animate-float w-16 h-16 rounded-full bg-grass-green flex items-center justify-center shadow-[0_0_20px_rgba(0,255,65,0.4)] hover:scale-110 transition-transform group overflow-hidden border-2 border-white/20"
+  >
+    <div
+      class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity"
+    ></div>
+    <img
+      src="{{$site}}assets/grasshopper-geometric-logo.svg"
+      alt="{{common.alt_logo}}"
+      class="w-10 h-10"
+    />
+  </button>
+</div>
+
+<!-- Navigation -->
+<nav
+  class="fixed w-full z-50 bg-deep-space/80 backdrop-blur-xl border-b border-white/5"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <div
+        class="flex items-center group cursor-pointer"
+        onclick="window.location.href = '{{$root}}index.html'"
+      >
+        <img
+          src="{{$site}}assets/grasshopper-geometric-logo.svg"
+          alt="{{common.alt_logo}}"
+          class="w-10 h-10 mr-2 drop-shadow-[0_0_5px_rgba(0,255,65,0.5)] group-hover:scale-110 transition-transform"
+        />
+        <span
+          class="text-xl md:text-2xl font-mono font-bold text-white group-hover:text-grass-green transition-colors neon-text"
+          >Grasshopper Solutions</span
+        >
+      </div>
+      <!-- Spanish labels are longer: tighter spacing below xl so the nav never crowds the logo at 1024px. -->
+      <div class="hidden lg:flex items-center {{#en}}space-x-8{{/en}}{{#es}}space-x-6 xl:space-x-8{{/es}}">
+        <a
+          href="{{$pagesDir}}services.html"
+          class="hover:text-cyber-blue text-sm font-medium transition-colors font-mono"
+          >{{common.nav_services}}</a
+        >
+        <a
+          href="{{$pagesDir}}projects.html"
+          class="hover:text-cyber-blue text-sm font-medium transition-colors font-mono"
+          >{{common.nav_projects}}</a
+        >
+        <a
+          href="{{$pagesDir}}project-cost-calculator.html"
+          class="hover:text-cyber-blue text-sm font-medium transition-colors font-mono"
+          >{{common.nav_estimate}}</a
+        >
+        {{> lang-switch}}
+        <a
+          href="{{$contactHref}}"
+          class="bg-grass-green/10 border border-grass-green text-grass-green hover:bg-grass-green hover:text-black px-5 py-2 rounded-full text-xs font-mono transition-all font-bold tracking-tighter"
+          >{{common.nav_start_project}}</a
+        >
+      </div>
+      <div class="lg:hidden flex items-center gap-3">
+        <a
+          href="{{$contactHref}}"
+          class="bg-grass-green/10 border border-grass-green text-grass-green px-3 py-1.5 rounded-full text-[10px] font-mono font-bold tracking-tighter"
+          >{{common.nav_start_project}}</a
+        >
+        <button id="mobile-menu-btn" class="text-gray-300" aria-label="{{common.aria_menu}}">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    id="mobile-menu"
+    class="hidden lg:hidden bg-code-gray border-b border-white/10 px-4 py-6 space-y-4"
+  >
+    <a href="{{$pagesDir}}services.html" class="block text-gray-300 font-mono"
+      >{{common.nav_services}}</a
+    >
+    <a href="{{$pagesDir}}projects.html" class="block text-gray-300 font-mono"
+      >{{common.nav_projects}}</a
+    >
+    <a href="{{$pagesDir}}project-cost-calculator.html" class="block text-gray-300 font-mono"
+      >{{common.nav_estimate}}</a
+    >
+    <a href="{{$contactHref}}" class="block text-grass-green font-mono font-bold"
+      >{{common.nav_start_project_mobile}}</a
+    >
+    {{> lang-switch-mobile}}
+  </div>
+</nav>

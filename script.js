@@ -24,6 +24,39 @@ function sendToWhatsApp(message) {
   window.open(url, "_blank", "noopener");
 }
 
+// ===== I18N =====
+// Each generated page defines window.GH_I18N in its <head> (strings from
+// i18n/<lang>/site-js.json). Falls back to the key so a missing string is
+// visible rather than fatal.
+function siteText(key) {
+  const dict = window.GH_I18N || {};
+  return dict[key] !== undefined ? dict[key] : key;
+}
+
+function selectedText(selectId) {
+  const select = document.getElementById(selectId);
+  if (!select) return "";
+  const option = select.options[select.selectedIndex];
+  return option ? option.text.trim() : select.value;
+}
+
+// ===== LANGUAGE SWITCHER (EN | ES) =====
+// The links work without JS; this only remembers the choice (it then beats
+// the first-visit browser-language detection in each English page's <head>)
+// and carries the query string and hash across, so a shared calculator link
+// (?state=...) opens with the same configuration in the other language.
+document.addEventListener("click", (event) => {
+  const link = event.target.closest && event.target.closest("[data-lang-switch]");
+  if (!link) return;
+  event.preventDefault();
+  try {
+    localStorage.setItem("gh_lang", link.dataset.langSwitch);
+  } catch (err) {
+    /* storage blocked - the switch still works for this navigation */
+  }
+  window.location.href = link.getAttribute("href") + window.location.search + window.location.hash;
+});
+
 // ===== UI HELPERS =====
 function notify() {
   const toast = document.getElementById("notification-toast");
@@ -83,23 +116,30 @@ function initContactForm() {
     if (!form.reportValidity()) return;
 
     const name = document.getElementById("contact-name").value.trim();
-    const type = document.getElementById("contact-type").value;
-    const budget = document.getElementById("contact-budget").value;
+    // The visible (translated) option text, so the message reads in the
+    // page's language; the option values stay English.
+    const type = selectedText("contact-type");
+    const budget = selectedText("contact-budget");
     const details = document.getElementById("contact-message").value.trim();
 
     const message =
-      "Hi Grasshopper Solutions!\n\n" +
-      "Name: " +
+      siteText("contact_greeting") +
+      "\n\n" +
+      siteText("contact_name") +
+      ": " +
       name +
       "\n" +
-      "Project type: " +
+      siteText("contact_type") +
+      ": " +
       type +
       "\n" +
-      "Budget range: " +
+      siteText("contact_budget") +
+      ": " +
       budget +
       "\n\n" +
       details +
-      "\n\n(Sent from grasshoppersolutions.online)";
+      "\n\n" +
+      siteText("contact_sent_from");
 
     sendToWhatsApp(message);
 

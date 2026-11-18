@@ -1,0 +1,18 @@
+{
+  "nav_services": "./Services",
+  "nav_projects": "./Projects",
+  "nav_estimate": "./Estimate",
+  "nav_start_project": "START_PROJECT",
+  "nav_start_project_mobile": "./Start_Project",
+  "aria_menu": "Menu",
+  "lang_switch_label": "Language",
+  "lang_switch_title": "Ver esta página en español",
+  "toast_coming_soon": "Module coming soon...",
+  "ai_bubble_text": "Neural chat interface coming soon to assist your build.",
+  "alt_logo": "Grasshopper Logo",
+  "alt_footer_logo": "Grasshopper Solutions logo",
+  "slogan": "Growing Green. Building Clean. Leaping Far.",
+  "aria_facebook": "Grasshopper Solutions on Facebook",
+  "rights": "Grasshopper IT Solutions LLC. All rights reserved.",
+  "local_time": "SYSTEM_LOCAL_TIME:"
+}

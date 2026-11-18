@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="{{$lang}}" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{index.page_title}}</title>
+    <link
+      rel="icon"
+      href="{{$site}}assets/grasshopper-geometric-logo.svg"
+      type="image/svg+xml"
+    />
+    {{> head-i18n}}
+    <meta name="description" content="{{index.meta_description}}" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Grasshopper Solutions" />
+    <meta property="og:url" content="{{$url}}" />
+    <meta property="og:title" content="{{index.og_title}}" />
+    <meta property="og:description" content="{{index.og_description}}" />
+    <meta property="og:image" content="https://grasshoppersolutions.online/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="{{index.og_image_alt}}" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{index.twitter_title}}" />
+    <meta name="twitter:description" content="{{index.twitter_description}}" />
+    <meta name="twitter:image" content="https://grasshoppersolutions.online/assets/og-image.png" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Grasshopper IT Solutions LLC",
+        "alternateName": "Grasshopper Solutions",
+        "url": "{{$url}}",
+        "logo": "https://grasshoppersolutions.online/assets/grasshopper-geometric-logo.svg",
+        "image": "https://grasshoppersolutions.online/assets/og-image.png",
+        "email": "general@grasshoppersolutions.online",
+        "slogan": "{{common.slogan}}",
+        "description": "{{index.ld_description}}",
+        "areaServed": "Worldwide",
+        "availableLanguage": ["en", "es", "pt"],
+        "knowsAbout": [
+          "Web Development",
+          "Landing Pages",
+          "AI Integration",
+          "Mobile Applications",
+          "Backend APIs"
+        ],
+        "sameAs": [
+          "https://www.facebook.com/profile.php?id=1308660815667618"
+        ]
+      }
+    </script>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Outfit:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@1.47.0/dist/umd/lucide.min.js"></script>
+    <!-- Shared Styles - MUST load synchronously -->
+    <link rel="stylesheet" href="{{$site}}styles/tailwind.css" />
+    <link rel="stylesheet" href="{{$site}}styles/main.css" />
+  </head>
+  <body
+    class="bg-deep-space text-gray-300 font-sans antialiased selection:bg-grass-green selection:text-black overflow-x-hidden"
+  >
+    {{> header}}
+
+    <!-- Hero Section -->
+    <section
+      class="relative pt-32 pb-20 lg:pt-56 lg:pb-32 overflow-hidden min-h-screen flex items-center"
+    >
+      <div
+        class="absolute inset-0 bg-[linear-gradient(to_right,#1e1e1e_1px,transparent_1px),linear-gradient(to_bottom,#1e1e1e_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20 pointer-events-none"
+      ></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <div
+              class="inline-flex items-center px-3 py-1 mb-6 text-xs font-mono font-semibold tracking-tighter text-cyber-blue uppercase bg-cyber-blue/10 rounded-full border border-cyber-blue/20"
+            >
+              <span
+                class="w-2 h-2 bg-cyber-blue rounded-full mr-2 animate-ping"
+              ></span>
+              {{index.status_systems_optimal}}
+            </div>
+            <h1
+              class="text-5xl md:text-8xl font-bold font-heading tracking-tight mb-6 leading-[0.9] text-white"
+            >
+              <span class="block glitch-wrapper" data-text="{{index.high_end}}"
+                >{{index.high_end}}</span
+              >
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-grass-green to-cyber-blue"
+                >{{index.code}}</span
+              >
+            </h1>
+            <p
+              class="text-sm font-mono text-grass-green/90 mb-4 tracking-tight"
+            >
+              {{common.slogan}}
+            </p>
+            <p
+              class="text-xl text-gray-400 mb-10 max-w-lg leading-relaxed font-sans font-light"
+            >
+              {{index.premium_software_at_grassroots_rates_landing}}
+            </p>
+            <div class="flex flex-wrap gap-4 items-center">
+              <a
+                href="#contact"
+                class="bg-grass-green text-black font-bold py-4 px-10 rounded-full hover:bg-white hover:scale-105 transition-all shadow-[0_0_30px_rgba(0,255,65,0.2)]"
+              >
+                {{index.start_a_project}}
+              </a>
+              <a
+                href="pages/project-cost-calculator.html"
+                class="border border-grass-green/40 text-grass-green font-bold py-4 px-8 rounded-full hover:bg-grass-green/10 hover:border-grass-green transition-all"
+              >
+                {{index.price_it_yourself}}
+              </a>
+            </div>
+          </div>
+          <div class="relative hidden lg:flex justify-end">
+            <div class="relative w-80 h-80 md:w-96 md:h-96">
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-grass-green to-cyber-blue rounded-full blur-3xl opacity-20 animate-pulse-slow"
+              ></div>
+              <div
+                class="relative w-full h-full bg-card-gray/80 backdrop-blur-sm border border-white/10 rounded-2xl p-6 flex flex-col items-center justify-center animate-float shadow-2xl"
+              >
+                <div class="w-48 h-48 mb-6 relative">
+                  <img
+                    src="{{$site}}assets/grasshopper-geometric-logo.svg"
+                    alt="{{common.alt_logo}}"
+                    class="w-full h-full drop-shadow-[0_0_15px_rgba(0,255,65,0.6)]"
+                  />
+                </div>
+                <div class="text-center w-full">
+                  <h3 class="text-2xl font-mono text-white font-bold">
+                    Grassy Hopper
+                  </h3>
+                  <div
+                    class="h-px w-full bg-gradient-to-r from-transparent via-grass-green to-transparent my-3"
+                  ></div>
+                  <p class="text-cyber-blue font-mono text-sm">
+                    > System.Ready()
+                  </p>
+                </div>
+                <div
+                  class="absolute -top-4 -right-4 bg-black border border-grass-green text-grass-green px-3 py-1 rounded-full text-xs font-mono transform rotate-12"
+                >
+                  V 1.0
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack Marquee (Expanded) -->
+    <div
+      class="py-12 bg-black/50 border-y border-white/5 overflow-hidden whitespace-nowrap"
+    >
+      <div class="flex animate-scroll w-max gap-20 items-center">
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >REACT.JS</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >PYTHON</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >NODE.JS</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >AZURE</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >OPENAI</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >FIREBASE</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >FLUTTER</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >MONGODB</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >TYPESCRIPT</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >AWS</span
+        >
+        <!-- Duplicated for Infinite Scroll -->
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >REACT.JS</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >PYTHON</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >NODE.JS</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >AZURE</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >OPENAI</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >FIREBASE</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >FLUTTER</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >MONGODB</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >TYPESCRIPT</span
+        >
+        <span
+          class="text-2xl font-heading font-bold text-gray-700 hover:text-white transition-colors"
+          >AWS</span
+        >
+      </div>
+    </div>
+
+    <!-- NEW SECTION: Project Collaboration -->
+    <section
+      id="collaboration"
+      class="py-32 relative bg-deep-space overflow-hidden border-t border-white/5"
+    >
+      <!-- Background Elements -->
+      <div
+        class="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-cyber-blue opacity-5 rounded-full blur-[120px]"
+      ></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-20">
+          <p
+            class="text-cyber-blue font-mono text-sm mb-2 tracking-widest uppercase"
+          >
+            {{index.collaboration}}
+          </p>
+          <h2 class="text-4xl md:text-5xl font-heading font-bold text-white">
+            {{index.let_s_build_something_amazing}}
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+          <!-- Project With Us Section -->
+          <div class="glass-card p-8 rounded-2xl border border-white/10">
+            <div
+              class="w-12 h-12 bg-cyber-blue/10 rounded-xl flex items-center justify-center mb-6 text-cyber-blue"
+            >
+              <i data-lucide="rocket"></i>
+            </div>
+            <h3 class="text-2xl font-heading font-bold text-white mb-4">
+              {{index.start_a_project_with_us}}
+            </h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-6">
+              {{index.ready_to_bring_your_vision_to}}
+            </p>
+            <div class="space-y-3 mb-8">
+              <div class="flex items-center gap-3 text-gray-400 text-sm">
+                <i data-lucide="check" class="w-4 h-4 text-cyber-blue"></i>
+                <span>{{index.free_consultation_call}}</span>
+              </div>
+              <div class="flex items-center gap-3 text-gray-400 text-sm">
+                <i data-lucide="check" class="w-4 h-4 text-cyber-blue"></i>
+                <span>{{index.custom_development_plan}}</span>
+              </div>
+              <div class="flex items-center gap-3 text-gray-400 text-sm">
+                <i data-lucide="check" class="w-4 h-4 text-cyber-blue"></i>
+                <span>{{index.transparent_pricing}}</span>
+              </div>
+            </div>
+            <a
+              href="pages/services.html"
+              class="inline-flex items-center gap-3 bg-cyber-blue text-black font-bold py-4 px-8 rounded-full hover:bg-white hover:scale-105 transition-all shadow-[0_0_30px_rgba(0,219,222,0.2)]"
+            >
+              <i data-lucide="send" class="w-5 h-5"></i>
+              {{index.show_services}}
+            </a>
+          </div>
+
+          <!-- See Our Projects Section -->
+          <div class="glass-card p-8 rounded-2xl border border-white/10">
+            <div
+              class="w-12 h-12 bg-grass-green/10 rounded-xl flex items-center justify-center mb-6 text-grass-green"
+            >
+              <i data-lucide="eye"></i>
+            </div>
+            <h3 class="text-2xl font-heading font-bold text-white mb-4">
+              {{index.explore_our_work}}
+            </h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-6">
+              {{index.curious_about_what_we_ve_built}}
+            </p>
+            <div class="space-y-3 mb-8">
+              <div class="flex items-center gap-3 text-gray-400 text-sm">
+                <i data-lucide="monitor" class="w-4 h-4 text-grass-green"></i>
+                <span>{{index.web_applications}}</span>
+              </div>
+              <div class="flex items-center gap-3 text-gray-400 text-sm">
+                <i
+                  data-lucide="smartphone"
+                  class="w-4 h-4 text-grass-green"
+                ></i>
+                <span>{{index.mobile_apps}}</span>
+              </div>
+              <div class="flex items-center gap-3 text-gray-400 text-sm">
+                <i data-lucide="cpu" class="w-4 h-4 text-grass-green"></i>
+                <span>{{index.ai_integrations}}</span>
+              </div>
+            </div>
+            <a
+              href="pages/projects.html"
+              class="inline-flex items-center gap-3 bg-grass-green text-black font-bold py-4 px-8 rounded-full hover:bg-white hover:scale-105 transition-all shadow-[0_0_30px_rgba(0,255,65,0.2)]"
+            >
+              <i data-lucide="external-link" class="w-5 h-5"></i>
+              {{index.view_all_projects}}
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-32 bg-black">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-20">
+          <h2 class="text-4xl font-heading font-bold text-white mb-4">
+            {{index.the_development_pipeline}}
+          </h2>
+          <p class="text-gray-500 font-mono text-sm tracking-widest uppercase">
+            {{index.from_analysis_to_deployment}}
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+          <div
+            class="hidden md:block absolute top-12 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent"
+          ></div>
+
+          <!-- Step 1: Green -->
+          <div class="relative z-10 text-center space-y-4">
+            <div
+              class="w-24 h-24 mx-auto rounded-full bg-deep-space border border-grass-green flex items-center justify-center text-2xl font-bold font-mono text-grass-green shadow-[0_0_15px_rgba(0,255,65,0.2)]"
+            >
+              01
+            </div>
+            <h4 class="text-white font-heading font-bold">{{index.deep_scan}}</h4>
+            <p class="text-gray-500 text-sm font-sans px-4 leading-relaxed">
+              {{index.we_analyze_your_bottlenecks_and_map}}
+            </p>
+          </div>
+
+          <!-- Step 2: Blue -->
+          <div class="relative z-10 text-center space-y-4">
+            <div
+              class="w-24 h-24 mx-auto rounded-full bg-deep-space border border-cyber-blue flex items-center justify-center text-2xl font-bold font-mono text-cyber-blue shadow-[0_0_15px_rgba(0,219,222,0.2)]"
+            >
+              02
+            </div>
+            <h4 class="text-white font-heading font-bold">{{index.vibe_design}}</h4>
+            <p class="text-gray-500 text-sm font-sans px-4 leading-relaxed">
+              {{index.rapid_prototyping_and_ux_framing_to}}
+            </p>
+          </div>
+
+          <!-- Step 3: Green -->
+          <div class="relative z-10 text-center space-y-4">
+            <div
+              class="w-24 h-24 mx-auto rounded-full bg-deep-space border border-grass-green flex items-center justify-center text-2xl font-bold font-mono text-grass-green shadow-[0_0_15px_rgba(0,255,65,0.2)]"
+            >
+              03
+            </div>
+            <h4 class="text-white font-heading font-bold">{{index.neural_dev}}</h4>
+            <p class="text-gray-500 text-sm font-sans px-4 leading-relaxed">
+              {{index.our_elite_freelance_mesh_builds_the}}
+            </p>
+          </div>
+
+          <!-- Step 4: Red Neon -->
+          <div class="relative z-10 text-center space-y-4">
+            <div
+              class="w-24 h-24 mx-auto rounded-full bg-deep-space border border-cyber-red flex items-center justify-center text-2xl font-bold font-mono text-cyber-red shadow-[0_0_20px_rgba(255,0,60,0.4)] animate-pulse-slow"
+            >
+              04
+            </div>
+            <h4 class="text-white font-heading font-bold">{{index.go_live}}</h4>
+            <p class="text-gray-500 text-sm font-sans px-4 leading-relaxed">
+              {{index.smooth_deployment_training_and_ongoing_support}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Estimate Section -->
+    <section
+      id="estimate"
+      class="py-24 bg-black border-t border-white/5 relative overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_0%,rgba(0,255,65,0.05),rgba(0,0,0,0))] pointer-events-none"
+      ></div>
+      <div
+        class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid md:grid-cols-2 gap-12 items-center"
+      >
+        <div>
+          <p
+            class="text-grass-green font-mono text-sm mb-3 tracking-widest uppercase"
+          >
+            {{index.no_sales_call_required}}
+          </p>
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+            {{index.price_your_project_yourself}}
+          </h2>
+          <p class="text-gray-400 leading-relaxed mb-8">
+            {{index.pick_your_pages_integrations_and_features}}
+          </p>
+          <a
+            href="pages/project-cost-calculator.html"
+            class="inline-flex items-center gap-3 bg-grass-green text-black font-bold py-4 px-8 rounded-full hover:bg-white hover:scale-105 transition-all shadow-[0_0_30px_rgba(0,255,65,0.2)]"
+          >
+            {{index.open_the_calculator}}
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <div
+          class="glass-card border border-white/10 rounded-2xl p-8 font-mono text-sm"
+        >
+          <div class="flex justify-between text-gray-500 mb-3">
+            <span>{{index.base}}</span><span class="text-white">$250.00</span>
+          </div>
+          <div class="flex justify-between text-gray-500 mb-3">
+            <span>{{index.pages}}</span><span class="text-white">{{index.your_picks}}</span>
+          </div>
+          <div class="flex justify-between text-gray-500 mb-3">
+            <span>{{index.integrations}}</span><span class="text-white">{{index.your_picks}}</span>
+          </div>
+          <div
+            class="flex justify-between border-t border-dashed border-white/10 pt-4 mt-4"
+          >
+            <span class="text-gray-400 font-semibold">{{index.total_estimate}}</span>
+            <span class="text-grass-green font-bold text-lg">{{index.you_decide}}</span>
+          </div>
+          <p class="text-[10px] text-gray-600 mt-4 leading-relaxed">
+            {{index.quotes_are_valid_for_30_days}}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section
+      id="contact"
+      class="py-24 bg-gradient-to-b from-deep-space to-black border-t border-white/5"
+    >
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+          <h2 class="text-4xl font-bold text-white mb-4">{{index.start_a_project}}</h2>
+          <p class="text-lg text-gray-400 max-w-xl mx-auto">
+            {{index.tell_us_what_you_need_the}}
+          </p>
+        </div>
+
+        <div class="relative group">
+          <div
+            class="absolute -inset-1 bg-gradient-to-r from-grass-green to-cyber-blue rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-300"
+          ></div>
+          <div
+            class="relative bg-black rounded-2xl p-6 md:p-10 border border-white/10"
+          >
+            <form id="contact-form" novalidate>
+              <div class="grid md:grid-cols-2 gap-5">
+                <div class="md:col-span-2">
+                  <label
+                    for="contact-name"
+                    class="block text-xs font-mono text-gray-500 uppercase tracking-widest mb-2"
+                    >{{index.your_name}}</label
+                  >
+                  <input
+                    type="text"
+                    id="contact-name"
+                    name="name"
+                    required
+                    autocomplete="name"
+                    placeholder="{{index.placeholder_jane_doe}}"
+                    class="w-full bg-code-gray border border-white/10 text-white font-sans rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-grass-green/50 focus:ring-1 focus:ring-grass-green/50 transition"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    for="contact-type"
+                    class="block text-xs font-mono text-gray-500 uppercase tracking-widest mb-2"
+                    >{{index.project_type}}</label
+                  >
+                  <select
+                    id="contact-type"
+                    name="type"
+                    required
+                    class="w-full bg-code-gray border border-white/10 text-white font-sans rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-grass-green/50 focus:ring-1 focus:ring-grass-green/50 transition"
+                  >
+                    <option value="Landing page">{{index.landing_page}}</option>
+                    <option value="Business website">{{index.business_website}}</option>
+                    <option value="Web application">{{index.web_application}}</option>
+                    <option value="Mobile app">{{index.mobile_app}}</option>
+                    <option value="AI integration">{{index.ai_integration}}</option>
+                    <option value="Something else">{{index.something_else}}</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label
+                    for="contact-budget"
+                    class="block text-xs font-mono text-gray-500 uppercase tracking-widest mb-2"
+                    >{{index.budget_range}}</label
+                  >
+                  <select
+                    id="contact-budget"
+                    name="budget"
+                    required
+                    class="w-full bg-code-gray border border-white/10 text-white font-sans rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-grass-green/50 focus:ring-1 focus:ring-grass-green/50 transition"
+                  >
+                    <option value="Under $500">{{index.under_500}}</option>
+                    <option value="$500 - $1,500">$500 – $1,500</option>
+                    <option value="$1,500 - $5,000">$1,500 – $5,000</option>
+                    <option value="$5,000+">$5,000+</option>
+                    <option value="Not sure yet">{{index.not_sure_yet}}</option>
+                  </select>
+                </div>
+
+                <div class="md:col-span-2">
+                  <label
+                    for="contact-message"
+                    class="block text-xs font-mono text-gray-500 uppercase tracking-widest mb-2"
+                    >{{index.what_are_you_building}}</label
+                  >
+                  <textarea
+                    id="contact-message"
+                    name="message"
+                    required
+                    rows="4"
+                    placeholder="{{index.placeholder_a_few_lines_about_the_project}}"
+                    class="w-full bg-code-gray border border-white/10 text-white font-sans rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-grass-green/50 focus:ring-1 focus:ring-grass-green/50 transition resize-y"
+                  ></textarea>
+                </div>
+              </div>
+
+              <!-- Honeypot: hidden from people, irresistible to bots. -->
+              <div class="hidden" aria-hidden="true">
+                <label for="contact-company">{{index.company_leave_blank}}</label>
+                <input
+                  type="text"
+                  id="contact-company"
+                  name="company"
+                  tabindex="-1"
+                  autocomplete="off"
+                />
+              </div>
+
+              <button
+                type="submit"
+                class="w-full mt-7 bg-grass-green text-black font-bold py-4 px-8 rounded-full hover:bg-white transition-all shadow-[0_0_30px_rgba(0,255,65,0.2)] flex items-center justify-center gap-3"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.04 2.01c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.48 1.34 5L2 22.02l5.16-1.35a9.93 9.93 0 0 0 4.88 1.27h.01c5.49 0 9.95-4.46 9.95-9.96 0-2.66-1.04-5.16-2.92-7.04a9.88 9.88 0 0 0-7.04-2.93z"
+                  />
+                </svg>
+                {{index.send_via_whatsapp}}
+              </button>
+
+              <p
+                id="contact-sent"
+                class="hidden mt-4 text-center text-sm font-mono text-grass-green"
+              >
+                {{index.whatsapp_should_have_opened_in_a}}
+              </p>
+            </form>
+
+            <div class="mt-8 pt-6 border-t border-white/10 text-center">
+              <p
+                class="text-gray-500 mb-2 font-mono text-xs tracking-widest uppercase"
+              >
+                {{index.prefer_email}}
+              </p>
+              <a
+                href="mailto:general@grasshoppersolutions.online"
+                class="text-base md:text-xl font-bold text-white hover:text-grass-green transition-colors break-all font-mono"
+                >general@grasshoppersolutions.online</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {{> footer}}
+
+    <script src="{{$site}}script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+<div class="flex items-center gap-2 pt-4 border-t border-white/10 text-sm font-mono" role="group" aria-label="{{common.lang_switch_label}}">
+      <span class="text-gray-500">{{common.lang_switch_label}}:</span>
+      {{#en}}<span class="text-grass-green font-bold" aria-current="true">EN</span>
+      <span class="text-gray-600" aria-hidden="true">|</span>
+      <a href="{{$altHref}}" hreflang="es-419" lang="es-419" data-lang-switch="es" title="{{common.lang_switch_title}}" class="text-gray-300 hover:text-cyber-blue transition-colors">ES</a>{{/en}}{{#es}}<a href="{{$altHref}}" hreflang="en" lang="en" data-lang-switch="en" title="{{common.lang_switch_title}}" class="text-gray-300 hover:text-cyber-blue transition-colors">EN</a>
+      <span class="text-gray-600" aria-hidden="true">|</span>
+      <span class="text-grass-green font-bold" aria-current="true">ES</span>{{/es}}
+    </div>

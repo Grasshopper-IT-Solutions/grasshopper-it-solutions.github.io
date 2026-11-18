@@ -1,0 +1,902 @@
+<!doctype html>
+<html lang="{{$lang}}" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{brief.page_title}}</title>
+    <link
+      rel="icon"
+      href="{{$site}}assets/grasshopper-geometric-logo.svg"
+      type="image/svg+xml"
+    />
+    {{> head-i18n}}
+    <meta name="description" content="{{brief.meta_description}}" />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Grasshopper Solutions" />
+    <meta property="og:url" content="{{$url}}" />
+    <meta property="og:title" content="{{brief.og_title}}" />
+    <meta property="og:description" content="{{brief.og_description}}" />
+    <meta property="og:image" content="https://grasshoppersolutions.online/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://grasshoppersolutions.online/assets/og-image.png" />
+    <!-- This page is a working tool sent directly to clients, not a page we
+         want indexed on its own - keep it out of search results. -->
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Outfit:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@1.47.0/dist/umd/lucide.min.js"></script>
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="{{$site}}styles/tailwind.css" />
+    <link rel="stylesheet" href="{{$site}}styles/main.css" />
+    <!-- jsPDF for Client-Side PDF Generation -->
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
+    <!-- brief-* component classes are compiled into styles/tailwind.css from
+         styles/tailwind-input.css - the Tailwind CLI can't expand @apply in
+         an inline <style> tag, so one doesn't work here. -->
+  </head>
+  <body
+    class="bg-deep-space text-gray-300 font-sans antialiased selection:bg-grass-green selection:text-black overflow-x-hidden pb-28"
+  >
+    <!-- Notification Toast -->
+    <div
+      id="notification-toast"
+      class="fixed bottom-28 left-1/2 -translate-x-1/2 z-[100] bg-cyber-blue text-black font-mono font-bold px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 max-w-[90vw] text-center"
+    >
+      <i data-lucide="info" class="w-5 h-5 flex-shrink-0"></i>
+      <span id="toast-message">{{common.toast_coming_soon}}</span>
+    </div>
+
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full z-50 bg-deep-space/80 backdrop-blur-xl border-b border-white/5"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <div
+            class="flex items-center group cursor-pointer"
+            onclick="window.location.href = '../index.html'"
+          >
+            <img
+              src="{{$site}}assets/grasshopper-geometric-logo.svg"
+              alt="{{common.alt_logo}}"
+              class="w-10 h-10 mr-2 drop-shadow-[0_0_5px_rgba(0,255,65,0.5)] group-hover:scale-110 transition-transform"
+            />
+            <span
+              class="text-xl md:text-2xl font-mono font-bold text-white group-hover:text-grass-green transition-colors neon-text"
+              >Grasshopper Solutions</span
+            >
+          </div>
+          <div class="hidden lg:flex items-center space-x-8">
+            <a href="services.html" class="hover:text-cyber-blue text-sm font-medium transition-colors font-mono">{{common.nav_services}}</a>
+            <a href="projects.html" class="hover:text-cyber-blue text-sm font-medium transition-colors font-mono">{{common.nav_projects}}</a>
+            <a href="project-cost-calculator.html" class="hover:text-cyber-blue text-sm font-medium transition-colors font-mono">{{common.nav_estimate}}</a>
+            {{> lang-switch}}
+          </div>
+          <div class="lg:hidden flex items-center gap-3">
+            <button id="mobile-menu-btn" class="text-gray-300">
+              <i data-lucide="menu"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="hidden lg:hidden bg-code-gray border-b border-white/10 px-4 py-6 space-y-4"
+      >
+        <a href="services.html" class="block text-gray-300 font-mono">{{common.nav_services}}</a>
+        <a href="projects.html" class="block text-gray-300 font-mono">{{common.nav_projects}}</a>
+        <a href="project-cost-calculator.html" class="block text-gray-300 font-mono">{{common.nav_estimate}}</a>
+        {{> lang-switch-mobile}}
+      </div>
+    </nav>
+
+    <!-- HERO HEADER -->
+    <header class="relative overflow-hidden pt-32 pb-8 border-b border-white/10 bg-gradient-to-b from-card-gray to-deep-space">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(0,255,65,0.06),rgba(0,0,0,0))] pointer-events-none"></div>
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="inline-flex items-center px-3 py-1 mb-6 text-xs font-mono font-semibold tracking-tighter text-grass-green uppercase bg-grass-green/10 rounded-full border border-grass-green/20">
+          <span class="w-2 h-2 bg-grass-green rounded-full mr-2 animate-ping"></span>
+          {{brief.tell_us_about_your_business}}
+        </div>
+        <h1 class="text-3xl md:text-4xl font-bold font-heading tracking-tight text-white leading-[1.15]">
+          {{brief.let_s_build_your}} <span class="text-transparent bg-clip-text bg-gradient-to-r from-grass-green to-cyber-blue">{{brief.website}}</span>{{brief.together}}
+        </h1>
+        <p class="mt-4 text-gray-400 text-sm md:text-base leading-relaxed">
+          {{brief.this_short_form_helps_us_understand}}
+        </p>
+      </div>
+    </header>
+
+    <!-- FORM -->
+    <main class="max-w-3xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col gap-6">
+
+      <!-- SECTION 1: YOUR DETAILS -->
+      <section class="brief-section">
+        <h2 class="text-lg font-semibold text-white flex items-center gap-3 mb-5">
+          <span class="brief-step-number">1</span> {{brief.your_details}}
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div class="sm:col-span-2">
+            <label class="brief-label" for="f-name">{{brief.your_name}}<span class="brief-required-tag">{{brief.required}}</span></label>
+            <input type="text" id="f-name" class="brief-input" placeholder="{{brief.placeholder_e_g_maria_santos}}" data-required data-key="yourName">
+          </div>
+          <div>
+            <label class="brief-label" for="f-email">{{brief.your_email}}<span class="brief-required-tag">{{brief.required}}</span></label>
+            <input type="email" id="f-email" class="brief-input" placeholder="you@example.com" data-required data-key="yourEmail">
+          </div>
+          <div>
+            <label class="brief-label" for="f-phone">{{brief.your_phone_or_whatsapp}}</label>
+            <p class="brief-help">{{brief.optional_but_helpful_if_we_need}}</p>
+            <input type="tel" id="f-phone" class="brief-input" placeholder="+1 555 123 4567" data-key="yourPhone">
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: ABOUT YOUR BUSINESS -->
+      <section class="brief-section">
+        <h2 class="text-lg font-semibold text-white flex items-center gap-3 mb-5">
+          <span class="brief-step-number">2</span> {{brief.about_your_business}}
+        </h2>
+        <div class="flex flex-col gap-5">
+          <div>
+            <label class="brief-label" for="f-business-name">{{brief.business_name}}<span class="brief-required-tag">{{brief.required}}</span></label>
+            <input type="text" id="f-business-name" class="brief-input" placeholder="{{brief.placeholder_e_g_santos_home_repairs}}" data-required data-key="businessName">
+          </div>
+          <div>
+            <label class="brief-label" for="f-tagline">{{brief.do_you_have_a_slogan_or}}</label>
+            <input type="text" id="f-tagline" class="brief-input" placeholder="{{brief.placeholder_optional}}" data-key="tagline">
+          </div>
+          <div>
+            <label class="brief-label" for="f-what">{{brief.what_does_your_business_do}}<span class="brief-required-tag">{{brief.required}}</span></label>
+            <p class="brief-help">{{brief.one_or_two_sentences_example_we}}</p>
+            <textarea id="f-what" class="brief-textarea" data-required data-key="whatYouDo"></textarea>
+          </div>
+          <div>
+            <label class="brief-label" for="f-industry">{{brief.what_kind_of_business_is_it}}<span class="brief-required-tag">{{brief.required}}</span></label>
+            <select id="f-industry" class="brief-input" data-required data-key="industry">
+              <option value="">{{brief.choose_one}}</option>
+              <option value="Restaurant / food / drinks">{{brief.restaurant_food_drinks}}</option>
+              <option value="Shop / retail">{{brief.shop_retail}}</option>
+              <option value="Beauty / wellness">{{brief.beauty_wellness}}</option>
+              <option value="Health / medical">{{brief.health_medical}}</option>
+              <option value="Home services / trades">{{brief.home_services_trades}}</option>
+              <option value="Professional services (legal, accounting, consulting...)">{{brief.professional_services_legal_accounting_consulting}}</option>
+              <option value="Creative / photography / design">{{brief.creative_photography_design}}</option>
+              <option value="Events">{{brief.events}}</option>
+              <option value="Education / coaching">{{brief.education_coaching}}</option>
+              <option value="Nonprofit">{{brief.nonprofit}}</option>
+              <option value="Other">{{brief.other}}</option>
+            </select>
+          </div>
+          <div>
+            <label class="brief-label" for="f-different">{{brief.what_makes_you_different_from_other}}</label>
+            <p class="brief-help">{{brief.optional_but_this_really_helps_visitors}}</p>
+            <textarea id="f-different" class="brief-textarea" data-key="whatsDifferent"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: GOALS -->
+      <section class="brief-section">
+        <h2 class="text-lg font-semibold text-white flex items-center gap-3 mb-5">
+          <span class="brief-step-number">3</span> {{brief.what_the_website_should_do}}
+        </h2>
+        <div class="flex flex-col gap-5">
+          <div>
+            <label class="brief-label">{{brief.why_do_you_want_a_website}}<span class="brief-required-tag">{{brief.required}}</span></label>
+            <p class="brief-help">{{brief.pick_anything_that_applies}}</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2" id="f-why-group" data-required data-key="whyWebsite" data-type="checkbox-group">
+              <label class="brief-check-row"><input type="checkbox" value="Get more calls"> {{brief.get_more_calls}}</label>
+              <label class="brief-check-row"><input type="checkbox" value="Get messages or bookings"> {{brief.get_messages_or_bookings}}</label>
+              <label class="brief-check-row"><input type="checkbox" value="Sell products online"> {{brief.sell_products_online}}</label>
+              <label class="brief-check-row"><input type="checkbox" value="Show my work"> {{brief.show_my_work}}</label>
+              <label class="brief-check-row"><input type="checkbox" value="Explain my services"> {{brief.explain_my_services}}</label>
+              <label class="brief-check-row"><input type="checkbox" value="Build trust"> {{brief.build_trust}}</label>
+              <label class="brief-check-row"><input type="checkbox" value="Replace my old website"> {{brief.replace_my_old_website}}</label>
+              <label class="brief-check-row"><input type="checkbox" value="Other"> {{brief.other}}</label>
+            </div>
+          </div>
+          <div>
+            <label class="brief-label" for="f-main-action">{{brief.what_s_the_one_thing_you}}<span class="brief-required-tag">{{brief.required}}</span></label>
+            <select id="f-main-action" class="brief-input" data-required data-key="mainAction">
+              <option value="">{{brief.choose_one}}</option>
+              <option value="Call me">{{brief.call_me}}</option>
+              <option value="Message me">{{brief.message_me}}</option>
+              <option value="Book an appointment">{{brief.book_an_appointment}}</option>
+              <option value="Buy something">{{brief.buy_something}}</option>
+              <option value="Visit my location">{{brief.visit_my_location}}</option>
+              <option value="Other">{{brief.other}}</option>
+            </select>
+          </div>
+          <div>
+            <label class="brief-label" for="f-customers">{{brief.who_are_your_typical_customers}}</label>
+            <p class="brief-help">{{brief.e_g_homeowners_in_my_city}}</p>
+            <textarea id="f-customers" class="brief-textarea" data-key="typicalCustomers"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: PAGES & CONTENT -->
+      <section class="brief-section">
+        <h2 class="text-lg font-semibold text-white flex items-center gap-3 mb-5">
+          <span class="brief-step-number">4</span> {{brief.pages_content}}
+        </h2>
+        <div class="flex flex-col gap-5">
+          <div>
+            <label class="brief-label">{{brief.which_pages_do_you_need}}<span class="brief-required-tag">{{brief.required}}</span></label>
+            <p class="brief-help">{{brief.not_sure_pick_what_sounds_right}}</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2" id="f-pages-group" data-required data-key="pagesNeeded" data-type="checkbox-group">
+              <label class="brief-check-row"><input type="checkbox" value="Home"> {{brief.home}}</label>
+              <label class="brief-check-row"><input type="checkbox" value="About"> {{brief.about}}</label>
+              <label class="brief-check-row"><input type="checkbox" value="Services"> {{brief.services}}</label>
+              <label class="brief-check-row"><input type="checkbox" value="Products"> {{brief.products}}</label>
+              <label class="brief-check-row"><input type="checkbox" value="Portfolio or gallery"> {{brief.portfolio_or_gallery}}</label>
+              <label class="brief-check-row"><input type="checkbox" value="Pricing"> {{brief.pricing}}</label>
+              <label class="brief-check-row"><input type="checkbox" value="Testimonials"> {{brief.testimonials}}</label>
+              <label class="brief-check-row"><input type="checkbox" value="FAQ"> {{brief.faq}}</label>
+              <label class="brief-check-row"><input type="checkbox" value="Contact"> {{brief.contact}}</label>
+              <label class="brief-check-row"><input type="checkbox" value="Other"> {{brief.other}}</label>
+            </div>
+          </div>
+          <div>
+            <label class="brief-label">{{brief.do_you_already_have_a_logo}}<span class="brief-required-tag">{{brief.required}}</span></label>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2" id="f-logo-group" data-required data-key="hasLogo" data-type="radio-group">
+              <label class="brief-check-row"><input type="radio" name="f-logo" value="Yes, ready to use" data-label="{{brief.logo_value_ready}}"> {{brief.yes_ready}}</label>
+              <label class="brief-check-row"><input type="radio" name="f-logo" value="Yes, but needs updating" data-label="{{brief.logo_value_update}}"> {{brief.needs_work}}</label>
+              <label class="brief-check-row"><input type="radio" name="f-logo" value="No"> {{brief.no}}</label>
+              <label class="brief-check-row"><input type="radio" name="f-logo" value="Not sure"> {{brief.not_sure}}</label>
+            </div>
+          </div>
+          <div>
+            <label class="brief-label">{{brief.do_you_have_photos_or_text}}<span class="brief-required-tag">{{brief.required}}</span></label>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2" id="f-content-group" data-required data-key="hasContent" data-type="radio-group">
+              <label class="brief-check-row"><input type="radio" name="f-content" value="Yes, I'll send them"> {{brief.yes_i_ll_send_them}}</label>
+              <label class="brief-check-row"><input type="radio" name="f-content" value="Some, not all"> {{brief.some_not_all}}</label>
+              <label class="brief-check-row"><input type="radio" name="f-content" value="No, I need help"> {{brief.no_i_need_help}}</label>
+            </div>
+          </div>
+          <div>
+            <label class="brief-label">{{brief.do_you_already_have_a_website}}<span class="brief-required-tag">{{brief.required}}</span></label>
+            <div class="grid grid-cols-2 gap-2 mb-3" id="f-existing-site-group" data-required data-key="hasExistingSite" data-type="radio-group">
+              <label class="brief-check-row"><input type="radio" name="f-existing-site" value="Yes" onchange="toggleExistingSiteUrl(true)"> {{brief.yes}}</label>
+              <label class="brief-check-row"><input type="radio" name="f-existing-site" value="No" onchange="toggleExistingSiteUrl(false)"> {{brief.no}}</label>
+            </div>
+            <div id="existing-site-url-wrap" class="hidden">
+              <label class="brief-label" for="f-existing-site-url">{{brief.what_s_the_current_website_address}}</label>
+              <input type="url" id="f-existing-site-url" class="brief-input" placeholder="https://..." data-key="existingSiteUrl">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: STYLE -->
+      <section class="brief-section">
+        <h2 class="text-lg font-semibold text-white flex items-center gap-3 mb-5">
+          <span class="brief-step-number">5</span> {{brief.look_feel}}
+        </h2>
+        <div class="flex flex-col gap-5">
+          <div>
+            <label class="brief-label">{{brief.pick_up_to_5_words_for}}<span class="brief-required-tag">{{brief.required}}</span></label>
+            <p class="brief-help" id="style-words-help">{{brief.choose_at_least_1_up_to}}</p>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2" id="f-style-group" data-required data-key="styleWords" data-type="checkbox-group" data-max="5">
+              <label class="brief-check-row"><input type="checkbox" value="Professional"> {{brief.professional}}</label>
+              <label class="brief-check-row"><input type="checkbox" value="Friendly"> {{brief.friendly}}</label>
+              <label class="brief-check-row"><input type="checkbox" value="Modern"> {{brief.modern}}</label>
+              <label class="brief-check-row"><input type="checkbox" value="Traditional"> {{brief.traditional}}</label>
+              <label class="brief-check-row"><input type="checkbox" value="Premium"> {{brief.premium}}</label>
+              <label class="brief-check-row"><input type="checkbox" value="Affordable"> {{brief.affordable}}</label>
+              <label class="brief-check-row"><input type="checkbox" value="Bold"> {{brief.bold}}</label>
+              <label class="brief-check-row"><input type="checkbox" value="Calm"> {{brief.calm}}</label>
+              <label class="brief-check-row"><input type="checkbox" value="Playful"> {{brief.playful}}</label>
+              <label class="brief-check-row"><input type="checkbox" value="Minimal"> {{brief.minimal}}</label>
+              <label class="brief-check-row"><input type="checkbox" value="Elegant"> {{brief.elegant}}</label>
+              <label class="brief-check-row"><input type="checkbox" value="Natural"> {{brief.natural}}</label>
+              <label class="brief-check-row"><input type="checkbox" value="Local"> {{brief.local}}</label>
+              <label class="brief-check-row"><input type="checkbox" value="Energetic"> {{brief.energetic}}</label>
+            </div>
+          </div>
+          <div>
+            <label class="brief-label" for="f-colors">{{brief.any_colors_you_love_or_want}}</label>
+            <input type="text" id="f-colors" class="brief-input" placeholder="{{brief.placeholder_optional_e_g_love_green_avoid}}" data-key="colorPreferences">
+          </div>
+          <div>
+            <label class="brief-label" for="f-inspiration">{{brief.websites_you_like_the_look_of}}</label>
+            <p class="brief-help">{{brief.optional_paste_1_3_links_or}}</p>
+            <textarea id="f-inspiration" class="brief-textarea" data-key="inspiration"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 6: PUBLIC CONTACT INFO -->
+      <section class="brief-section">
+        <h2 class="text-lg font-semibold text-white flex items-center gap-3 mb-5">
+          <span class="brief-step-number">6</span> {{brief.contact_info_to_show_on_your}}
+        </h2>
+        <p class="brief-help -mt-2 mb-1">{{brief.this_is_what_visitors_will_see}}</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div>
+            <label class="brief-label" for="f-public-phone">{{brief.public_phone_number}}</label>
+            <input type="tel" id="f-public-phone" class="brief-input" placeholder="{{brief.placeholder_optional}}" data-key="publicPhone">
+          </div>
+          <div>
+            <label class="brief-label" for="f-public-email">{{brief.public_email}}</label>
+            <input type="email" id="f-public-email" class="brief-input" placeholder="{{brief.placeholder_optional}}" data-key="publicEmail">
+          </div>
+          <div>
+            <label class="brief-label" for="f-public-whatsapp">{{brief.whatsapp_number_for_customers}}</label>
+            <input type="tel" id="f-public-whatsapp" class="brief-input" placeholder="{{brief.placeholder_optional}}" data-key="publicWhatsapp">
+          </div>
+          <div>
+            <label class="brief-label" for="f-domain">{{brief.do_you_already_own_a_domain}}</label>
+            <select id="f-domain" class="brief-input" data-key="hasDomain">
+              <option value="">{{brief.choose_one}}</option>
+              <option value="Yes">{{brief.yes}}</option>
+              <option value="No">{{brief.no}}</option>
+              <option value="Not sure">{{brief.not_sure}}</option>
+            </select>
+          </div>
+          <div class="sm:col-span-2">
+            <label class="brief-label" for="f-domain-name">{{brief.if_yes_what_s_the_domain}}</label>
+            <input type="text" id="f-domain-name" class="brief-input" placeholder="{{brief.placeholder_optional_e_g_mybusiness_com}}" data-key="domainName">
+          </div>
+          <div class="sm:col-span-2">
+            <label class="brief-label" for="f-socials">{{brief.social_media_links}}</label>
+            <p class="brief-help">{{brief.optional_one_per_line}}</p>
+            <textarea id="f-socials" class="brief-textarea" placeholder="https://instagram.com/..." data-key="socials"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 7: ANYTHING ELSE -->
+      <section class="brief-section">
+        <h2 class="text-lg font-semibold text-white flex items-center gap-3 mb-5">
+          <span class="brief-step-number">7</span> {{brief.anything_else}}
+        </h2>
+        <div class="flex flex-col gap-5">
+          <div>
+            <label class="brief-label" for="f-deadline">{{brief.is_there_a_deadline_or_important}}</label>
+            <input type="text" id="f-deadline" class="brief-input" placeholder="{{brief.placeholder_optional_e_g_opening_1_march}}" data-key="deadline">
+          </div>
+          <div>
+            <label class="brief-label" for="f-other">{{brief.anything_else_we_should_know}}</label>
+            <textarea id="f-other" class="brief-textarea" placeholder="{{brief.placeholder_optional}}" data-key="anythingElse"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <p class="text-center text-xs text-gray-600 leading-relaxed px-4">
+        {{brief.please_don_t_include_passwords_bank}}
+      </p>
+    </main>
+
+    <!-- STICKY ACTION BAR -->
+    <div class="fixed bottom-0 left-0 right-0 z-40 bg-black/95 backdrop-blur-xl border-t border-white/10 px-4 py-4">
+      <div class="max-w-3xl mx-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+        <button
+          type="button"
+          id="btn-send"
+          onclick="sendToGrasshopper()"
+          class="flex-1 bg-grass-green text-black font-bold py-3.5 px-6 rounded-full hover:bg-white hover:scale-[1.02] transition-all shadow-[0_0_25px_rgba(0,255,65,0.25)] flex items-center justify-center gap-2 text-sm"
+        >
+          <i data-lucide="send" class="w-4 h-4"></i>
+          {{brief.send_to_grasshopper_on_whatsapp}}
+        </button>
+        <button
+          type="button"
+          id="btn-pdf"
+          onclick="downloadPDF()"
+          class="sm:flex-none bg-card-gray hover:bg-code-gray border border-white/10 hover:border-gray-500 text-gray-300 font-mono font-medium py-3.5 px-6 rounded-full flex items-center justify-center gap-2 text-xs transition"
+        >
+          <i class="fa-solid fa-file-pdf text-red-400"></i>
+          {{brief.download_pdf}}
+        </button>
+      </div>
+      <p class="max-w-3xl mx-auto text-center text-[11px] text-gray-600 mt-2 font-mono">
+        {{brief.sending_it_to_us_on_whatsapp}}
+      </p>
+    </div>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+      // ===== I18N =====
+      // JS-built text (toasts, the WhatsApp summary, the PDF) comes from
+      // i18n/<lang>/brief-js.json, inlined by scripts/build-i18n.js. Choice
+      // fields store fixed English values (data-key / value attributes are the
+      // same in every language), so saved answers in gh_brief_state survive a
+      // language switch; displayAnswer() shows them in the page's language.
+      const BRIEF_T = {{json:brief-js}};
+      const LOCALE = '{{$locale}}';
+      function tr(key, vars) {
+        const value = key.split('.').reduce((o, k) => (o == null ? o : o[k]), BRIEF_T);
+        if (typeof value !== 'string') return value === undefined ? key : value;
+        return value.replace(/\{(\w+)\}/g, (m, k) => (vars && vars[k] !== undefined ? vars[k] : m));
+      }
+
+      // ===== FIELD REGISTRY =====
+      // Every field the form collects, keyed the same as its data-key, so the
+      // same list drives autosave, validation, the WhatsApp summary and the
+      // PDF - one source of truth instead of four places that can drift.
+      function getSimpleFields() {
+        return [...document.querySelectorAll('[data-key]:not([data-type])')];
+      }
+      function getGroupFields() {
+        return [...document.querySelectorAll('[data-type="checkbox-group"], [data-type="radio-group"]')];
+      }
+
+      function fieldLabel(el) {
+        // Walk up to the nearest section/field wrapper and grab its brief-label text.
+        const wrap = el.closest('div');
+        const label = wrap ? wrap.querySelector('.brief-label') : null;
+        if (!label) return el.id;
+        // Drop the "(required)" tag, whatever language it is in.
+        const copy = label.cloneNode(true);
+        copy.querySelectorAll('.brief-required-tag').forEach((tag) => tag.remove());
+        return copy.textContent.trim();
+      }
+
+      // ===== COLLECT =====
+      function collectBriefData() {
+        const data = {};
+        getSimpleFields().forEach((el) => {
+          data[el.dataset.key] = el.value.trim();
+        });
+        getGroupFields().forEach((group) => {
+          const key = group.dataset.key;
+          if (group.dataset.type === 'checkbox-group') {
+            data[key] = [...group.querySelectorAll('input:checked')].map((i) => i.value);
+          } else {
+            const checked = group.querySelector('input:checked');
+            data[key] = checked ? checked.value : '';
+          }
+        });
+        return data;
+      }
+
+      // Visible text for a stored answer: the option / checkbox label (or its
+      // data-label) in the page's language. Free-text answers pass through.
+      function displayAnswer(key, value) {
+        const field = document.querySelector('[data-key="' + key + '"]');
+        if (!field || !value) return value;
+        const show = (v) => {
+          if (field.tagName === 'SELECT') {
+            const opt = [...field.options].find((o) => o.value === v);
+            return opt ? opt.text.trim() : v;
+          }
+          if (field.dataset.type) {
+            const input = [...field.querySelectorAll('input')].find((i) => i.value === v);
+            if (!input) return v;
+            return input.dataset.label || input.parentElement.textContent.trim();
+          }
+          return v;
+        };
+        return Array.isArray(value) ? value.map(show) : show(value);
+      }
+
+      function collectDisplayData() {
+        const raw = collectBriefData();
+        const shown = {};
+        Object.keys(raw).forEach((key) => (shown[key] = displayAnswer(key, raw[key])));
+        return { raw, shown };
+      }
+
+      // ===== VALIDATION =====
+      // Required fields are marked in the label text itself ("(required)"),
+      // not only by color - matches this form's own accessibility intent.
+      function validateRequired() {
+        const missing = [];
+
+        getSimpleFields().forEach((el) => {
+          if (el.dataset.required !== undefined && !el.value.trim()) {
+            missing.push({ el, label: fieldLabel(el) });
+          }
+        });
+
+        getGroupFields().forEach((group) => {
+          if (group.dataset.required === undefined) return;
+          const hasAny = group.querySelector('input:checked');
+          if (!hasAny) missing.push({ el: group, label: fieldLabel(group) });
+        });
+
+        return missing;
+      }
+
+      function highlightMissing(missing) {
+        document.querySelectorAll('.field-missing').forEach((el) => el.classList.remove('field-missing', 'ring-2', 'ring-cyber-red'));
+        missing.forEach(({ el }) => el.classList.add('field-missing', 'ring-2', 'ring-cyber-red'));
+        if (missing.length) {
+          missing[0].el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+
+      // ===== STYLE WORDS CAP (max 5) =====
+      document.addEventListener('DOMContentLoaded', () => {
+        const group = document.getElementById('f-style-group');
+        const help = document.getElementById('style-words-help');
+        const max = parseInt(group.dataset.max, 10);
+        group.addEventListener('change', () => {
+          const checked = group.querySelectorAll('input:checked');
+          if (checked.length >= max) {
+            group.querySelectorAll('input:not(:checked)').forEach((i) => (i.disabled = true));
+            help.textContent = tr('style_max', { max });
+          } else {
+            group.querySelectorAll('input').forEach((i) => (i.disabled = false));
+            help.textContent = tr('style_count', { max, n: checked.length });
+          }
+        });
+      });
+
+      function toggleExistingSiteUrl(show) {
+        document.getElementById('existing-site-url-wrap').classList.toggle('hidden', !show);
+      }
+
+      // ===== AUTOSAVE (localStorage) =====
+      const BRIEF_STORAGE_KEY = 'gh_brief_state';
+
+      function saveToLocalStorage() {
+        try {
+          localStorage.setItem(BRIEF_STORAGE_KEY, JSON.stringify(collectBriefData()));
+        } catch (err) {
+          /* private browsing / storage full - not fatal, just no autosave */
+        }
+      }
+
+      function loadFromLocalStorage() {
+        let saved;
+        try {
+          saved = JSON.parse(localStorage.getItem(BRIEF_STORAGE_KEY) || 'null');
+        } catch (err) {
+          return;
+        }
+        if (!saved) return;
+
+        getSimpleFields().forEach((el) => {
+          if (saved[el.dataset.key] !== undefined) el.value = saved[el.dataset.key];
+        });
+        getGroupFields().forEach((group) => {
+          const key = group.dataset.key;
+          const value = saved[key];
+          if (value === undefined) return;
+          if (group.dataset.type === 'checkbox-group') {
+            group.querySelectorAll('input').forEach((i) => (i.checked = Array.isArray(value) && value.includes(i.value)));
+            group.dispatchEvent(new Event('change'));
+          } else {
+            const match = group.querySelector(`input[value="${CSS.escape(value)}"]`);
+            if (match) {
+              match.checked = true;
+              match.dispatchEvent(new Event('change'));
+            }
+          }
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        loadFromLocalStorage();
+        document.querySelectorAll('input, textarea, select').forEach((el) => {
+          el.addEventListener('input', saveToLocalStorage);
+          el.addEventListener('change', saveToLocalStorage);
+        });
+      });
+
+      // ===== WHATSAPP SUMMARY =====
+      function buildBriefSummary() {
+        const { raw, shown: d } = collectDisplayData();
+        const L = (key) => tr('summary.' + key);
+        const lines = [tr('summary.intro', { name: d.businessName || tr('summary.no_business_name') }), ''];
+
+        const add = (label, value) => {
+          if (Array.isArray(value)) {
+            if (value.length) lines.push(`*${label}:* ${value.join(', ')}`);
+          } else if (value) {
+            lines.push(`*${label}:* ${value}`);
+          }
+        };
+
+        add(L('contact_name'), d.yourName);
+        add(L('email'), d.yourEmail);
+        add(L('phone'), d.yourPhone);
+        lines.push('');
+        add(L('business_name'), d.businessName);
+        add(L('tagline'), d.tagline);
+        add(L('what_they_do'), d.whatYouDo);
+        add(L('industry'), d.industry);
+        add(L('what_makes_them_different'), d.whatsDifferent);
+        lines.push('');
+        add(L('why_a_website'), d.whyWebsite);
+        add(L('main_goal'), d.mainAction);
+        add(L('typical_customers'), d.typicalCustomers);
+        lines.push('');
+        add(L('pages_needed'), d.pagesNeeded);
+        add(L('has_logo'), d.hasLogo);
+        add(L('has_content'), d.hasContent);
+        add(L('existing_website'), raw.hasExistingSite === 'Yes' ? (d.existingSiteUrl || L('yes_no_url')) : d.hasExistingSite);
+        lines.push('');
+        add(L('style_words'), d.styleWords);
+        add(L('color_preferences'), d.colorPreferences);
+        add(L('inspiration'), d.inspiration);
+        lines.push('');
+        add(L('public_phone'), d.publicPhone);
+        add(L('public_email'), d.publicEmail);
+        add(L('public_whatsapp'), d.publicWhatsapp);
+        add(L('has_domain'), d.hasDomain);
+        add(L('domain_name'), d.domainName);
+        add(L('social_links'), d.socials);
+        lines.push('');
+        add(L('deadline'), d.deadline);
+        add(L('anything_else'), d.anythingElse);
+
+        return lines.join('\n');
+      }
+
+      function sendToGrasshopper() {
+        const missing = validateRequired();
+        highlightMissing(missing);
+        if (missing.length) {
+          showToast(tr('toast_missing', { label: missing[0].label }));
+          return;
+        }
+        saveToLocalStorage();
+        if (typeof sendToWhatsApp === 'function') {
+          sendToWhatsApp(buildBriefSummary());
+        }
+      }
+
+      // ===== PDF (same letterhead system as the project cost calculator) =====
+      const PDF_INK = [17, 22, 21];
+      const PDF_MUTED = [112, 118, 115];
+      const PDF_FAINT = [150, 156, 152];
+      const PDF_DARK_BG = [10, 10, 10];
+      const PDF_NEON = [0, 255, 65];
+      const PDF_GREEN_INK = [0, 146, 62];
+      const PDF_CYAN = [0, 219, 222];
+      const PDF_HAIRLINE = [223, 228, 224];
+
+      let brandFontsReady = false;
+      let brandFontsPromise = null;
+      function loadPdfFonts() {
+        if (brandFontsPromise) return brandFontsPromise;
+        brandFontsPromise = new Promise((resolve, reject) => {
+          const tag = document.createElement('script');
+          tag.src = '{{$site}}assets/pdf-fonts.js';
+          tag.onload = () => { brandFontsReady = true; resolve(); };
+          tag.onerror = reject;
+          document.head.appendChild(tag);
+        });
+        return brandFontsPromise;
+      }
+
+      const PDF_FAMILIES = {
+        display: ['Outfit', 'helvetica'],
+        body: ['Inter', 'helvetica'],
+        mono: ['SpaceMono', 'courier']
+      };
+
+      function pdfFont(doc, role, style) {
+        const family = PDF_FAMILIES[role][brandFontsReady ? 0 : 1];
+        let resolved = style || 'normal';
+        if (brandFontsReady && family === 'Outfit') resolved = 'bold';
+        if (brandFontsReady && family === 'SpaceMono') resolved = 'normal';
+        doc.setFont(family, resolved);
+      }
+
+      function pdfText(doc, text, x, y, opts) {
+        const o = Object.assign(
+          { role: 'body', style: 'normal', size: 9, color: PDF_INK, align: 'left', track: 0 },
+          opts || {}
+        );
+        pdfFont(doc, o.role, o.style);
+        doc.setFontSize(o.size);
+        doc.setTextColor(o.color[0], o.color[1], o.color[2]);
+        if (o.track) doc.setCharSpace(o.track);
+        doc.text(text, x, y, { align: o.align });
+        if (o.track) doc.setCharSpace(0);
+      }
+
+      function drawLogoMark(doc, x, y, size) {
+        const k = size / 200;
+        const px = (n) => x + n * k;
+        const py = (n) => y + n * k;
+        const curve = (x0, y0, qx, qy, x1, y1) => {
+          const c1x = x0 + (2 / 3) * (qx - x0), c1y = y0 + (2 / 3) * (qy - y0);
+          const c2x = x1 + (2 / 3) * (qx - x1), c2y = y1 + (2 / 3) * (qy - y1);
+          doc.lines([[c1x - x0, c1y - y0, c2x - x0, c2y - y0, x1 - x0, y1 - y0]], x0, y0, [1, 1], 'S');
+        };
+        doc.setLineCap('round');
+        doc.setFillColor(PDF_DARK_BG[0], PDF_DARK_BG[1], PDF_DARK_BG[2]);
+        doc.setDrawColor(PDF_NEON[0], PDF_NEON[1], PDF_NEON[2]);
+        doc.setLineWidth(2 * k);
+        doc.circle(px(100), py(100), 90 * k, 'FD');
+        doc.setLineWidth(4 * k);
+        curve(px(60), py(120), px(40), py(80), px(80), py(60));
+        curve(px(140), py(120), px(160), py(80), px(120), py(60));
+        doc.setLineWidth(2 * k);
+        doc.line(px(80), py(60), px(60), py(30));
+        doc.line(px(120), py(60), px(140), py(30));
+        doc.setFillColor(PDF_CYAN[0], PDF_CYAN[1], PDF_CYAN[2]);
+        doc.circle(px(85), py(90), 8 * k, 'F');
+        doc.circle(px(115), py(90), 8 * k, 'F');
+        doc.setLineWidth(3 * k);
+        curve(px(90), py(120), px(100), py(130), px(110), py(120));
+        doc.setLineCap('butt');
+      }
+
+      function pdfFilename() {
+        const d = collectBriefData();
+        // Strip accents first so "Peluquería Sol" becomes peluqueria-sol, not peluquer-a-sol.
+        const slug = (d.businessName || 'brief').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+          .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+        const stamp = new Date().toISOString().slice(0, 10);
+        return `Grasshopper-Brief-${slug || 'client'}-${stamp}.pdf`;
+      }
+
+      async function buildBriefDoc() {
+        try {
+          await loadPdfFonts();
+        } catch (err) {
+          /* fall back to built-in faces */
+        }
+
+        const { raw, shown: d } = collectDisplayData();
+        const P = (key) => tr('pdf.' + key);
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
+        doc.setProperties({
+          title: P('title'),
+          subject: tr('pdf.subject', { name: d.businessName || P('client') }),
+          author: d.yourName || P('author'),
+          creator: 'grasshoppersolutions.online'
+        });
+
+        const pageW = doc.internal.pageSize.getWidth();
+        const pageH = doc.internal.pageSize.getHeight();
+        const m = 18;
+        const contentW = pageW - m * 2;
+        const rightX = pageW - m;
+        const WHITE = [255, 255, 255];
+        let y = 20;
+
+        const ensureRoom = (need) => {
+          if (y + need > pageH - 16) {
+            doc.addPage();
+            y = 20;
+            return true;
+          }
+          return false;
+        };
+
+        // Letterhead
+        doc.setFillColor(PDF_DARK_BG[0], PDF_DARK_BG[1], PDF_DARK_BG[2]);
+        doc.rect(0, 0, pageW, 36, 'F');
+        doc.setFillColor(PDF_NEON[0], PDF_NEON[1], PDF_NEON[2]);
+        doc.rect(0, 36, pageW, 0.9, 'F');
+        drawLogoMark(doc, m, 9.5, 17);
+        pdfText(doc, 'GRASSHOPPER', m + 22, 20.5, { role: 'display', style: 'bold', size: 18, color: WHITE });
+        pdfText(doc, 'IT SOLUTIONS LLC', m + 22.5, 26.5, { role: 'mono', size: 7, color: PDF_NEON, track: 0.55 });
+        pdfText(doc, P('heading'), rightX, 19.5, { role: 'display', style: 'bold', size: 12, color: PDF_NEON, align: 'right' });
+        pdfText(doc, new Date().toLocaleDateString(LOCALE, { year: 'numeric', month: 'short', day: 'numeric' }), rightX, 26, { role: 'mono', size: 7, color: [168, 174, 170], align: 'right' });
+        y = 47;
+
+        pdfText(doc, (d.businessName || P('untitled')).toLocaleUpperCase(LOCALE), m, y, { role: 'display', style: 'bold', size: 16 });
+        y += 8;
+        if (d.tagline) {
+          pdfText(doc, d.tagline, m, y, { role: 'body', size: 9.5, color: PDF_MUTED });
+          y += 7;
+        }
+        doc.setDrawColor(PDF_GREEN_INK[0], PDF_GREEN_INK[1], PDF_GREEN_INK[2]);
+        doc.setLineWidth(0.6);
+        doc.line(m, y, rightX, y);
+        y += 8;
+
+        const S = (key) => tr('pdf.sections.' + key);
+        const F = (key) => tr('pdf.labels.' + key);
+        const sections = [
+          [S('contact'), [
+            [F('name'), d.yourName], [F('email'), d.yourEmail], [F('phone'), d.yourPhone]
+          ]],
+          [S('business'), [
+            [F('what_they_do'), d.whatYouDo], [F('industry'), d.industry], [F('what_makes_them_different'), d.whatsDifferent]
+          ]],
+          [S('goals'), [
+            [F('why_a_website'), (d.whyWebsite || []).join(', ')], [F('main_goal'), d.mainAction], [F('typical_customers'), d.typicalCustomers]
+          ]],
+          [S('pages'), [
+            [F('pages_needed'), (d.pagesNeeded || []).join(', ')], [F('has_logo'), d.hasLogo], [F('has_content'), d.hasContent],
+            [F('existing_website'), raw.hasExistingSite === 'Yes' ? (d.existingSiteUrl || d.hasExistingSite) : d.hasExistingSite]
+          ]],
+          [S('look'), [
+            [F('style_words'), (d.styleWords || []).join(', ')], [F('color_preferences'), d.colorPreferences], [F('inspiration'), d.inspiration]
+          ]],
+          [S('public'), [
+            [F('phone'), d.publicPhone], [F('email'), d.publicEmail], [F('whatsapp'), d.publicWhatsapp],
+            [F('domain'), raw.hasDomain === 'Yes' ? (d.domainName || d.hasDomain) : d.hasDomain], [F('social_links'), d.socials]
+          ]],
+          [S('other'), [
+            [F('deadline'), d.deadline], [F('anything_else'), d.anythingElse]
+          ]]
+        ];
+
+        sections.forEach(([heading, rows]) => {
+          const visible = rows.filter(([, v]) => v);
+          if (!visible.length) return;
+
+          ensureRoom(12);
+          pdfText(doc, '// ' + heading.toLocaleUpperCase(LOCALE), m, y, { role: 'mono', size: 7.5, color: PDF_GREEN_INK, track: 0.3 });
+          y += 6;
+
+          visible.forEach(([label, value]) => {
+            pdfFont(doc, 'body', 'normal');
+            doc.setFontSize(8);
+            const valueLines = doc.splitTextToSize(String(value), contentW - 45);
+            const rowH = Math.max(6, valueLines.length * 4 + 2);
+            const brokePage = ensureRoom(rowH);
+            if (brokePage) {
+              pdfText(doc, '// ' + heading.toLocaleUpperCase(LOCALE) + P('contd'), m, y, { role: 'mono', size: 7.5, color: PDF_GREEN_INK, track: 0.3 });
+              y += 6;
+            }
+
+            pdfText(doc, label, m, y + 4, { role: 'body', style: 'bold', size: 8.5, color: PDF_INK });
+            pdfText(doc, valueLines, m + 42, y + 4, { role: 'body', size: 8, color: PDF_MUTED });
+            y += rowH;
+          });
+          y += 9;
+        });
+
+        ensureRoom(20);
+        const fy = pageH - 16;
+        doc.setDrawColor(PDF_HAIRLINE[0], PDF_HAIRLINE[1], PDF_HAIRLINE[2]);
+        doc.setLineWidth(0.3);
+        doc.line(m, fy, rightX, fy);
+        pdfText(doc, 'Grasshopper IT Solutions LLC  ·  general@grasshoppersolutions.online  ·  grasshoppersolutions.online', m, fy + 5, { role: 'mono', size: 7, color: PDF_MUTED });
+
+        return doc;
+      }
+
+      function withBusyButton(btnId, label, fn) {
+        const btn = document.getElementById(btnId);
+        const original = btn ? btn.innerHTML : null;
+        if (btn) {
+          btn.disabled = true;
+          btn.classList.add('opacity-60', 'cursor-wait');
+          btn.innerHTML = label;
+        }
+        return Promise.resolve()
+          .then(fn)
+          .finally(() => {
+            if (btn) {
+              btn.disabled = false;
+              btn.classList.remove('opacity-60', 'cursor-wait');
+              btn.innerHTML = original;
+            }
+          });
+      }
+
+      function downloadPDF() {
+        return withBusyButton('btn-pdf', tr('busy'), () =>
+          buildBriefDoc()
+            .then((doc) => doc.save(pdfFilename()))
+            .then(() => showToast(tr('toast_pdf_ok')))
+            .catch(() => showToast(tr('toast_pdf_fail')))
+        );
+      }
+
+      // ===== TOAST =====
+      function showToast(message) {
+        const toast = document.getElementById('notification-toast');
+        document.getElementById('toast-message').textContent = message;
+        toast.classList.add('show');
+        clearTimeout(window.__briefToastTimer);
+        window.__briefToastTimer = setTimeout(() => toast.classList.remove('show'), 3500);
+      }
+    </script>
+    <script src="{{$site}}script.js"></script>
+  </body>
+</html>

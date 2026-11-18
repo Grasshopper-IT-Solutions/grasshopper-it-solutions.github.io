@@ -28,3 +28,6 @@
 [submodule "landing-pages/noah-addmedia"]
 	path = landing-pages/noah-addmedia
 	url = https://github.com/Grasshopper-IT-Solutions/noah-addmedia.git
+[submodule "projects/keepling"]
+	path = projects/keepling
+	url = https://github.com/Grasshopper-IT-Solutions/keepling.git

@@ -1,0 +1,18 @@
+{
+  "nav_services": "./Servicios",
+  "nav_projects": "./Proyectos",
+  "nav_estimate": "./Cotizar",
+  "nav_start_project": "INICIAR_PROYECTO",
+  "nav_start_project_mobile": "./Iniciar_Proyecto",
+  "aria_menu": "Menú",
+  "lang_switch_label": "Idioma",
+  "lang_switch_title": "View this page in English",
+  "toast_coming_soon": "Módulo disponible próximamente...",
+  "ai_bubble_text": "Pronto tendremos un chat neuronal para ayudarle con su proyecto.",
+  "alt_logo": "Logo de Grasshopper",
+  "alt_footer_logo": "Logo de Grasshopper Solutions",
+  "slogan": "Crecemos en verde. Construimos limpio. Llegamos lejos.",
+  "aria_facebook": "Grasshopper Solutions en Facebook",
+  "rights": "Grasshopper IT Solutions LLC. Todos los derechos reservados.",
+  "local_time": "HORA_LOCAL_DEL_SISTEMA:"
+}
