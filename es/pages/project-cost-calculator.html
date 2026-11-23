@@ -228,7 +228,7 @@
           <div class="grid grid-cols-1 gap-4">
             <!-- Raw Base Value Indicator -->
             <div class="calc-stat-box">
-              <label class="block text-xs font-mono text-gray-500 mb-1">VALOR BASE ESTÁNDAR</label>
+              <label class="block text-xs font-mono text-gray-500 mb-1">LANDING PAGE BÁSICA</label>
               <div class="flex items-baseline gap-2">
                 <span class="text-3xl font-extrabold text-white font-mono">$300</span>
                 <span class="text-xs text-gray-600 font-mono">USD</span>
@@ -311,7 +311,7 @@
 
           <!-- Fixed/Included Pages -->
           <div class="mb-3">
-            <label class="block text-[10px] font-mono text-gray-600 mb-2 uppercase">Incluido en la base:</label>
+            <label class="block text-[10px] font-mono text-gray-600 mb-2 uppercase">Incluido en la landing page:</label>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-2 mb-3">
               <div class="flex items-center gap-3 p-2.5 rounded-lg bg-grass-green/5 border border-grass-green/15 opacity-70 cursor-default">
                 <input type="checkbox" checked disabled class="accent-grass-green w-4 h-4 opacity-60">
@@ -342,6 +342,12 @@
             <div id="store-pages-list" class="grid grid-cols-1 md:grid-cols-2 gap-2"></div>
           </div>
 
+          <!-- Included with the User Accounts premium feature (only shown while it is selected) -->
+          <div id="users-pages-block" class="hidden mb-4">
+            <label class="block text-[10px] font-mono text-gray-600 mb-2 uppercase">Incluido con Cuentas de usuario:</label>
+            <div id="users-pages-list" class="grid grid-cols-1 md:grid-cols-2 gap-2"></div>
+          </div>
+
           <!-- Paid Toggles for Pages -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
             <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
@@ -364,6 +370,46 @@
               <span class="flex items-center gap-3">
                 <input type="checkbox" id="page-about" class="page-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
                 <span class="text-sm font-medium text-gray-300">Nosotros / Equipo</span>
+              </span>
+              <span class="text-xs font-mono text-gray-500 rate-tag-pages">$75.00</span>
+            </label>
+
+            <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
+              <span class="flex items-center gap-3">
+                <input type="checkbox" id="page-location" class="page-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
+                <span class="text-sm font-medium text-gray-300">Ubicación</span>
+              </span>
+              <span class="text-xs font-mono text-gray-500 rate-tag-pages">$75.00</span>
+            </label>
+
+            <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
+              <span class="flex items-center gap-3">
+                <input type="checkbox" id="page-booking" class="page-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
+                <span class="text-sm font-medium text-gray-300">Reservas</span>
+              </span>
+              <span class="text-xs font-mono text-gray-500 rate-tag-pages">$75.00</span>
+            </label>
+
+            <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
+              <span class="flex items-center gap-3">
+                <input type="checkbox" id="page-menu" class="page-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
+                <span class="text-sm font-medium text-gray-300">Menú</span>
+              </span>
+              <span class="text-xs font-mono text-gray-500 rate-tag-pages">$75.00</span>
+            </label>
+
+            <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
+              <span class="flex items-center gap-3">
+                <input type="checkbox" id="page-careers" class="page-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
+                <span class="text-sm font-medium text-gray-300">Empleos</span>
+              </span>
+              <span class="text-xs font-mono text-gray-500 rate-tag-pages">$75.00</span>
+            </label>
+
+            <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
+              <span class="flex items-center gap-3">
+                <input type="checkbox" id="page-gallery" class="page-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
+                <span class="text-sm font-medium text-gray-300">Galería</span>
               </span>
               <span class="text-xs font-mono text-gray-500 rate-tag-pages">$75.00</span>
             </label>
@@ -405,7 +451,7 @@
 
           <!-- Fixed/Included Integration -->
           <div class="mb-3">
-            <label class="block text-[10px] font-mono text-gray-600 mb-2 uppercase">Incluido en la base:</label>
+            <label class="block text-[10px] font-mono text-gray-600 mb-2 uppercase">Incluido en la landing page:</label>
             <div class="flex items-center gap-3 p-2.5 rounded-lg bg-grass-green/5 border border-grass-green/15 opacity-70 cursor-default mb-3">
               <input type="checkbox" checked disabled class="accent-grass-green w-4 h-4 opacity-60">
               <span class="text-sm font-medium text-gray-400">Chat de WhatsApp</span>
@@ -576,6 +622,17 @@
 
             <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
               <span class="flex items-center gap-3">
+                <input type="checkbox" id="feature-users" class="feature-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
+                <div>
+                  <span class="text-sm font-medium text-gray-300 block">Cuentas de usuario (inicio de sesión y registro)</span>
+                  <span class="card-note text-[11px] text-gray-600">Permita que sus visitantes se registren, inicien sesión y administren su propia cuenta. Incluye la integración de Base de datos, que se cotiza y se suma al presupuesto como extra, además de 4 páginas de cuenta: inicio de sesión, registro, olvidé mi contraseña y mi cuenta. Las páginas están incluidas en el precio.</span>
+                </div>
+              </span>
+              <span class="ml-3 flex-shrink-0 whitespace-nowrap text-xs font-mono text-gray-500 rate-tag-features">$90.00</span>
+            </label>
+
+            <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
+              <span class="flex items-center gap-3">
                 <input type="checkbox" id="feature-android" class="feature-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
                 <div>
                   <span class="text-sm font-medium text-gray-300 block">App de Android (Google Play Store)</span>
@@ -683,7 +740,7 @@
             <!-- Base details -->
             <div class="mb-4">
               <div class="flex items-center justify-between text-sm py-1">
-                <span class="text-gray-400 font-medium">Paquete base</span>
+                <span class="text-gray-400 font-medium">Landing page básica</span>
                 <span class="text-white font-mono" id="invoice-base-price">$300.00</span>
               </div>
               <div id="invoice-discount-row" class="flex items-center justify-between text-xs py-1 text-emerald-400">
@@ -721,6 +778,16 @@
                   <span class="font-medium">Páginas de la tienda en línea</span>
                   <span id="invoice-store-count" class="text-[10px] font-mono text-gray-600 block"></span>
                   <div id="invoice-store-names" class="text-[10px] text-grass-green/70 italic max-w-xs mt-0.5"></div>
+                </div>
+                <span class="font-mono text-emerald-400">Incluido</span>
+              </div>
+
+              <!-- User Account pages: auto-added, included in the price -->
+              <div id="invoice-users-row" class="hidden flex items-start justify-between text-xs py-1.5 text-gray-400 border-t border-white/10">
+                <div>
+                  <span class="font-medium">Páginas de cuentas de usuario</span>
+                  <span id="invoice-users-count" class="text-[10px] font-mono text-gray-600 block"></span>
+                  <div id="invoice-users-names" class="text-[10px] text-grass-green/70 italic max-w-xs mt-0.5"></div>
                 </div>
                 <span class="font-mono text-emerald-400">Incluido</span>
               </div>
@@ -908,7 +975,7 @@
       // by scripts/build-i18n.js. Only the display text is translated: element
       // ids, the gh_calc_state keys and the ?state= payload are the same in
       // every language, so saved and shared quotes work in both.
-      const CALC_T = {"items":{"page-portfolio":"Portafolio","page-services":"Servicios","page-about":"Nosotros / Equipo","integration-calendar":"Calendario","integration-database":"Base de datos","integration-map":"Mapa","integration-mobile":"Diseño adaptado a celulares","integration-payments":"Pagos","integration-ai":"IA","feature-seo":"SEO / GEO","feature-domain":"Dominio Pro","feature-multilang":"Multilingüe","feature-brand":"Logo y kit de marca","feature-store":"Tienda en línea","feature-android":"App de Android (Google Play Store)","feature-storesetup":"Configuración de cuentas de tienda","feature-ios":"App de iOS (App Store)","feature-express":"Entrega exprés","feature-priority-support":"Soporte prioritario (1 año)"},"store_pages":["Tienda","Producto","Carrito","Finalizar compra","Pago exitoso","Pago fallido","Envíos y devoluciones"],"free_pages_one":"{n} página gratis (por cada {every} páginas adicionales)","free_pages_other":"{n} páginas gratis (por cada {every} páginas adicionales)","more_pages_one":"{n} página más","more_pages_other":"{n} páginas más","hint_first":"Le faltan {more} para obtener su primera página gratis.","hint_next_one":"{n} página gratis aplicada. Le faltan {more} para la siguiente.","hint_next_other":"{n} páginas gratis aplicadas. Le faltan {more} para la siguiente.","lock_note":"Seleccionada automáticamente con {names}","included_badge":"INCLUIDA","store_count":"{n} páginas agregadas automáticamente","selected_count":"Seleccionadas: {n}","discount_applied":"{n}% aplicado","date_label":"FECHA: {date}","fx_unavailable":"En este momento no hay tipos de cambio disponibles; se muestran los montos en USD.","fx_rate":"1 USD ≈ {rate} {code} (indicativo, actualizado en las últimas 24 h)","toast_preset_basic":"Paquete Página web básica aplicado: Nosotros + Servicios","toast_preset_marketplace":"Paquete Marketplace aplicado: Tienda en línea + Nosotros + SEO","toast_cleared":"Se borraron todas las selecciones.","toast_duplicate":"\"{name}\" ya está agregado.","toast_pdf_ok":"PDF descargado.","toast_pdf_fail":"No se pudo exportar el PDF. Inténtelo de nuevo.","toast_shared":"Cotización compartida.","toast_pdf_attach":"PDF descargado: adjúntelo al mensaje de WhatsApp.","busy":"GENERANDO...","share_title":"Grasshopper Solutions - Cotización de proyecto","note_more":"más","note_less":"menos","pdf":{"title":"Grasshopper Solutions - Estimado de proyecto","subject":"Estimado de proyecto {ref}, válido hasta el {expires}","heading":"ESTIMADO DE PROYECTO","meta_ref":"REF. COTIZACIÓN","meta_generated":"FECHA DE EMISIÓN","meta_valid":"VÁLIDO HASTA","meta_currency":"MONEDA","converted":" (convertida)","scope_heading":"// ALCANCE Y PRECIOS","col_description":"DESCRIPCIÓN","col_amount":"MONTO","base_label":"Paquete base","base_detail":"Hosting, páginas de inicio y contacto, integración con WhatsApp, encabezado de navegación, pie de página, páginas de términos y condiciones y de privacidad, diseño profesional y 6 meses de soporte técnico.","pages_label":"Páginas adicionales","none_selected":"Ninguna seleccionada.","store_label":"Páginas de la tienda en línea","store_detail":"{pages}. Se agregan automáticamente con la función Tienda en línea y están incluidas en el precio.","volume_label":"Descuento por volumen","integrations_label":"Integraciones","integrations_none":"Solo WhatsApp (incluido en la base).","features_label":"Funciones Premium","included":"Incluido","discount_line":"Descuento aplicado  -{n}%","total":"TOTAL ESTIMADO","net_in":"Estimado neto en {currency}","terms_heading":"// TÉRMINOS","terms":{"base":"Los precios son indicativos y pueden revisarse o cambiar sin previo aviso. Todo presupuesto generado aquí es válido y será respetado durante {days} días a partir de su fecha de creación ({generated}) y vence el {expires}.","fx":"Los montos convertidos son solo indicativos y se basan en el tipo de cambio obtenido en la fecha de generación.","ai":"Los cobros por uso del proveedor de IA no están incluidos en este estimado y los paga el cliente.","payments":"Las comisiones por transacción del proveedor de pagos no están incluidas en este estimado y las paga el cliente.","database":"Los costos de alojamiento de la base de datos corren por cuenta de Grasshopper IT Solutions LLC.","domain":"El dominio básico incluido en el producto base lo paga Grasshopper IT Solutions LLC.","ownership":"La titularidad de cualquier cuenta creada para el proyecto (dominio, base de datos, proveedor de pagos y similares) se transferirá al cliente cuando este lo solicite.","store_google":"Google Play","store_apple":"el App Store de Apple","store_and":" y ","store_approval":"La publicación de la app está sujeta a la aprobación de {stores}.","store_fees_absorbed":"Las tarifas de la cuenta de desarrollador de la tienda las asume Grasshopper IT Solutions LLC y la app se publica bajo su cuenta de desarrollador, a menos que el cliente prefiera la suya (vea Configuración de cuentas de tienda).","store_fees_client":"Configuración de cuentas de tienda: la cuenta de desarrollador propia se crea a nombre del cliente y sus tarifas las paga el cliente y no están incluidas en esta estimación ({fees}).","fee_google":"Google Play: USD 25, por única vez","fee_apple":"Apple Developer Program: USD 99 al año","express":"El plazo de la Entrega exprés empieza a contar una vez que se hayan recibido todos los contenidos y materiales.","priority":"El Soporte prioritario agrega 6 meses de soporte técnico a los 6 incluidos, para un total de 12 meses después de la entrega final, con atención prioritaria durante todo ese periodo.","non_binding":"Los estimados no son vinculantes y los costos reales pueden variar según el alcance final acordado. Este documento es una traducción; si hubiera alguna diferencia con la versión en inglés, prevalece la versión en inglés."},"next_heading":"// PRÓXIMOS PASOS","next_steps":[["01","Cuéntenos qué necesita","Envíenos esta cotización con lo que quiera agregar, cambiar o quitar."],["02","Nosotros lo construimos","El diseño y el desarrollo empiezan de inmediato, con avances directos sobre la marcha."],["03","Lanzamiento","La mayoría de los sitios pequeños están en línea entre 3 y 7 días después del arranque."]],"next_cta":"¿Tiene preguntas o quiere empezar? Responda por WhatsApp o escriba a general@grasshoppersolutions.online","slogan":"Crecemos en verde. Construimos limpio. Llegamos lejos."},"summary":{"fixed_pages":["Inicio","Contacto","Términos y condiciones","Privacidad"],"items":{"page-portfolio":"Portafolio","page-services":"Servicios","page-about":"Nosotros","integration-calendar":"Calendario","integration-database":"Base de datos","integration-map":"Mapa","integration-mobile":"Diseño adaptado a celulares","integration-payments":"Pagos","integration-ai":"IA","feature-seo":"SEO/GEO","feature-domain":"Dominio Pro","feature-multilang":"Multilingüe","feature-brand":"Logo y kit de marca","feature-store":"Tienda en línea","feature-android":"App de Android (Google Play Store)","feature-storesetup":"Configuración de cuentas de tienda","feature-ios":"App de iOS (App Store)","feature-express":"Entrega exprés","feature-priority-support":"Soporte prioritario (1 año)"},"volume":"- Descuento por volumen: {label}","store":"- Páginas de la tienda (incluidas): {pages}","fx":"Los montos convertidos son indicativos, con el tipo de cambio del {date}.","none":"Ninguna","lines":["¡Hola, equipo de Grasshopper! Configuré mi proyecto con su calculadora de costos:","- Precio base: ${base} USD (descuento: {discount}%)","- Páginas: {pages}{pagesDiscountLine}{storeLine}","- Integraciones: {integrations}","- Funciones: {features}","","*Total estimado: {total}*","","Cotización generada el {generated}, válida hasta el {expires}.","Los precios son indicativos y pueden revisarse o cambiar sin previo aviso. Todo presupuesto generado aquí es válido y será respetado durante {days} días a partir de su fecha de creación.{fxNote}","","¡Me gustaría hablar sobre cómo lanzar este proyecto!"]}};
+      const CALC_T = {"items":{"page-portfolio":"Portafolio","page-services":"Servicios","page-about":"Nosotros / Equipo","page-location":"Ubicación","page-booking":"Reservas","page-menu":"Menú","page-careers":"Empleos","page-gallery":"Galería","integration-calendar":"Calendario","integration-database":"Base de datos","integration-map":"Mapa","integration-mobile":"Diseño adaptado a celulares","integration-payments":"Pagos","integration-ai":"IA","feature-seo":"SEO / GEO","feature-domain":"Dominio Pro","feature-multilang":"Multilingüe","feature-brand":"Logo y kit de marca","feature-users":"Cuentas de usuario","feature-store":"Tienda en línea","feature-android":"App de Android (Google Play Store)","feature-storesetup":"Configuración de cuentas de tienda","feature-ios":"App de iOS (App Store)","feature-express":"Entrega exprés","feature-priority-support":"Soporte prioritario (1 año)"},"users_pages":["Iniciar sesión","Registro","Olvidé mi contraseña","Mi cuenta"],"store_pages":["Tienda","Producto","Carrito","Finalizar compra","Pago exitoso","Pago fallido","Envíos y devoluciones"],"free_pages_one":"{n} página gratis (por cada {every} páginas adicionales)","free_pages_other":"{n} páginas gratis (por cada {every} páginas adicionales)","more_pages_one":"{n} página más","more_pages_other":"{n} páginas más","hint_first":"Le faltan {more} para obtener su primera página gratis.","hint_next_one":"{n} página gratis aplicada. Le faltan {more} para la siguiente.","hint_next_other":"{n} páginas gratis aplicadas. Le faltan {more} para la siguiente.","lock_note":"Seleccionada automáticamente con {names}","included_badge":"INCLUIDA","store_count":"{n} páginas agregadas automáticamente","selected_count":"Seleccionadas: {n}","discount_applied":"{n}% aplicado","date_label":"FECHA: {date}","fx_unavailable":"En este momento no hay tipos de cambio disponibles; se muestran los montos en USD.","fx_rate":"1 USD ≈ {rate} {code} (indicativo, actualizado en las últimas 24 h)","toast_preset_basic":"Paquete Página web básica aplicado: Nosotros + Servicios","toast_preset_marketplace":"Paquete Marketplace aplicado: Tienda en línea + Nosotros + SEO","toast_cleared":"Se borraron todas las selecciones.","toast_duplicate":"\"{name}\" ya está agregado.","toast_pdf_ok":"PDF descargado.","toast_pdf_fail":"No se pudo exportar el PDF. Inténtelo de nuevo.","toast_shared":"Cotización compartida.","toast_pdf_attach":"PDF descargado: adjúntelo al mensaje de WhatsApp.","busy":"GENERANDO...","share_title":"Grasshopper Solutions - Cotización de proyecto","note_more":"más","note_less":"menos","pdf":{"title":"Grasshopper Solutions - Estimado de proyecto","subject":"Estimado de proyecto {ref}, válido hasta el {expires}","heading":"ESTIMADO DE PROYECTO","meta_ref":"REF. COTIZACIÓN","meta_generated":"FECHA DE EMISIÓN","meta_valid":"VÁLIDO HASTA","meta_currency":"MONEDA","converted":" (convertida)","scope_heading":"// ALCANCE Y PRECIOS","col_description":"DESCRIPCIÓN","col_amount":"MONTO","base_label":"Landing page básica","base_detail":"Hosting, páginas de inicio y contacto, integración con WhatsApp, encabezado de navegación, pie de página, páginas de términos y condiciones y de privacidad, diseño profesional y 6 meses de soporte técnico.","pages_label":"Páginas adicionales","none_selected":"Ninguna seleccionada.","users_label":"Páginas de cuentas de usuario","users_detail":"{pages}. Se agregan automáticamente con la función Cuentas de usuario y están incluidas en el precio.","store_label":"Páginas de la tienda en línea","store_detail":"{pages}. Se agregan automáticamente con la función Tienda en línea y están incluidas en el precio.","volume_label":"Descuento por volumen","integrations_label":"Integraciones","integrations_none":"Solo WhatsApp (incluido en la base).","features_label":"Funciones Premium","included":"Incluido","discount_line":"Descuento aplicado  -{n}%","total":"TOTAL ESTIMADO","net_in":"Estimado neto en {currency}","terms_heading":"// TÉRMINOS","terms":{"base":"Los precios son indicativos y pueden revisarse o cambiar sin previo aviso. Todo presupuesto generado aquí es válido y será respetado durante {days} días a partir de su fecha de creación ({generated}) y vence el {expires}.","fx":"Los montos convertidos son solo indicativos y se basan en el tipo de cambio obtenido en la fecha de generación.","ai":"Los cobros por uso del proveedor de IA no están incluidos en este estimado y los paga el cliente.","payments":"Las comisiones por transacción del proveedor de pagos no están incluidas en este estimado y las paga el cliente.","database":"Los costos de alojamiento de la base de datos corren por cuenta de Grasshopper IT Solutions LLC.","domain":"El dominio básico incluido en el producto base lo paga Grasshopper IT Solutions LLC.","ownership":"La titularidad de cualquier cuenta creada para el proyecto (dominio, base de datos, proveedor de pagos y similares) se transferirá al cliente cuando este lo solicite.","store_google":"Google Play","store_apple":"el App Store de Apple","store_and":" y ","store_approval":"La publicación de la app está sujeta a la aprobación de {stores}.","store_fees_absorbed":"Las tarifas de la cuenta de desarrollador de la tienda las asume Grasshopper IT Solutions LLC y la app se publica bajo su cuenta de desarrollador, a menos que el cliente prefiera la suya (vea Configuración de cuentas de tienda).","store_fees_client":"Configuración de cuentas de tienda: la cuenta de desarrollador propia se crea a nombre del cliente y sus tarifas las paga el cliente y no están incluidas en esta estimación ({fees}).","fee_google":"Google Play: USD 25, por única vez","fee_apple":"Apple Developer Program: USD 99 al año","express":"El plazo de la Entrega exprés empieza a contar una vez que se hayan recibido todos los contenidos y materiales.","priority":"El Soporte prioritario agrega 6 meses de soporte técnico a los 6 incluidos, para un total de 12 meses después de la entrega final, con atención prioritaria durante todo ese periodo.","non_binding":"Los estimados no son vinculantes y los costos reales pueden variar según el alcance final acordado. Este documento es una traducción; si hubiera alguna diferencia con la versión en inglés, prevalece la versión en inglés."},"next_heading":"// PRÓXIMOS PASOS","next_steps":[["01","Cuéntenos qué necesita","Envíenos esta cotización con lo que quiera agregar, cambiar o quitar."],["02","Nosotros lo construimos","El diseño y el desarrollo empiezan de inmediato, con avances directos sobre la marcha."],["03","Lanzamiento","La mayoría de los sitios pequeños están en línea entre 3 y 7 días después del arranque."]],"next_cta":"¿Tiene preguntas o quiere empezar? Responda por WhatsApp o escriba a general@grasshoppersolutions.online","slogan":"Crecemos en verde. Construimos limpio. Llegamos lejos."},"summary":{"fixed_pages":["Inicio","Contacto","Términos y condiciones","Privacidad"],"items":{"page-portfolio":"Portafolio","page-services":"Servicios","page-about":"Nosotros","page-location":"Ubicación","page-booking":"Reservas","page-menu":"Menú","page-careers":"Empleos","page-gallery":"Galería","integration-calendar":"Calendario","integration-database":"Base de datos","integration-map":"Mapa","integration-mobile":"Diseño adaptado a celulares","integration-payments":"Pagos","integration-ai":"IA","feature-seo":"SEO/GEO","feature-domain":"Dominio Pro","feature-multilang":"Multilingüe","feature-brand":"Logo y kit de marca","feature-users":"Cuentas de usuario","feature-store":"Tienda en línea","feature-android":"App de Android (Google Play Store)","feature-storesetup":"Configuración de cuentas de tienda","feature-ios":"App de iOS (App Store)","feature-express":"Entrega exprés","feature-priority-support":"Soporte prioritario (1 año)"},"volume":"- Descuento por volumen: {label}","users":"- Páginas de cuenta (incluidas): {pages}","store":"- Páginas de la tienda (incluidas): {pages}","fx":"Los montos convertidos son indicativos, con el tipo de cambio del {date}.","none":"Ninguna","lines":["¡Hola, equipo de Grasshopper! Configuré mi proyecto con su calculadora de costos:","- Landing page básica: ${base} USD (descuento: {discount}%)","- Páginas: {pages}{pagesDiscountLine}{storeLine}{usersLine}","- Integraciones: {integrations}","- Funciones: {features}","","*Total estimado: {total}*","","Cotización generada el {generated}, válida hasta el {expires}.","Los precios son indicativos y pueden revisarse o cambiar sin previo aviso. Todo presupuesto generado aquí es válido y será respetado durante {days} días a partir de su fecha de creación.{fxNote}","","¡Me gustaría hablar sobre cómo lanzar este proyecto!"]}};
       const PAGE_LANG = 'es';
       const LOCALE = 'es-419';
 
@@ -948,10 +1015,16 @@
       // any other; the pages are included in the price, so they are listed in
       // the quote but never counted as extra pages (or toward the volume discount).
       const STORE_PAGES = tr('store_pages');
+      const USERS_PAGES = tr('users_pages');
+      const INCLUDED_PAGES = [
+        { feature: 'feature-store', key: 'store', pages: STORE_PAGES },
+        { feature: 'feature-users', key: 'users', pages: USERS_PAGES }
+      ];
       // Which integrations each feature needs. Ticking the feature switches them
       // on and locks them. To connect a future feature, add one row here.
       const FEATURE_REQUIRES = {
         'feature-store': { name: itemName('feature-store'), needs: ['integration-database', 'integration-payments'] },
+        'feature-users': { name: itemName('feature-users'), needs: ['integration-database'] },
         // Both apps need the same Mobile-Friendly Layout integration, which is charged once.
         'feature-android': { name: itemName('feature-android'), needs: ['integration-mobile'] },
         'feature-ios': { name: itemName('feature-ios'), needs: ['integration-mobile'] }
@@ -996,25 +1069,26 @@
           else label.removeAttribute('title');
         });
 
-        const storeOn = document.getElementById('feature-store').checked;
-
-        const list = document.getElementById('store-pages-list');
-        if (!list.children.length) {
-          STORE_PAGES.forEach((name) => {
-            const row = document.createElement('div');
-            row.className = 'flex items-center gap-3 p-2.5 rounded-lg bg-grass-green/5 border border-grass-green/15 opacity-70 cursor-default';
-            row.innerHTML = '<input type="checkbox" checked disabled class="accent-grass-green w-4 h-4 opacity-60">' +
-              '<span class="text-xs font-medium text-gray-400"></span>' +
-              '<span class="text-[9px] font-mono text-grass-green/50 ml-auto">' + tr('included_badge') + '</span>';
-            row.querySelector('span').textContent = name;
-            list.appendChild(row);
-          });
-        }
-        document.getElementById('store-pages-block').classList.toggle('hidden', !storeOn);
-
-        document.getElementById('invoice-store-row').classList.toggle('hidden', !storeOn);
-        document.getElementById('invoice-store-count').textContent = tr('store_count', { n: STORE_PAGES.length });
-        document.getElementById('invoice-store-names').textContent = STORE_PAGES.join(', ');
+        // Pages a ticked feature brings with it: listed, never charged.
+        INCLUDED_PAGES.forEach((g) => {
+          const on = document.getElementById(g.feature).checked;
+          const list = document.getElementById(g.key + '-pages-list');
+          if (!list.children.length) {
+            g.pages.forEach((name) => {
+              const row = document.createElement('div');
+              row.className = 'flex items-center gap-3 p-2.5 rounded-lg bg-grass-green/5 border border-grass-green/15 opacity-70 cursor-default';
+              row.innerHTML = '<input type="checkbox" checked disabled class="accent-grass-green w-4 h-4 opacity-60">' +
+                '<span class="text-xs font-medium text-gray-400"></span>' +
+                '<span class="text-[9px] font-mono text-grass-green/50 ml-auto">' + tr('included_badge') + '</span>';
+              row.querySelector('span').textContent = name;
+              list.appendChild(row);
+            });
+          }
+          document.getElementById(g.key + '-pages-block').classList.toggle('hidden', !on);
+          document.getElementById('invoice-' + g.key + '-row').classList.toggle('hidden', !on);
+          document.getElementById('invoice-' + g.key + '-count').textContent = tr('store_count', { n: g.pages.length });
+          document.getElementById('invoice-' + g.key + '-names').textContent = g.pages.join(', ');
+        });
       }
 
       // A quote that gets saved, forwarded and quoted back at us needs its own
@@ -1029,9 +1103,9 @@
       })();
 
       // Checkbox ids per section, in the order they are listed in quotes.
-      const PAGE_IDS = ['page-portfolio', 'page-services', 'page-about'];
+      const PAGE_IDS = ['page-portfolio', 'page-services', 'page-about', 'page-location', 'page-booking', 'page-menu', 'page-careers', 'page-gallery'];
       const INTEGRATION_IDS = ['integration-calendar', 'integration-database', 'integration-map', 'integration-mobile', 'integration-payments', 'integration-ai'];
-      const FEATURE_IDS = ['feature-seo', 'feature-domain', 'feature-multilang', 'feature-brand', 'feature-store', 'feature-android', 'feature-ios', 'feature-storesetup', 'feature-express', 'feature-priority-support'];
+      const FEATURE_IDS = ['feature-seo', 'feature-domain', 'feature-multilang', 'feature-brand', 'feature-store', 'feature-users', 'feature-android', 'feature-ios', 'feature-storesetup', 'feature-express', 'feature-priority-support'];
       // Display names of the ticked boxes; `group` picks an alternative name
       // list from the dictionary (e.g. the shorter WhatsApp summary names).
       function checkedNames(ids, group) {
@@ -1069,6 +1143,11 @@
         document.getElementById('page-portfolio').checked = false;
         document.getElementById('page-services').checked = false;
         document.getElementById('page-about').checked = false;
+        document.getElementById('page-location').checked = false;
+        document.getElementById('page-booking').checked = false;
+        document.getElementById('page-menu').checked = false;
+        document.getElementById('page-careers').checked = false;
+        document.getElementById('page-gallery').checked = false;
         document.getElementById('integration-calendar').checked = false;
         document.getElementById('integration-database').checked = false;
         document.getElementById('integration-ai').checked = false;
@@ -1079,6 +1158,7 @@
         document.getElementById('feature-ios').checked = false;
         document.getElementById('feature-storesetup').checked = false;
         document.getElementById('feature-store').checked = false;
+        document.getElementById('feature-users').checked = false;
         document.getElementById('feature-brand').checked = false;
         document.getElementById('feature-express').checked = false;
         autoAdded = new Set();
@@ -1533,6 +1613,11 @@
           p_p: document.getElementById('page-portfolio').checked,
           p_s: document.getElementById('page-services').checked,
           p_a: document.getElementById('page-about').checked,
+          p_l: document.getElementById('page-location').checked,
+          p_b: document.getElementById('page-booking').checked,
+          p_m: document.getElementById('page-menu').checked,
+          p_c: document.getElementById('page-careers').checked,
+          p_g: document.getElementById('page-gallery').checked,
           i_c: document.getElementById('integration-calendar').checked,
           i_db: document.getElementById('integration-database').checked,
           i_ai: document.getElementById('integration-ai').checked,
@@ -1547,6 +1632,7 @@
           f_m: document.getElementById('feature-multilang').checked,
           f_ps: document.getElementById('feature-priority-support').checked,
           f_st: document.getElementById('feature-store').checked,
+          f_u: document.getElementById('feature-users').checked,
           f_b: document.getElementById('feature-brand').checked,
           f_x: document.getElementById('feature-express').checked,
           sa: [...autoAdded],
@@ -1575,6 +1661,11 @@
           if (state.p_p !== undefined) document.getElementById('page-portfolio').checked = state.p_p;
           if (state.p_s !== undefined) document.getElementById('page-services').checked = state.p_s;
           if (state.p_a !== undefined) document.getElementById('page-about').checked = state.p_a;
+          if (state.p_l !== undefined) document.getElementById('page-location').checked = state.p_l;
+          if (state.p_b !== undefined) document.getElementById('page-booking').checked = state.p_b;
+          if (state.p_m !== undefined) document.getElementById('page-menu').checked = state.p_m;
+          if (state.p_c !== undefined) document.getElementById('page-careers').checked = state.p_c;
+          if (state.p_g !== undefined) document.getElementById('page-gallery').checked = state.p_g;
 
           if (state.i_c !== undefined) document.getElementById('integration-calendar').checked = state.i_c;
           const savedDb = savedDatabaseFlag(state);
@@ -1592,6 +1683,7 @@
           if (state.f_m !== undefined) document.getElementById('feature-multilang').checked = state.f_m;
           if (state.f_ps !== undefined) document.getElementById('feature-priority-support').checked = state.f_ps;
           if (state.f_st !== undefined) document.getElementById('feature-store').checked = state.f_st;
+          if (state.f_u !== undefined) document.getElementById('feature-users').checked = state.f_u;
           if (state.f_b !== undefined) document.getElementById('feature-brand').checked = state.f_b;
           if (state.f_x !== undefined) document.getElementById('feature-express').checked = state.f_x;
           autoAdded = new Set(Array.isArray(state.sa) ? state.sa : []);
@@ -1619,6 +1711,11 @@
           p_p: document.getElementById('page-portfolio').checked,
           p_s: document.getElementById('page-services').checked,
           p_a: document.getElementById('page-about').checked,
+          p_l: document.getElementById('page-location').checked,
+          p_b: document.getElementById('page-booking').checked,
+          p_m: document.getElementById('page-menu').checked,
+          p_c: document.getElementById('page-careers').checked,
+          p_g: document.getElementById('page-gallery').checked,
           i_c: document.getElementById('integration-calendar').checked,
           i_db: document.getElementById('integration-database').checked,
           i_ai: document.getElementById('integration-ai').checked,
@@ -1633,6 +1730,7 @@
           f_m: document.getElementById('feature-multilang').checked,
           f_ps: document.getElementById('feature-priority-support').checked,
           f_st: document.getElementById('feature-store').checked,
+          f_u: document.getElementById('feature-users').checked,
           f_b: document.getElementById('feature-brand').checked,
           f_x: document.getElementById('feature-express').checked,
           sa: [...autoAdded],
@@ -1668,6 +1766,11 @@
           if (state.p_p !== undefined) document.getElementById('page-portfolio').checked = state.p_p;
           if (state.p_s !== undefined) document.getElementById('page-services').checked = state.p_s;
           if (state.p_a !== undefined) document.getElementById('page-about').checked = state.p_a;
+          if (state.p_l !== undefined) document.getElementById('page-location').checked = state.p_l;
+          if (state.p_b !== undefined) document.getElementById('page-booking').checked = state.p_b;
+          if (state.p_m !== undefined) document.getElementById('page-menu').checked = state.p_m;
+          if (state.p_c !== undefined) document.getElementById('page-careers').checked = state.p_c;
+          if (state.p_g !== undefined) document.getElementById('page-gallery').checked = state.p_g;
 
           if (state.i_c !== undefined) document.getElementById('integration-calendar').checked = state.i_c;
           const savedDb = savedDatabaseFlag(state);
@@ -1685,6 +1788,7 @@
           if (state.f_m !== undefined) document.getElementById('feature-multilang').checked = state.f_m;
           if (state.f_ps !== undefined) document.getElementById('feature-priority-support').checked = state.f_ps;
           if (state.f_st !== undefined) document.getElementById('feature-store').checked = state.f_st;
+          if (state.f_u !== undefined) document.getElementById('feature-users').checked = state.f_u;
           if (state.f_b !== undefined) document.getElementById('feature-brand').checked = state.f_b;
           if (state.f_x !== undefined) document.getElementById('feature-express').checked = state.f_x;
           autoAdded = new Set(Array.isArray(state.sa) ? state.sa : []);
@@ -1866,6 +1970,12 @@
             ...(document.getElementById('feature-store').checked ? [{
               label: tr('pdf.store_label'),
               detail: tr('pdf.store_detail', { pages: STORE_PAGES.join(', ') }),
+              amount: 0,
+              included: true
+            }] : []),
+            ...(document.getElementById('feature-users').checked ? [{
+              label: tr('pdf.users_label'),
+              detail: tr('pdf.users_detail', { pages: USERS_PAGES.join(', ') }),
               amount: 0,
               included: true
             }] : []),
@@ -2165,7 +2275,7 @@
         const integrations = ['WhatsApp', ...checkedNames(INTEGRATION_IDS, 'summary.items'), ...customIntegrations];
         const features = checkedNames(FEATURE_IDS, 'summary.items');
 
-        const extraPageCount = ['page-portfolio', 'page-services', 'page-about']
+        const extraPageCount = PAGE_IDS
           .filter((id) => document.getElementById(id).checked).length + customPages.length;
         const freePages = freePagesFor(extraPageCount);
         const pagesDiscountLine = freePages > 0
@@ -2174,6 +2284,9 @@
 
         const storeLine = document.getElementById('feature-store').checked
           ? '\n' + tr('summary.store', { pages: STORE_PAGES.join(', ') })
+          : '';
+        const usersLine = document.getElementById('feature-users').checked
+          ? '\n' + tr('summary.users', { pages: USERS_PAGES.join(', ') })
           : '';
 
         const fxNote = (currentCurrency !== 'USD' && exchangeRate)
@@ -2187,6 +2300,7 @@
           pages: pages.join(', '),
           pagesDiscountLine,
           storeLine,
+          usersLine,
           integrations: integrations.join(', '),
           features: features.length > 0 ? features.join(', ') : tr('summary.none'),
           total: totalDisplay,
