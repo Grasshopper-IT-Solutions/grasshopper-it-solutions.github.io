@@ -212,7 +212,7 @@
             </div>
           </div>
 
-          <!-- Included with the Online Store pro feature (only shown while it is selected) -->
+          <!-- Included with the Online Store premium feature (only shown while it is selected) -->
           <div id="store-pages-block" class="hidden mb-4">
             <label class="block text-[10px] font-mono text-gray-600 mb-2 uppercase">{{calculator.included_with_online_store}}</label>
             <div id="store-pages-list" class="grid grid-cols-1 md:grid-cols-2 gap-2"></div>
@@ -327,6 +327,18 @@
 
             <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
               <span class="flex items-center gap-3">
+                <input type="checkbox" id="integration-mobile" class="integration-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
+                <div>
+                  <span class="text-sm font-medium text-gray-300 block">{{calculator.mobile_friendly_layout}}</span>
+                  <span class="card-note text-[11px] text-gray-600">{{calculator.mobile_layout_note}}</span>
+                  <span class="store-lock-note hidden text-[11px] text-grass-green/80 block mt-1"></span>
+                </div>
+              </span>
+              <span class="ml-3 flex-shrink-0 whitespace-nowrap text-xs font-mono text-gray-500 rate-tag-integrations">$125.00</span>
+            </label>
+
+            <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
+              <span class="flex items-center gap-3">
                 <input type="checkbox" id="integration-payments" class="integration-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
                 <div>
                   <span class="text-sm font-medium text-gray-300 block">{{calculator.payments}}</span>
@@ -372,7 +384,7 @@
           </div>
         </div>
 
-        <!-- SECTION 4: PRO FEATURES -->
+        <!-- SECTION 4: PREMIUM FEATURES -->
         <div class="calc-section">
           <h3 class="text-lg font-semibold text-white flex items-center gap-2 mb-2">
             <span class="text-grass-green text-sm font-mono">[04]</span> {{calculator.pro_features}}
@@ -433,6 +445,39 @@
                 <div>
                   <span class="text-sm font-medium text-gray-300 block">{{calculator.online_store_cart_checkout}}</span>
                   <span class="card-note text-[11px] text-gray-600">{{calculator.sell_products_online_with_a_shopping}}</span>
+                </div>
+              </span>
+              <span class="ml-3 flex-shrink-0 whitespace-nowrap text-xs font-mono text-gray-500 rate-tag-features">$50.00</span>
+            </label>
+
+            <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
+              <span class="flex items-center gap-3">
+                <input type="checkbox" id="feature-android" class="feature-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
+                <div>
+                  <span class="text-sm font-medium text-gray-300 block">{{calculator.android_app}}</span>
+                  <span class="card-note text-[11px] text-gray-600">{{calculator.android_app_note}}</span>
+                </div>
+              </span>
+              <span class="ml-3 flex-shrink-0 whitespace-nowrap text-xs font-mono text-gray-500 rate-tag-features">$50.00</span>
+            </label>
+
+            <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
+              <span class="flex items-center gap-3">
+                <input type="checkbox" id="feature-ios" class="feature-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
+                <div>
+                  <span class="text-sm font-medium text-gray-300 block">{{calculator.ios_app}}</span>
+                  <span class="card-note text-[11px] text-gray-600">{{calculator.ios_app_note}}</span>
+                </div>
+              </span>
+              <span class="ml-3 flex-shrink-0 whitespace-nowrap text-xs font-mono text-gray-500 rate-tag-features">$50.00</span>
+            </label>
+
+            <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
+              <span class="flex items-center gap-3">
+                <input type="checkbox" id="feature-storesetup" class="feature-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
+                <div>
+                  <span class="text-sm font-medium text-gray-300 block">{{calculator.store_setup}}</span>
+                  <span class="card-note text-[11px] text-gray-600">{{calculator.store_setup_note}}</span>
                 </div>
               </span>
               <span class="ml-3 flex-shrink-0 whitespace-nowrap text-xs font-mono text-gray-500 rate-tag-features">$50.00</span>
@@ -702,7 +747,7 @@
       }
       const VALIDITY_DAYS = 30;
 
-      // ===== ONLINE STORE (Pro Feature) =====
+      // ===== ONLINE STORE (Premium Feature) =====
       // Selecting it switches on the integrations it depends on (Database,
       // Payments) and adds the store pages. The integrations are charged like
       // any other; the pages are included in the price, so they are listed in
@@ -711,7 +756,10 @@
       // Which integrations each feature needs. Ticking the feature switches them
       // on and locks them. To connect a future feature, add one row here.
       const FEATURE_REQUIRES = {
-        'feature-store': { name: itemName('feature-store'), needs: ['integration-database', 'integration-payments'] }
+        'feature-store': { name: itemName('feature-store'), needs: ['integration-database', 'integration-payments'] },
+        // Both apps need the same Mobile-Friendly Layout integration, which is charged once.
+        'feature-android': { name: itemName('feature-android'), needs: ['integration-mobile'] },
+        'feature-ios': { name: itemName('feature-ios'), needs: ['integration-mobile'] }
       };
       // Integrations a feature switched on itself, so unticking the feature
       // removes only those and keeps anything the client picked on their own.
@@ -787,8 +835,8 @@
 
       // Checkbox ids per section, in the order they are listed in quotes.
       const PAGE_IDS = ['page-portfolio', 'page-services', 'page-about'];
-      const INTEGRATION_IDS = ['integration-calendar', 'integration-database', 'integration-map', 'integration-payments', 'integration-ai'];
-      const FEATURE_IDS = ['feature-seo', 'feature-domain', 'feature-multilang', 'feature-brand', 'feature-store', 'feature-express', 'feature-priority-support'];
+      const INTEGRATION_IDS = ['integration-calendar', 'integration-database', 'integration-map', 'integration-mobile', 'integration-payments', 'integration-ai'];
+      const FEATURE_IDS = ['feature-seo', 'feature-domain', 'feature-multilang', 'feature-brand', 'feature-store', 'feature-android', 'feature-ios', 'feature-storesetup', 'feature-express', 'feature-priority-support'];
       // Display names of the ticked boxes; `group` picks an alternative name
       // list from the dictionary (e.g. the shorter WhatsApp summary names).
       function checkedNames(ids, group) {
@@ -831,6 +879,10 @@
         document.getElementById('integration-ai').checked = false;
         document.getElementById('integration-map').checked = false;
         document.getElementById('integration-payments').checked = false;
+        document.getElementById('integration-mobile').checked = false;
+        document.getElementById('feature-android').checked = false;
+        document.getElementById('feature-ios').checked = false;
+        document.getElementById('feature-storesetup').checked = false;
         document.getElementById('feature-store').checked = false;
         document.getElementById('feature-brand').checked = false;
         document.getElementById('feature-express').checked = false;
@@ -1291,6 +1343,10 @@
           i_ai: document.getElementById('integration-ai').checked,
           i_m: document.getElementById('integration-map').checked,
           i_pay: document.getElementById('integration-payments').checked,
+          i_mo: document.getElementById('integration-mobile').checked,
+          f_an: document.getElementById('feature-android').checked,
+          f_io: document.getElementById('feature-ios').checked,
+          f_ss: document.getElementById('feature-storesetup').checked,
           f_s: document.getElementById('feature-seo').checked,
           f_d: document.getElementById('feature-domain').checked,
           f_m: document.getElementById('feature-multilang').checked,
@@ -1331,6 +1387,10 @@
           if (state.i_ai !== undefined) document.getElementById('integration-ai').checked = state.i_ai;
           if (state.i_m !== undefined) document.getElementById('integration-map').checked = state.i_m;
           if (state.i_pay !== undefined) document.getElementById('integration-payments').checked = state.i_pay;
+          if (state.i_mo !== undefined) document.getElementById('integration-mobile').checked = state.i_mo;
+          if (state.f_an !== undefined) document.getElementById('feature-android').checked = state.f_an;
+          if (state.f_io !== undefined) document.getElementById('feature-ios').checked = state.f_io;
+          if (state.f_ss !== undefined) document.getElementById('feature-storesetup').checked = state.f_ss;
 
           if (state.f_s !== undefined) document.getElementById('feature-seo').checked = state.f_s;
           if (state.f_d !== undefined) document.getElementById('feature-domain').checked = state.f_d;
@@ -1369,6 +1429,10 @@
           i_ai: document.getElementById('integration-ai').checked,
           i_m: document.getElementById('integration-map').checked,
           i_pay: document.getElementById('integration-payments').checked,
+          i_mo: document.getElementById('integration-mobile').checked,
+          f_an: document.getElementById('feature-android').checked,
+          f_io: document.getElementById('feature-ios').checked,
+          f_ss: document.getElementById('feature-storesetup').checked,
           f_s: document.getElementById('feature-seo').checked,
           f_d: document.getElementById('feature-domain').checked,
           f_m: document.getElementById('feature-multilang').checked,
@@ -1416,6 +1480,10 @@
           if (state.i_ai !== undefined) document.getElementById('integration-ai').checked = state.i_ai;
           if (state.i_m !== undefined) document.getElementById('integration-map').checked = state.i_m;
           if (state.i_pay !== undefined) document.getElementById('integration-payments').checked = state.i_pay;
+          if (state.i_mo !== undefined) document.getElementById('integration-mobile').checked = state.i_mo;
+          if (state.f_an !== undefined) document.getElementById('feature-android').checked = state.f_an;
+          if (state.f_io !== undefined) document.getElementById('feature-ios').checked = state.f_io;
+          if (state.f_ss !== undefined) document.getElementById('feature-storesetup').checked = state.f_ss;
 
           if (state.f_s !== undefined) document.getElementById('feature-seo').checked = state.f_s;
           if (state.f_d !== undefined) document.getElementById('feature-domain').checked = state.f_d;
@@ -1584,6 +1652,9 @@
           hasPayments: document.getElementById('integration-payments').checked,
           hasDatabase: document.getElementById('integration-database').checked,
           hasExpress: document.getElementById('feature-express').checked,
+          hasAndroid: document.getElementById('feature-android').checked,
+          hasIos: document.getElementById('feature-ios').checked,
+          hasStoreSetup: document.getElementById('feature-storesetup').checked,
           hasPrioritySupport: document.getElementById('feature-priority-support').checked,
           discountPercent,
           items: [
@@ -1739,6 +1810,21 @@
         if (data.hasDatabase) terms += ' ' + tr('pdf.terms.database');
         terms += ' ' + tr('pdf.terms.domain');
         terms += ' ' + tr('pdf.terms.ownership');
+        if (data.hasAndroid || data.hasIos) {
+          // App store terms: approval, and who pays the developer account fees.
+          const stores = [];
+          if (data.hasAndroid) stores.push(tr('pdf.terms.store_google'));
+          if (data.hasIos) stores.push(tr('pdf.terms.store_apple'));
+          terms += ' ' + tr('pdf.terms.store_approval', { stores: stores.join(tr('pdf.terms.store_and')) });
+          if (!data.hasStoreSetup) terms += ' ' + tr('pdf.terms.store_fees_absorbed');
+        }
+        if (data.hasStoreSetup) {
+          // Not absorbed: the client's own accounts, so the client pays the developer fees.
+          const fees = [];
+          if (data.hasAndroid || !data.hasIos) fees.push(tr('pdf.terms.fee_google'));
+          if (data.hasIos || !data.hasAndroid) fees.push(tr('pdf.terms.fee_apple'));
+          terms += ' ' + tr('pdf.terms.store_fees_client', { fees: fees.join('; ') });
+        }
         if (data.hasExpress) terms += ' ' + tr('pdf.terms.express');
         if (data.hasPrioritySupport) terms += ' ' + tr('pdf.terms.priority');
         terms += ' ' + tr('pdf.terms.non_binding');
