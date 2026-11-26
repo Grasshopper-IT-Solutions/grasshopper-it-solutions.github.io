@@ -371,7 +371,8 @@
               <span class="ml-3 flex-shrink-0 whitespace-nowrap text-xs font-mono text-gray-500 rate-tag-integrations">$180.00</span>
             </label>
 
-            <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
+            <!-- Hidden: added only by the Android app feature, never picked on its own -->
+            <label class="hidden flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
               <span class="flex items-center gap-3">
                 <input type="checkbox" id="integration-mobile" class="integration-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
                 <div>
@@ -509,6 +510,17 @@
 
             <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
               <span class="flex items-center gap-3">
+                <input type="checkbox" id="feature-pwa" class="feature-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
+                <div>
+                  <span class="text-sm font-medium text-gray-300 block">{{calculator.pwa_app}}</span>
+                  <span class="card-note text-[11px] text-gray-600">{{calculator.pwa_app_note}}</span>
+                </div>
+              </span>
+              <span class="ml-3 flex-shrink-0 whitespace-nowrap text-xs font-mono text-gray-500 rate-tag-features">$90.00</span>
+            </label>
+
+            <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
+              <span class="flex items-center gap-3">
                 <input type="checkbox" id="feature-android" class="feature-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
                 <div>
                   <span class="text-sm font-medium text-gray-300 block">{{calculator.android_app}}</span>
@@ -526,7 +538,7 @@
                   <span class="card-note text-[11px] text-gray-600">{{calculator.ios_app_note}}</span>
                 </div>
               </span>
-              <span class="ml-3 flex-shrink-0 whitespace-nowrap text-xs font-mono text-gray-500 rate-tag-features">$90.00</span>
+              <span class="ml-3 flex-shrink-0 whitespace-nowrap text-xs font-mono text-gray-500 rate-tag-tbd">$0.00</span>
             </label>
 
             <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
@@ -830,13 +842,17 @@
       const FEATURE_REQUIRES = {
         'feature-store': { name: itemName('feature-store'), needs: ['integration-database', 'integration-payments'] },
         'feature-users': { name: itemName('feature-users'), needs: ['integration-database'] },
-        // Both apps need the same Mobile-Friendly Layout integration, which is charged once.
-        'feature-android': { name: itemName('feature-android'), needs: ['integration-mobile'] },
-        'feature-ios': { name: itemName('feature-ios'), needs: ['integration-mobile'] }
+        'feature-android': { name: itemName('feature-android'), needs: ['integration-mobile'] }
       };
       // Integrations a feature switched on itself, so unticking the feature
       // removes only those and keeps anything the client picked on their own.
       let autoAdded = new Set();
+      // Integrations that exist only because a feature needs them (their card is
+      // hidden), so they are never left ticked on their own.
+      const DEPENDENCY_ONLY = ['integration-mobile'];
+      // Features listed in the quote at 0 because the price is agreed later.
+      const PRICE_TO_DISCUSS = ['feature-ios'];
+      const toDiscussCount = () => PRICE_TO_DISCUSS.filter((id) => document.getElementById(id).checked).length;
 
       function syncFeatureDependencies() {
         const owners = {}; // integration id -> names of the ticked features that need it
@@ -857,7 +873,7 @@
               box.checked = true;
               autoAdded.add(id);
             }
-          } else if (autoAdded.has(id)) {
+          } else if (autoAdded.has(id) || DEPENDENCY_ONLY.includes(id)) {
             box.checked = false;
             autoAdded.delete(id);
           }
@@ -910,7 +926,7 @@
       // Checkbox ids per section, in the order they are listed in quotes.
       const PAGE_IDS = ['page-portfolio', 'page-services', 'page-about', 'page-location', 'page-booking', 'page-menu', 'page-careers', 'page-gallery'];
       const INTEGRATION_IDS = ['integration-calendar', 'integration-database', 'integration-map', 'integration-mobile', 'integration-payments', 'integration-ai'];
-      const FEATURE_IDS = ['feature-seo', 'feature-domain', 'feature-multilang', 'feature-brand', 'feature-store', 'feature-users', 'feature-android', 'feature-ios', 'feature-storesetup', 'feature-express', 'feature-priority-support'];
+      const FEATURE_IDS = ['feature-seo', 'feature-domain', 'feature-multilang', 'feature-brand', 'feature-store', 'feature-users', 'feature-pwa', 'feature-android', 'feature-ios', 'feature-storesetup', 'feature-express', 'feature-priority-support'];
       // Display names of the ticked boxes; `group` picks an alternative name
       // list from the dictionary (e.g. the shorter WhatsApp summary names).
       function checkedNames(ids, group) {
@@ -959,6 +975,7 @@
         document.getElementById('integration-map').checked = false;
         document.getElementById('integration-payments').checked = false;
         document.getElementById('integration-mobile').checked = false;
+        document.getElementById('feature-pwa').checked = false;
         document.getElementById('feature-android').checked = false;
         document.getElementById('feature-ios').checked = false;
         document.getElementById('feature-storesetup').checked = false;
@@ -1354,6 +1371,7 @@
         document.querySelectorAll('.rate-tag-pages').forEach(el => el.textContent = formatCurrency(pageRate));
         document.querySelectorAll('.rate-tag-integrations').forEach(el => el.textContent = formatCurrency(integrationRate));
         document.querySelectorAll('.rate-tag-features').forEach(el => el.textContent = formatCurrency(featureRate));
+        document.querySelectorAll('.rate-tag-tbd').forEach(el => el.textContent = formatCurrency(0));
 
         // Pages (paid only - Home/Contact/T&C/Privacy are fixed, included in base)
         const pageNames = checkedNames(PAGE_IDS);
@@ -1385,7 +1403,7 @@
         const featureNames = checkedNames(FEATURE_IDS);
 
         const featuresCount = featureNames.length;
-        const totalFeaturesCost = featuresCount * featureRate;
+        const totalFeaturesCost = (featuresCount - toDiscussCount()) * featureRate;
 
         document.getElementById('invoice-features-count').textContent = tr('selected_count', { n: featuresCount });
         document.getElementById('invoice-features-total').textContent = formatCurrency(totalFeaturesCost);
@@ -1430,6 +1448,7 @@
           i_pay: document.getElementById('integration-payments').checked,
           i_mo: document.getElementById('integration-mobile').checked,
           f_an: document.getElementById('feature-android').checked,
+          f_pwa: document.getElementById('feature-pwa').checked,
           f_io: document.getElementById('feature-ios').checked,
           f_ss: document.getElementById('feature-storesetup').checked,
           f_s: document.getElementById('feature-seo').checked,
@@ -1480,6 +1499,7 @@
           if (state.i_pay !== undefined) document.getElementById('integration-payments').checked = state.i_pay;
           if (state.i_mo !== undefined) document.getElementById('integration-mobile').checked = state.i_mo;
           if (state.f_an !== undefined) document.getElementById('feature-android').checked = state.f_an;
+          if (state.f_pwa !== undefined) document.getElementById('feature-pwa').checked = state.f_pwa;
           if (state.f_io !== undefined) document.getElementById('feature-ios').checked = state.f_io;
           if (state.f_ss !== undefined) document.getElementById('feature-storesetup').checked = state.f_ss;
 
@@ -1528,6 +1548,7 @@
           i_pay: document.getElementById('integration-payments').checked,
           i_mo: document.getElementById('integration-mobile').checked,
           f_an: document.getElementById('feature-android').checked,
+          f_pwa: document.getElementById('feature-pwa').checked,
           f_io: document.getElementById('feature-ios').checked,
           f_ss: document.getElementById('feature-storesetup').checked,
           f_s: document.getElementById('feature-seo').checked,
@@ -1585,6 +1606,7 @@
           if (state.i_pay !== undefined) document.getElementById('integration-payments').checked = state.i_pay;
           if (state.i_mo !== undefined) document.getElementById('integration-mobile').checked = state.i_mo;
           if (state.f_an !== undefined) document.getElementById('feature-android').checked = state.f_an;
+          if (state.f_pwa !== undefined) document.getElementById('feature-pwa').checked = state.f_pwa;
           if (state.f_io !== undefined) document.getElementById('feature-ios').checked = state.f_io;
           if (state.f_ss !== undefined) document.getElementById('feature-storesetup').checked = state.f_ss;
 
@@ -1743,7 +1765,7 @@
         const freePages = freePagesFor(allPages.length);
         const pagesDiscount = freePages * pageRate;
         const integrationsCost = allIntegrations.length * integrationRate;
-        const featuresCost = featureNames.length * featureRate;
+        const featuresCost = (featureNames.length - toDiscussCount()) * featureRate;
         const total = calculatedBase + pagesCost - pagesDiscount + integrationsCost + featuresCost;
 
         return {
@@ -1927,6 +1949,7 @@
           if (data.hasIos) stores.push(tr('pdf.terms.store_apple'));
           terms += ' ' + tr('pdf.terms.store_approval', { stores: stores.join(tr('pdf.terms.store_and')) });
           if (!data.hasStoreSetup) terms += ' ' + tr('pdf.terms.store_fees_absorbed');
+          if (data.hasIos) terms += ' ' + tr('pdf.terms.ios_pending');
         }
         if (data.hasStoreSetup) {
           // Not absorbed: the client's own accounts, so the client pays the developer fees.

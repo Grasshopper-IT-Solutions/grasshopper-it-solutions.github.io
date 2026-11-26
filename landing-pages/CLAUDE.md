@@ -68,6 +68,10 @@ git submodule status
 
 **GitHub Pages settings** for the new repo: Settings → Pages → Source = "Deploy from a branch", branch `main`, folder `/(root)`. No GitHub Actions workflow is needed — the compiled `styles/tailwind.css` is already committed, so there's nothing to build server-side.
 
+## Installable web app
+
+The calculator's Installable Web App (PWA) premium feature. When the quote includes it, or a client asks for the page to be installable from the browser, follow `INSTALLABLE-APP.md`; otherwise leave it out. It fits the stack above (static files only) and is not a Play Store or iOS app.
+
 ## Contact-info centralization
 
 This rule exists because of a real bug: `landing-pages/alfonso-romero-fotografia/src/utils/whatsapp.js:5` hardcodes

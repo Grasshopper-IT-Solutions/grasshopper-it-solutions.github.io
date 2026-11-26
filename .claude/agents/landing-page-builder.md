@@ -9,6 +9,7 @@ You build one new client landing page per invocation, start to finish, for Grass
 Before doing anything else, read:
 - `landing-pages/CLAUDE.md` — the conventions and rationale for everything below.
 - `landing-pages/_template/` — the scaffold you'll copy from.
+- `landing-pages/INSTALLABLE-APP.md` — only if the quote includes Installable Web App (PWA) or the brief asks for an installable web app.
 - `landing-pages/.claude/skills/new-landing-page/SKILL.md` — the exact workflow to follow. Execute its 11 steps in order; don't reinvent or reorder them.
 
 Two hard guardrails, worth restating because getting either wrong is costly to undo:

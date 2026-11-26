@@ -414,7 +414,7 @@
             <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
               <span class="flex items-center gap-3">
                 <input type="checkbox" id="page-menu" class="page-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
-                <span class="text-sm font-medium text-gray-300">Menu</span>
+                <span class="text-sm font-medium text-gray-300">Food & Drink Menu</span>
               </span>
               <span class="text-xs font-mono text-gray-500 rate-tag-pages">$75.00</span>
             </label>
@@ -430,7 +430,7 @@
             <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
               <span class="flex items-center gap-3">
                 <input type="checkbox" id="page-gallery" class="page-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
-                <span class="text-sm font-medium text-gray-300">Gallery</span>
+                <span class="text-sm font-medium text-gray-300">Photo Gallery</span>
               </span>
               <span class="text-xs font-mono text-gray-500 rate-tag-pages">$75.00</span>
             </label>
@@ -516,12 +516,13 @@
               <span class="ml-3 flex-shrink-0 whitespace-nowrap text-xs font-mono text-gray-500 rate-tag-integrations">$180.00</span>
             </label>
 
-            <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
+            <!-- Hidden: added only by the Android app feature, never picked on its own -->
+            <label class="hidden flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
               <span class="flex items-center gap-3">
                 <input type="checkbox" id="integration-mobile" class="integration-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
                 <div>
-                  <span class="text-sm font-medium text-gray-300 block">Mobile-Friendly Layout</span>
-                  <span class="card-note text-[11px] text-gray-600">Makes your website adapt to phones and tablets. This is not a Google Play Store app or an iOS app.</span>
+                  <span class="text-sm font-medium text-gray-300 block">Expo Mobile Development</span>
+                  <span class="card-note text-[11px] text-gray-600">Mobile app development with Expo. Added automatically with the Android app.</span>
                   <span class="store-lock-note hidden text-[11px] text-grass-green/80 block mt-1"></span>
                 </div>
               </span>
@@ -654,10 +655,21 @@
 
             <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
               <span class="flex items-center gap-3">
+                <input type="checkbox" id="feature-pwa" class="feature-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
+                <div>
+                  <span class="text-sm font-medium text-gray-300 block">Installable Web App (PWA)</span>
+                  <span class="card-note text-[11px] text-gray-600">Visitors can install your website from their browser. It gets its own icon on the home screen and opens like an app (on iPhone it is added through the Share menu). This is NOT a store app: it is not published on Google Play or the Apple App Store and cannot be found there.</span>
+                </div>
+              </span>
+              <span class="ml-3 flex-shrink-0 whitespace-nowrap text-xs font-mono text-gray-500 rate-tag-features">$90.00</span>
+            </label>
+
+            <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
+              <span class="flex items-center gap-3">
                 <input type="checkbox" id="feature-android" class="feature-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
                 <div>
                   <span class="text-sm font-medium text-gray-300 block">Android App (Google Play Store)</span>
-                  <span class="card-note text-[11px] text-gray-600">Your project published as an Android app on the Google Play Store, subject to store approval. The Mobile-Friendly Layout integration is costed and added to the budget as an extra. Store account fees are absorbed by Grasshopper and the app is published under our developer account, unless you prefer your own.</span>
+                  <span class="card-note text-[11px] text-gray-600">Your project published as an Android app on the Google Play Store, subject to store approval. It adds an extra integration, Expo Mobile Development (Expo is the framework we use to build mobile apps), which is costed and added to the budget. Store account fees are absorbed by Grasshopper and the app is published under our developer account, unless you prefer your own.</span>
                 </div>
               </span>
               <span class="ml-3 flex-shrink-0 whitespace-nowrap text-xs font-mono text-gray-500 rate-tag-features">$90.00</span>
@@ -668,10 +680,10 @@
                 <input type="checkbox" id="feature-ios" class="feature-checkbox accent-grass-green w-4.5 h-4.5" onchange="triggerRecalculate()">
                 <div>
                   <span class="text-sm font-medium text-gray-300 block">iOS App (App Store)</span>
-                  <span class="card-note text-[11px] text-gray-600">Your project published as an iPhone and iPad app on the Apple App Store, subject to store approval. The Mobile-Friendly Layout integration is costed and added to the budget as an extra. Store account fees are absorbed by Grasshopper and the app is published under our developer account, unless you prefer your own.</span>
+                  <span class="card-note text-[11px] text-gray-600">Your project as an iPhone and iPad app on the Apple App Store, subject to store approval. The price needs to be discussed: it shows as 0 and is not included, because we first need to check how doable it is for your project. Store account fees are absorbed by Grasshopper and the app is published under our developer account, unless you prefer your own.</span>
                 </div>
               </span>
-              <span class="ml-3 flex-shrink-0 whitespace-nowrap text-xs font-mono text-gray-500 rate-tag-features">$90.00</span>
+              <span class="ml-3 flex-shrink-0 whitespace-nowrap text-xs font-mono text-gray-500 rate-tag-tbd">$0.00</span>
             </label>
 
             <label class="flex items-center justify-between p-3 rounded-lg bg-deep-space hover:bg-card-gray/40 border border-white/10 cursor-pointer transition">
@@ -996,7 +1008,7 @@
       // by scripts/build-i18n.js. Only the display text is translated: element
       // ids, the gh_calc_state keys and the ?state= payload are the same in
       // every language, so saved and shared quotes work in both.
-      const CALC_T = {"items":{"page-portfolio":"Portfolio","page-services":"Services","page-about":"About / Team","page-location":"Location","page-booking":"Booking","page-menu":"Menu","page-careers":"Careers","page-gallery":"Gallery","integration-calendar":"Calendar","integration-database":"Database","integration-map":"Map","integration-mobile":"Mobile-Friendly Layout","integration-payments":"Payments","integration-ai":"AI","feature-seo":"SEO / GEO","feature-domain":"Pro Domain","feature-multilang":"Multilingual","feature-brand":"Logo & Brand Kit","feature-users":"User Accounts","feature-store":"Online Store","feature-android":"Android App (Google Play Store)","feature-storesetup":"Store Account Setup","feature-ios":"iOS App (App Store)","feature-express":"Express Delivery","feature-priority-support":"Priority Support (1 yr)"},"users_pages":["Login","Register","Forgot password","My account"],"store_pages":["Shop","Product","Cart","Checkout","Payment success","Payment failed","Shipping & returns"],"free_pages_one":"{n} page free (every {every} extra pages)","free_pages_other":"{n} pages free (every {every} extra pages)","more_pages_one":"{n} more page","more_pages_other":"{n} more pages","hint_first":"{more} to unlock your first free page.","hint_next_one":"{n} free page applied. {more} for the next one.","hint_next_other":"{n} free pages applied. {more} for the next one.","lock_note":"Selected automatically with {names}","included_badge":"INCLUDED","store_count":"{n} pages auto-added","selected_count":"{n} selected","discount_applied":"{n}% applied","date_label":"DATE: {date}","fx_unavailable":"Live exchange rates are unavailable right now - showing USD instead.","fx_rate":"1 USD ≈ {rate} {code} (indicative, updated within the last 24h)","toast_preset_basic":"Basic Webpage preset applied: About + Services","toast_preset_marketplace":"Marketplace preset applied: Online Store + About + SEO","toast_cleared":"All selections cleared.","toast_duplicate":"\"{name}\" is already added.","toast_pdf_ok":"PDF downloaded.","toast_pdf_fail":"PDF export failed. Please try again.","toast_shared":"Quote shared.","toast_pdf_attach":"PDF downloaded - attach it to the WhatsApp message.","busy":"BUILDING...","share_title":"Grasshopper Solutions - Project Quote","note_more":"more","note_less":"less","pdf":{"title":"Grasshopper Solutions - Project Estimate","subject":"Project estimate {ref}, valid until {expires}","heading":"PROJECT ESTIMATE","meta_ref":"QUOTE REF","meta_generated":"DATE GENERATED","meta_valid":"VALID UNTIL","meta_currency":"CURRENCY","converted":" (converted)","scope_heading":"// SCOPE & PRICING","col_description":"DESCRIPTION","col_amount":"AMOUNT","base_label":"Basic Landing Page","base_detail":"Hosting, home & contact pages, WhatsApp integration, navigation header, footer, T&C & privacy pages, professional design, and 6 months of technical support.","pages_label":"Extra Pages","none_selected":"None selected.","users_label":"User Account Pages","users_detail":"{pages}. Auto-added with the User Accounts feature and included in the price.","store_label":"Online Store Pages","store_detail":"{pages}. Auto-added with the Online Store feature and included in the price.","volume_label":"Volume Discount","integrations_label":"Integrations","integrations_none":"WhatsApp only (included in base).","features_label":"Premium Features","included":"Included","discount_line":"Discount applied  -{n}%","total":"TOTAL ESTIMATE","net_in":"Net estimate in {currency}","terms_heading":"// TERMS","terms":{"base":"Prices are indicative and may be reviewed or changed without notice. Any budget generated here is valid and will be honoured for {days} days from its creation date ({generated}), expiring {expires}.","fx":"Converted amounts are indicative only, based on the exchange rate retrieved on the generation date.","ai":"AI provider usage bills are not included in this estimate and are paid by the client.","payments":"Payment provider transaction fees are not included in this estimate and are paid by the client.","database":"Database hosting costs are handled by Grasshopper IT Solutions LLC.","domain":"The basic domain included in the base product is paid for by Grasshopper IT Solutions LLC.","ownership":"Ownership of any account created for the project (domain, database, payment provider and similar) will be transferred to the client on request.","store_google":"Google Play","store_apple":"the Apple App Store","store_and":" and ","store_approval":"App publication is subject to approval by {stores}.","store_fees_absorbed":"Store developer account fees are absorbed by Grasshopper IT Solutions LLC, and the app is published under its developer account unless the client prefers their own (see Store Account Setup).","store_fees_client":"Store Account Setup: the client's own developer account is created in the client's name, and its fees are paid by the client and are not included in this estimate ({fees}).","fee_google":"Google Play: USD 25, one-time","fee_apple":"Apple Developer Program: USD 99 per year","express":"Express Delivery timing starts once all content and materials have been received.","priority":"Priority Support adds 6 months of technical support to the 6 included, for 12 months in total after final delivery, with priority handling throughout.","non_binding":"Estimates are non-binding and actual costs may vary with the final agreed scope."},"next_heading":"// WHAT HAPPENS NEXT","next_steps":[["01","Tell us what you need","Send this quote back with anything you want added, changed or dropped."],["02","We build it","Design and development start straight away, with direct updates as we go."],["03","Go live","Most small sites are live within 3-7 days of kickoff."]],"next_cta":"Questions, or ready to start? Reply on WhatsApp or write to general@grasshoppersolutions.online","slogan":"Growing Green. Building Clean. Leaping Far."},"summary":{"fixed_pages":["Home","Contact","T&C","Privacy"],"items":{"page-portfolio":"Portfolio","page-services":"Services","page-about":"About","page-location":"Location","page-booking":"Booking","page-menu":"Menu","page-careers":"Careers","page-gallery":"Gallery","integration-calendar":"Calendar","integration-database":"Database","integration-map":"Map","integration-mobile":"Mobile-Friendly Layout","integration-payments":"Payments","integration-ai":"AI","feature-seo":"SEO/GEO","feature-domain":"Pro Domain","feature-multilang":"Multilingual","feature-brand":"Logo & Brand Kit","feature-users":"User Accounts","feature-store":"Online Store","feature-android":"Android App (Google Play Store)","feature-storesetup":"Store Account Setup","feature-ios":"iOS App (App Store)","feature-express":"Express Delivery","feature-priority-support":"Priority Support (1 yr)"},"volume":"- Volume discount: {label}","users":"- Account pages (included): {pages}","store":"- Store pages (included): {pages}","fx":"Converted amounts are indicative, at the exchange rate on {date}.","none":"None","lines":["Hi Grasshopper team! I configured my project using your Cost Calculator:","- Basic Landing Page: ${base} USD (Discount: {discount}%)","- Pages: {pages}{pagesDiscountLine}{storeLine}{usersLine}","- Integrations: {integrations}","- Features: {features}","","*Total Estimate: {total}*","","Quote generated {generated}, valid until {expires}.","Prices are indicative and may be reviewed or changed without notice. Any budget generated here is valid and will be honoured for {days} days from its creation date.{fxNote}","","I'd like to discuss launching this project!"]}};
+      const CALC_T = {"items":{"page-portfolio":"Portfolio","page-services":"Services","page-about":"About / Team","page-location":"Location","page-booking":"Booking","page-menu":"Food & Drink Menu","page-careers":"Careers","page-gallery":"Photo Gallery","integration-calendar":"Calendar","integration-database":"Database","integration-map":"Map","integration-mobile":"Expo Mobile Development","integration-payments":"Payments","integration-ai":"AI","feature-seo":"SEO / GEO","feature-domain":"Pro Domain","feature-multilang":"Multilingual","feature-brand":"Logo & Brand Kit","feature-users":"User Accounts","feature-store":"Online Store","feature-pwa":"Installable Web App (PWA)","feature-android":"Android App (Google Play Store)","feature-storesetup":"Store Account Setup","feature-ios":"iOS App (price to be discussed)","feature-express":"Express Delivery","feature-priority-support":"Priority Support (1 yr)"},"users_pages":["Login","Register","Forgot password","My account"],"store_pages":["Shop","Product","Cart","Checkout","Payment success","Payment failed","Shipping & returns"],"free_pages_one":"{n} page free (every {every} extra pages)","free_pages_other":"{n} pages free (every {every} extra pages)","more_pages_one":"{n} more page","more_pages_other":"{n} more pages","hint_first":"{more} to unlock your first free page.","hint_next_one":"{n} free page applied. {more} for the next one.","hint_next_other":"{n} free pages applied. {more} for the next one.","lock_note":"Selected automatically with {names}","included_badge":"INCLUDED","store_count":"{n} pages auto-added","selected_count":"{n} selected","discount_applied":"{n}% applied","date_label":"DATE: {date}","fx_unavailable":"Live exchange rates are unavailable right now - showing USD instead.","fx_rate":"1 USD ≈ {rate} {code} (indicative, updated within the last 24h)","toast_preset_basic":"Basic Webpage preset applied: About + Services","toast_preset_marketplace":"Marketplace preset applied: Online Store + About + SEO","toast_cleared":"All selections cleared.","toast_duplicate":"\"{name}\" is already added.","toast_pdf_ok":"PDF downloaded.","toast_pdf_fail":"PDF export failed. Please try again.","toast_shared":"Quote shared.","toast_pdf_attach":"PDF downloaded - attach it to the WhatsApp message.","busy":"BUILDING...","share_title":"Grasshopper Solutions - Project Quote","note_more":"more","note_less":"less","pdf":{"title":"Grasshopper Solutions - Project Estimate","subject":"Project estimate {ref}, valid until {expires}","heading":"PROJECT ESTIMATE","meta_ref":"QUOTE REF","meta_generated":"DATE GENERATED","meta_valid":"VALID UNTIL","meta_currency":"CURRENCY","converted":" (converted)","scope_heading":"// SCOPE & PRICING","col_description":"DESCRIPTION","col_amount":"AMOUNT","base_label":"Basic Landing Page","base_detail":"Hosting, home & contact pages, WhatsApp integration, navigation header, footer, T&C & privacy pages, professional design, and 6 months of technical support.","pages_label":"Extra Pages","none_selected":"None selected.","users_label":"User Account Pages","users_detail":"{pages}. Auto-added with the User Accounts feature and included in the price.","store_label":"Online Store Pages","store_detail":"{pages}. Auto-added with the Online Store feature and included in the price.","volume_label":"Volume Discount","integrations_label":"Integrations","integrations_none":"WhatsApp only (included in base).","features_label":"Premium Features","included":"Included","discount_line":"Discount applied  -{n}%","total":"TOTAL ESTIMATE","net_in":"Net estimate in {currency}","terms_heading":"// TERMS","terms":{"base":"Prices are indicative and may be reviewed or changed without notice. Any budget generated here is valid and will be honoured for {days} days from its creation date ({generated}), expiring {expires}.","fx":"Converted amounts are indicative only, based on the exchange rate retrieved on the generation date.","ai":"AI provider usage bills are not included in this estimate and are paid by the client.","payments":"Payment provider transaction fees are not included in this estimate and are paid by the client.","database":"Database hosting costs are handled by Grasshopper IT Solutions LLC.","domain":"The basic domain included in the base product is paid for by Grasshopper IT Solutions LLC.","ownership":"Ownership of any account created for the project (domain, database, payment provider and similar) will be transferred to the client on request.","store_google":"Google Play","store_apple":"the Apple App Store","store_and":" and ","store_approval":"App publication is subject to approval by {stores}.","store_fees_absorbed":"Store developer account fees are absorbed by Grasshopper IT Solutions LLC, and the app is published under its developer account unless the client prefers their own (see Store Account Setup).","store_fees_client":"Store Account Setup: the client's own developer account is created in the client's name, and its fees are paid by the client and are not included in this estimate ({fees}).","fee_google":"Google Play: USD 25, one-time","fee_apple":"Apple Developer Program: USD 99 per year","ios_pending":"The iOS app is listed at USD 0: its price is not included in this estimate and will be discussed once we have checked how doable it is.","express":"Express Delivery timing starts once all content and materials have been received.","priority":"Priority Support adds 6 months of technical support to the 6 included, for 12 months in total after final delivery, with priority handling throughout.","non_binding":"Estimates are non-binding and actual costs may vary with the final agreed scope."},"next_heading":"// WHAT HAPPENS NEXT","next_steps":[["01","Tell us what you need","Send this quote back with anything you want added, changed or dropped."],["02","We build it","Design and development start straight away, with direct updates as we go."],["03","Go live","Most small sites are live within 3-7 days of kickoff."]],"next_cta":"Questions, or ready to start? Reply on WhatsApp or write to general@grasshoppersolutions.online","slogan":"Growing Green. Building Clean. Leaping Far."},"summary":{"fixed_pages":["Home","Contact","T&C","Privacy"],"items":{"page-portfolio":"Portfolio","page-services":"Services","page-about":"About","page-location":"Location","page-booking":"Booking","page-menu":"Food & Drink Menu","page-careers":"Careers","page-gallery":"Photo Gallery","integration-calendar":"Calendar","integration-database":"Database","integration-map":"Map","integration-mobile":"Expo Mobile Development","integration-payments":"Payments","integration-ai":"AI","feature-seo":"SEO/GEO","feature-domain":"Pro Domain","feature-multilang":"Multilingual","feature-brand":"Logo & Brand Kit","feature-users":"User Accounts","feature-store":"Online Store","feature-pwa":"Installable Web App (PWA)","feature-android":"Android App (Google Play Store)","feature-storesetup":"Store Account Setup","feature-ios":"iOS App (price to be discussed)","feature-express":"Express Delivery","feature-priority-support":"Priority Support (1 yr)"},"volume":"- Volume discount: {label}","users":"- Account pages (included): {pages}","store":"- Store pages (included): {pages}","fx":"Converted amounts are indicative, at the exchange rate on {date}.","none":"None","lines":["Hi Grasshopper team! I configured my project using your Cost Calculator:","- Basic Landing Page: ${base} USD (Discount: {discount}%)","- Pages: {pages}{pagesDiscountLine}{storeLine}{usersLine}","- Integrations: {integrations}","- Features: {features}","","*Total Estimate: {total}*","","Quote generated {generated}, valid until {expires}.","Prices are indicative and may be reviewed or changed without notice. Any budget generated here is valid and will be honoured for {days} days from its creation date.{fxNote}","","I'd like to discuss launching this project!"]}};
       const PAGE_LANG = 'en';
       const LOCALE = 'en-US';
 
@@ -1046,13 +1058,17 @@
       const FEATURE_REQUIRES = {
         'feature-store': { name: itemName('feature-store'), needs: ['integration-database', 'integration-payments'] },
         'feature-users': { name: itemName('feature-users'), needs: ['integration-database'] },
-        // Both apps need the same Mobile-Friendly Layout integration, which is charged once.
-        'feature-android': { name: itemName('feature-android'), needs: ['integration-mobile'] },
-        'feature-ios': { name: itemName('feature-ios'), needs: ['integration-mobile'] }
+        'feature-android': { name: itemName('feature-android'), needs: ['integration-mobile'] }
       };
       // Integrations a feature switched on itself, so unticking the feature
       // removes only those and keeps anything the client picked on their own.
       let autoAdded = new Set();
+      // Integrations that exist only because a feature needs them (their card is
+      // hidden), so they are never left ticked on their own.
+      const DEPENDENCY_ONLY = ['integration-mobile'];
+      // Features listed in the quote at 0 because the price is agreed later.
+      const PRICE_TO_DISCUSS = ['feature-ios'];
+      const toDiscussCount = () => PRICE_TO_DISCUSS.filter((id) => document.getElementById(id).checked).length;
 
       function syncFeatureDependencies() {
         const owners = {}; // integration id -> names of the ticked features that need it
@@ -1073,7 +1089,7 @@
               box.checked = true;
               autoAdded.add(id);
             }
-          } else if (autoAdded.has(id)) {
+          } else if (autoAdded.has(id) || DEPENDENCY_ONLY.includes(id)) {
             box.checked = false;
             autoAdded.delete(id);
           }
@@ -1126,7 +1142,7 @@
       // Checkbox ids per section, in the order they are listed in quotes.
       const PAGE_IDS = ['page-portfolio', 'page-services', 'page-about', 'page-location', 'page-booking', 'page-menu', 'page-careers', 'page-gallery'];
       const INTEGRATION_IDS = ['integration-calendar', 'integration-database', 'integration-map', 'integration-mobile', 'integration-payments', 'integration-ai'];
-      const FEATURE_IDS = ['feature-seo', 'feature-domain', 'feature-multilang', 'feature-brand', 'feature-store', 'feature-users', 'feature-android', 'feature-ios', 'feature-storesetup', 'feature-express', 'feature-priority-support'];
+      const FEATURE_IDS = ['feature-seo', 'feature-domain', 'feature-multilang', 'feature-brand', 'feature-store', 'feature-users', 'feature-pwa', 'feature-android', 'feature-ios', 'feature-storesetup', 'feature-express', 'feature-priority-support'];
       // Display names of the ticked boxes; `group` picks an alternative name
       // list from the dictionary (e.g. the shorter WhatsApp summary names).
       function checkedNames(ids, group) {
@@ -1175,6 +1191,7 @@
         document.getElementById('integration-map').checked = false;
         document.getElementById('integration-payments').checked = false;
         document.getElementById('integration-mobile').checked = false;
+        document.getElementById('feature-pwa').checked = false;
         document.getElementById('feature-android').checked = false;
         document.getElementById('feature-ios').checked = false;
         document.getElementById('feature-storesetup').checked = false;
@@ -1570,6 +1587,7 @@
         document.querySelectorAll('.rate-tag-pages').forEach(el => el.textContent = formatCurrency(pageRate));
         document.querySelectorAll('.rate-tag-integrations').forEach(el => el.textContent = formatCurrency(integrationRate));
         document.querySelectorAll('.rate-tag-features').forEach(el => el.textContent = formatCurrency(featureRate));
+        document.querySelectorAll('.rate-tag-tbd').forEach(el => el.textContent = formatCurrency(0));
 
         // Pages (paid only - Home/Contact/T&C/Privacy are fixed, included in base)
         const pageNames = checkedNames(PAGE_IDS);
@@ -1601,7 +1619,7 @@
         const featureNames = checkedNames(FEATURE_IDS);
 
         const featuresCount = featureNames.length;
-        const totalFeaturesCost = featuresCount * featureRate;
+        const totalFeaturesCost = (featuresCount - toDiscussCount()) * featureRate;
 
         document.getElementById('invoice-features-count').textContent = tr('selected_count', { n: featuresCount });
         document.getElementById('invoice-features-total').textContent = formatCurrency(totalFeaturesCost);
@@ -1646,6 +1664,7 @@
           i_pay: document.getElementById('integration-payments').checked,
           i_mo: document.getElementById('integration-mobile').checked,
           f_an: document.getElementById('feature-android').checked,
+          f_pwa: document.getElementById('feature-pwa').checked,
           f_io: document.getElementById('feature-ios').checked,
           f_ss: document.getElementById('feature-storesetup').checked,
           f_s: document.getElementById('feature-seo').checked,
@@ -1696,6 +1715,7 @@
           if (state.i_pay !== undefined) document.getElementById('integration-payments').checked = state.i_pay;
           if (state.i_mo !== undefined) document.getElementById('integration-mobile').checked = state.i_mo;
           if (state.f_an !== undefined) document.getElementById('feature-android').checked = state.f_an;
+          if (state.f_pwa !== undefined) document.getElementById('feature-pwa').checked = state.f_pwa;
           if (state.f_io !== undefined) document.getElementById('feature-ios').checked = state.f_io;
           if (state.f_ss !== undefined) document.getElementById('feature-storesetup').checked = state.f_ss;
 
@@ -1744,6 +1764,7 @@
           i_pay: document.getElementById('integration-payments').checked,
           i_mo: document.getElementById('integration-mobile').checked,
           f_an: document.getElementById('feature-android').checked,
+          f_pwa: document.getElementById('feature-pwa').checked,
           f_io: document.getElementById('feature-ios').checked,
           f_ss: document.getElementById('feature-storesetup').checked,
           f_s: document.getElementById('feature-seo').checked,
@@ -1801,6 +1822,7 @@
           if (state.i_pay !== undefined) document.getElementById('integration-payments').checked = state.i_pay;
           if (state.i_mo !== undefined) document.getElementById('integration-mobile').checked = state.i_mo;
           if (state.f_an !== undefined) document.getElementById('feature-android').checked = state.f_an;
+          if (state.f_pwa !== undefined) document.getElementById('feature-pwa').checked = state.f_pwa;
           if (state.f_io !== undefined) document.getElementById('feature-ios').checked = state.f_io;
           if (state.f_ss !== undefined) document.getElementById('feature-storesetup').checked = state.f_ss;
 
@@ -1959,7 +1981,7 @@
         const freePages = freePagesFor(allPages.length);
         const pagesDiscount = freePages * pageRate;
         const integrationsCost = allIntegrations.length * integrationRate;
-        const featuresCost = featureNames.length * featureRate;
+        const featuresCost = (featureNames.length - toDiscussCount()) * featureRate;
         const total = calculatedBase + pagesCost - pagesDiscount + integrationsCost + featuresCost;
 
         return {
@@ -2143,6 +2165,7 @@
           if (data.hasIos) stores.push(tr('pdf.terms.store_apple'));
           terms += ' ' + tr('pdf.terms.store_approval', { stores: stores.join(tr('pdf.terms.store_and')) });
           if (!data.hasStoreSetup) terms += ' ' + tr('pdf.terms.store_fees_absorbed');
+          if (data.hasIos) terms += ' ' + tr('pdf.terms.ios_pending');
         }
         if (data.hasStoreSetup) {
           // Not absorbed: the client's own accounts, so the client pays the developer fees.

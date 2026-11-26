@@ -9,7 +9,7 @@ Follow this workflow exactly — it's the same sequence documented in `../../CLA
 
 ## 1. Gather/confirm the brief
 
-If `landing-pages/<slug>/BRIEF.md` doesn't exist yet, ask the user through `_template/BRIEF.md`'s fields: business name, one-liner, target audience, must-have sections, style/mood keywords, contact channels, domain plans. Don't proceed to scaffolding until you have at least the business name, contact channel, and a rough sense of the sections wanted.
+If `landing-pages/<slug>/BRIEF.md` doesn't exist yet, ask the user through `_template/BRIEF.md`'s fields: business name, one-liner, target audience, must-have sections, style/mood keywords, contact channels, installable web app (yes if the quote includes Installable Web App (PWA) or the client asks, otherwise no), domain plans. Don't proceed to scaffolding until you have at least the business name, contact channel, and a rough sense of the sections wanted.
 
 ## 2. Pick a client slug
 
@@ -43,6 +43,8 @@ Edit `contact.config.js` from the brief's contact channels. Read the file's own 
 ## 6. Generate the actual design
 
 This is the point where you design freely. The template's HTML/CSS is a **structural skeleton only** — nothing about its current copy, layout, or (lack of) color scheme is meant to ship. Build the real page per the brief's style/mood keywords and must-have sections: rewrite every `<!-- CUSTOMIZE: ... -->` block, add/remove sections as needed, choose real fonts and a real palette in `tailwind.config.js` and the markup's classes. Keep the semantic structure (header/nav/main/footer), the `mobile-menu-btn`/`mobile-menu` toggle wiring, and the `contact.config.js` wiring intact — don't reinvent those parts.
+
+**Installable web app (only if the quote includes Installable Web App (PWA), or the brief asks for it):** follow `../../INSTALLABLE-APP.md`. If it doesn't, add none of those files.
 
 ## 7. Build and verify
 
@@ -87,4 +89,5 @@ Give the user this checklist rather than a full step-by-step transcript:
 - [ ] GitHub Pages: Settings → Pages → Deploy from branch `main` / `(root)`.
 - [ ] Domain ready now: `CNAME` renamed and DNS pointed; enable "Enforce HTTPS" once it propagates. Not ready: site is reachable at `https://grasshopper-it-solutions.github.io/<slug>/` meanwhile.
 - [ ] `contact.config.js`'s WhatsApp number is confirmed to be the client's own, not `33767834576` (Grasshopper's own — see `../../CLAUDE.md`).
+- [ ] If installable: final domain live, then the checks in `../../INSTALLABLE-APP.md` done on a real Android phone.
 - [ ] **Manual, not done by this skill:** add a reference card/link to `pages/projects.html` on the main site if this project should be showcased there. This skill does not edit that file automatically.

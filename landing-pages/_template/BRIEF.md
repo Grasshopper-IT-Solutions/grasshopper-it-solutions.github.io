@@ -35,6 +35,14 @@
 - Email:
 - Instagram / Facebook / other socials:
 
+## Installable web app
+
+<!-- Should visitors be able to install the page from the browser? Yes if the quote
+     includes Installable Web App (PWA) or the client asks; otherwise No.
+     Not a Play Store or iOS app. See ../INSTALLABLE-APP.md. -->
+
+No
+
 ## Domain plans
 
 <!-- Already owns a domain? Which registrar? Or needs one / not yet decided? -->
